@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "TruthCYR-r";
+  src: url("../fonts/TruthCYR-Regular.woff");
+}
+@font-face {
+  font-family: "TruthCYR";
+  src: url("../fonts/TruthCYR-Light.woff");
+}
+.new-popup-registration {
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 610px;
+  margin-left: -305px;
+  padding: 15px 20px;
+  font-family: TruthCYR-r;
+  font-size: 14px;
+}
+
+.new-popup-registration__step-title {
+  color: #a9a9a9;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.new-popup-registration__title {
+  font-size: 20px;
+  color: #000;
+  line-height: 1.55;
+  margin-bottom: 5px;
+}
+
+.new-popup-registration__sub-title {
+  margin-bottom: 15px;
+  line-height: 1.36;
+}
+
+.new-popup-registration__photo-requirements-title {
+  color: #b978bf;
+  cursor: pointer;
+}
+
+.icon-purple-arrow-down {
+  display: inline-block;
+  vertical-align: middle;
+  border: 4px solid transparent;
+  border-top: 6px solid #b978bf;
+  position: relative;
+  top: 1px;
+}
+
+.ff-bold {
+  font-weight: bold;
+}
+
+.fz12 {
+  font-size: 12px;
+}
+
+.new-popup-registration__photo-requirements-content-title {
+  margin-bottom: 10px;
+  color: #3a3a3a;
+}
+
+.new-popup-registration__photo-requirements-content {
+  color: #666;
+  padding-top: 15px;
+  line-height: 1.58;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.new-popup-registration__dotted-listing {
+  padding-left: 25px;
+}

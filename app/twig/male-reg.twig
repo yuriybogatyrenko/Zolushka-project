@@ -1,0 +1,96 @@
+{% extends "layouts/app.twig" %}
+
+{% block pageTitle %}Регистрация мужчин{% endblock %}
+
+{% block content %}
+	<div class="new-popup-registration tac">
+		<div class="new-popup-registration__step1 in_bl tal">
+			<p class="new-popup-registration__step-title tac">Шаг 1 из 3. Добавление фото.</p>
+			<p class="new-popup-registration__title tac">Создайте Вашу конфиденциальную фотографию</p>
+			<p class="new-popup-registration__sub-title tac">Что бы сохранить Вашу анонимность, Вы можете <br>применить один из
+				фильтров.</p>
+			<div class="new-popup-registration__photo-requirements-wrapper mb20">
+				<div class="new-popup-registration__photo-requirements-title tac">
+					Требования к фото <i class="icon-purple-arrow-down"></i>
+				</div>
+				<div class="new-popup-registration__photo-requirements-content fz12">
+					<p class="new-popup-registration__photo-requirements-content-title ff-bold tac mb10 fz12">Допускаются фотографии:</p>
+					<ul class="new-popup-registration__dotted-listing mb10">
+						<li class="new-popup-registration__dotted-item">
+							На которых изображен реальный владелец анкеты
+						</li>
+						<li class="new-popup-registration__dotted-item">
+							Четко и полностью видно лицо
+						</li>
+						<li class="new-popup-registration__dotted-item">
+							Фотографии хорошего качества, без размытий, шумов, засветов, <br>сделанные в дневное время суток
+						</li>
+					</ul>
+					<p class="new-popup-registration__photo-requirements-content-title ff-bold tac mb10 fz12">Допускаются фотографии:</p>
+					<ul class="new-popup-registration__dotted-listing mb10">
+						<li class="new-popup-registration__ditted-item">Эротического, политического, религиозного характера</li>
+						<li class="new-popup-registration__ditted-item">С третьими лицами (групповые фото), в том числе с детьми
+						</li>
+						<li class="new-popup-registration__ditted-item">Обрезанные фото (например, только части тела)</li>
+						<li class="new-popup-registration__ditted-item">Содержащие сцены насилия, оружия и правонарушения</li>
+						<li class="new-popup-registration__ditted-item">Нарушающие авторское право владельца</li>
+						<li class="new-popup-registration__ditted-item">Несущие оскорбительный характер</li>
+						<li class="new-popup-registration__ditted-item">Пропагандирующие употребление наркотиков, спиртных напитков
+							<br>и табакокурение
+						</li>
+						<li class="new-popup-registration__ditted-item">Несущие рекламу</li>
+						<li class="new-popup-registration__ditted-item">Нарушающие законодательство РФ</li>
+					</ul>
+					<p>Администрация в праве отказать в публикации фотографий без объяснения причин</p>
+				</div>
+				<div class="new-popup-registration__mask">
+					<div class="new-popup-registration__mask-header">
+						<div class="in_bl new-popup-registration__mask-item">
+							<i class="icon-photo-mask1"></i>
+						</div>
+						<div class="in_bl new-popup-registration__mask-item">
+							<i class="icon-photo-mask2"></i>
+						</div>
+						<div class="in_bl new-popup-registration__mask-item">
+							<i class="icon-photo-mask3"></i>
+						</div>
+						<div class="in_bl new-popup-registration__mask-item">
+							<i class="icon-photo-mask4"></i>
+						</div>
+						<div class="in_bl new-popup-registration__mask-item">
+							<i class="icon-photo-mask5"></i>
+						</div>
+					</div>
+					<div class="new-popup-registration__mask-container">
+						<input type="file" class="news-popup-registration__mask-input">
+
+						<div class="new-popup-registration__mask-item__add-photo">
+							<p><i class="icon-mask-photo"></i></p>
+							<p>Добавить фото</p>
+						</div>
+						<div class="new-popup-registration__mask-item">
+							<img alt="" src="http://placehold.it/106x106"/>
+							<i class="icon-mask-delete"></i>
+							<i class="icon-mask-crop"></i>
+						</div>
+						<div class="new-popup-registration__mask-item">
+							<img alt="" src="http://placehold.it/106x106"/>
+							<i class="icon-mask-delete"></i>
+							<i class="icon-mask-crop"></i>
+						</div>
+						<div class="new-popup-registration__mask-item">
+							<img alt="" src="http://placehold.it/106x106"/>
+							<i class="icon-mask-delete"></i>
+							<i class="icon-mask-crop"></i>
+						</div>
+					</div>
+					<div class="new-popup-registration__buttons">
+						<p><button class="viol_btn" disabled>Продолжить</button></p>
+						<p><a href="#" class="new-popup-registration__back-link">Назад</a></p>
+					</div>
+					<div class="new-popup-registration__skip-link">Пропустить</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
