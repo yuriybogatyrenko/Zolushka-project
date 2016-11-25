@@ -4,6 +4,6 @@
   "description": "Gulp first application",
   "author": "Yuriy Bogatyrenko",
   "dependencies": {
-
+    "jquery": "^3.1.1"
   }
 }

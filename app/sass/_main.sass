@@ -2,12 +2,13 @@
     border-radius: 10px
     background-color: #ffffff
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5)
-    position: absolute
+    position: static
     top: 50%
     left: 50%
-    +transform(translateY(-50%))
+    //+transform(translateY(-50%))
     width: 610px
-    margin-left: -305px
+    margin: 20px auto
+    //margin-left: -305px
     padding: 15px 20px
     font-family: TruthCYR-r
     font-size: 14px
@@ -59,3 +60,87 @@
 
 .new-popup-registration__dotted-listing
     padding-left: 25px
+
+.new-popup-registration__mask-container
+    margin-left: -20px
+    margin-right: -20px
+    border-top: 2px dashed #8890bd
+    border-bottom: 2px dashed #8890bd
+    background: #f8f8f8
+    padding: 20px
+    position: relative
+    font-size: 0
+    line-height: 0
+    min-height: 270px
+
+.news-popup-registration__mask-input
+    position: absolute
+    top: 0
+    width: 100%
+    height: 100%
+    left: 0
+    opacity: 0
+    z-index: 10
+    display: block
+
+.new-popup-registration__mask-container-units
+    margin-bottom: -20px
+
+.new-popup-registration__mask-item__added-photo
+    width: 18%
+    display: inline-block
+    overflow: hidden
+    position: relative
+    border-radius: 8px
+    margin-bottom: 20px
+
+    &:after
+        display: block
+        content: ''
+        margin-top: 100%
+
+    &:not(:nth-child(5n))
+        margin-right: 2.5%
+        
+    img
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        object-fit: cover
+        border-radius: 8px
+
+    &.add-button
+        background: #fff
+        color: #6d83ec
+        font-size: 12px
+        line-height: normal
+
+        .new-popup-registration__mask-item__added-photo--top-icon,
+        .new-popup-registration__mask-item__added-photo--bottom-text-icon
+            position: absolute
+            top: 20px
+            left: 0
+            text-align: center
+            width: 100%
+
+        .new-popup-registration__mask-item__added-photo--bottom-text-icon
+            top: auto
+            bottom: 10px
+            
+.new-popup-registration__back-link
+    color: #8e94be
+    display: inline-block
+    margin-bottom: 50px
+
+    &:hover
+        text-decoration: underline
+        
+.new-popup-registration__skip-link
+    color: #dedede
+    +transition()
+    cursor: pointer
+    
+    &:hover
+        color: #666
