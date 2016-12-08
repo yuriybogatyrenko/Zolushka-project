@@ -1,1 +1,104 @@
 {% extends 'layouts/app.twig' %}
+
+{% set page = 'true' %}
+
+{% block content %}
+<!-- START popup registration -->
+<div class="new-popup-registration__wrapper is-reg-page lhn new-popup-registration__styles has-skip-link pos_r">
+    <div class="display-flex space-between mb30">
+        <div class="new-popup-reg__left">
+            <div class="new-popup-reg__left-text text-light">
+                <p class="mb30">Регистрация на портале – это быстрый способ найти партнера
+                    для серьезных или мимолетных увлечений. </p>
+                <p>Зарегистрировавшись, Вы получаете доступ к анкетам лучших Золушек рунета с проверенными фото, а
+                    так же возможность следить за активностью других посетителей, отправлять сообщения, совершать
+                    анонимные звонки и делать рассылки.</p>
+            </div>
+
+            <div class="new-popup-reg__present display-flex flex-middle">
+                <i class="icon-new-reg-present mr10"></i>
+                <div class="ff-bold">
+                    Дарим премиум-доступ на 12 часов <br>Всем мужчинам, прошедшим регистрацию
+                </div>
+            </div>
+        </div>
+        <div class="new-popup-reg__right get_in_top">
+            <div class="form-line">
+                <input type="text" placeholder="Ваше имя">
+            </div>
+            <div class="form-line">
+                <input type="text" placeholder="Электронная почта (e-mail)">
+            </div>
+            <div class="form-line">
+                <input type="text" placeholder="Москва">
+            </div>
+            <div class="form-line new-reg__gender-wrapper display-flex tac">
+                <div class="w50 pos_r">
+                    <input type="radio" name="1" class="no-style">
+                    <div class="new-reg__radio-detector">М</div>
+                </div>
+                <div class="w50 pos_r">
+                    <input type="radio" name="1" class="no-style">
+                    <div class="new-reg__radio-detector">Ж</div>
+                </div>
+            </div>
+            <div class="form-line pos_r tal new-popup-reg__main-block display-flex space-between flex-middle">
+                <div class="w30 pos_r">
+                    <div class="select_wrap vam tal text-light">
+                        <select class="selectbox">
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                        </select>
+                    </div>
+                    <span class="form--error-notification hidden">Неверный код</span>
+                </div>
+                <div class="w30 pos_r">
+                    <div class="select_wrap vam tal text-light">
+                        <select class="selectbox">
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                        </select>
+                    </div>
+                    <span class="form--error-notification hidden">Неверный код</span>
+                </div>
+                <div class="w30 pos_r">
+                    <div class="select_wrap vam tal text-light">
+                        <select class="selectbox">
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                            <option value="">asdasd</option>
+                        </select>
+                    </div>
+                    <span class="form--error-notification hidden">Неверный код</span>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="violet_btn db">Продолжить</button>
+            </div>
+        </div>
+    </div>
+    <div class="new-popup-registration__bottom tac">
+        <div class="mb20">
+            <a href="#" class="new-purple-link mr10 dib">Войти</a>
+            <a href="#" class="new-purple-link dib">Забыли пароль?</a>
+        </div>
+        <p class="fz12">
+            Продолжая, Вы принимаете условия
+            <a href="#" class="new-purple-link">пользовательского соглашения</a>
+        </p>
+    </div>
+</div>
+<!-- // END popup registration -->
+
+{% endblock %}

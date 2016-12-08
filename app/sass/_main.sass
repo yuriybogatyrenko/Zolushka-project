@@ -1,331 +1,499 @@
-.new-popup-registration
+.new-popup-registration, .new-popup-registration__wrapper
+  //position: static
+  //top: 50%
+  //left: 50%
+  //+transform(translateY(-50%))
+  width: 610px
+  margin: 20px auto
+  //margin-left: -305px
+  font-family: TruthCYR-r
+  font-size: 14px
+  padding: 0 15px
+  box-sizing: content-box
+
+  &:not(.is-reg-page)
     border-radius: 10px
     background-color: #ffffff
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5)
-    position: static
-    top: 50%
-    left: 50%
-    //+transform(translateY(-50%))
-    width: 610px
-    margin: 20px auto
-    //margin-left: -305px
     padding: 15px 20px
-    font-family: TruthCYR-r
-    font-size: 14px
+
+.new-popup-registration__wrapper
+  width: 950px
+
+  &.has-skip-link
+    padding-bottom: 50px
 
 .new-popup-registration__step-title
-    color: #a9a9a9
-    font-size: 14px
-    margin-bottom: 10px
+  color: #a9a9a9
+  font-size: 14px
+  margin-bottom: 10px
 
 .new-popup-registration__title
-    font-size: 20px
-    color: #000
-    line-height: 1.55
-    margin-bottom: 5px
+  font-size: 20px
+  color: #000
+  line-height: 1.55
+  margin-bottom: 5px
+
+  &.lhn
+    line-height: normal
+
+  &.mb20
+    margin-bottom: 20px
 
 .new-popup-registration__sub-title
-    margin-bottom: 15px
-    line-height: 1.36
+  margin-bottom: 15px
+  line-height: 1.36
 
 .new-popup-registration__photo-requirements-title
-    color: #b978bf
-    cursor: pointer
+  color: #b978bf
+  cursor: pointer
 
 .ff-bold
-    font-family: TruthCYR-M
+  font-family: TruthCYR-M
 
 .fz12
-    font-size: 12px
+  font-size: 12px
 
 .new-popup-registration__photo-requirements-content-title
-    margin-bottom: 10px
-    color: #3a3a3a
-    
+  margin-bottom: 10px
+  color: #3a3a3a
+
 .new-popup-registration__photo-requirements-content
-    color: #666
-    padding-top: 15px
-    line-height: 1.58
+  color: #666
+  padding-top: 15px
+  line-height: 1.58
 
 .mr5
-    margin-right: 5px
+  margin-right: 5px
+
+.mr10
+  margin-right: 10px
 
 .mb5
-    margin-bottom: 5px
+  margin-bottom: 5px
 
 .mb10
-    margin-bottom: 10px
+  margin-bottom: 10px
+
+.mb30
+  margin-bottom: 30px
 
 .new-popup-registration__dotted-listing
-    padding-left: 25px
+  padding-left: 25px
 
 .new-popup-registration__mask-container
-    margin-left: -20px
-    margin-right: -20px
-    border-top: 2px dashed #8890bd
-    border-bottom: 2px dashed #8890bd
-    background: #f8f8f8
-    padding: 20px
-    position: relative
-    font-size: 0
-    line-height: 0
-    min-height: 270px
+  margin-left: -20px
+  margin-right: -20px
+  border-top: 2px dashed #8890bd
+  border-bottom: 2px dashed #8890bd
+  background: #f8f8f8
+  padding: 20px
+  position: relative
+  font-size: 0
+  line-height: 0
+  min-height: 270px
 
-    .icon-mask-crop, .icon-mask-delete
-        position: absolute
-        top: -10px
-        left: -10px
-        opacity: 0
-        cursor: pointer
-        +transition
-
-    .icon-mask-delete
-        left: auto
-        right: -10px
-
-.news-popup-registration__mask-input
+  .icon-mask-crop, .icon-mask-delete
     position: absolute
-    top: 0
-    width: 100%
-    height: 100%
-    left: 0
+    top: -10px
+    left: -10px
     opacity: 0
-    z-index: 10
-    display: block
-
-.new-popup-registration__mask-container-units
-    margin-bottom: -20px
-
-.new-popup-registration__mask-container
-    &.dragfile-drag
-        .new-popup-registration__mask-item__added-photo
-            z-index: 1
-
-.new-popup-registration__mask-item__added-photo
-    width: 18%
-    display: inline-block
-    position: relative
-    border-radius: 8px
-    margin-bottom: 20px
-    vertical-align: top
+    cursor: pointer
     +transition
 
-    &:not(.add-button)
-        z-index: 11
+  .icon-mask-delete
+    left: auto
+    right: -10px
 
-    &:hover
-        .icon-mask-crop, .icon-mask-delete
-            opacity: 1
+.news-popup-registration__mask-input
+  position: absolute
+  top: 0
+  width: 100%
+  height: 100%
+  left: 0
+  opacity: 0
+  z-index: 10
+  display: block
 
-    &:after
-        display: block
-        content: ''
-        margin-top: 106px
+.new-popup-registration__mask-container-units
+  margin-bottom: -20px
 
-    &:not(:nth-child(5n))
-        margin-right: 2.5%
-        
-    img
-        position: absolute
-        top: 0
-        left: 0
-        height: 100%
-        width: 100%
-        object-fit: cover
-        border-radius: 8px
+.new-popup-registration__mask-container
+  &.dragfile-drag
+    .new-popup-registration__mask-item__added-photo
+      z-index: 1
 
-    &.add-button
-        background: #fff
-        color: #6d83ec
-        font-size: 12px
-        line-height: normal
+.new-popup-registration__mask-item__added-photo
+  width: 18%
+  display: inline-block
+  position: relative
+  border-radius: 8px
+  margin-bottom: 20px
+  vertical-align: top
+  +transition
 
-        .new-popup-registration__mask-item__added-photo--top-icon,
-        .new-popup-registration__mask-item__added-photo--bottom-text-icon
-            position: absolute
-            top: 20px
-            left: 0
-            text-align: center
-            width: 100%
+  &:not(.add-button)
+    z-index: 11
 
-        .new-popup-registration__mask-item__added-photo--bottom-text-icon
-            top: auto
-            bottom: 10px
-            
-.new-popup-registration__back-link--style
-    color: #8e94be
-    display: inline-block
+  &:hover
+    .icon-mask-crop, .icon-mask-delete
+      opacity: 1
 
-    &:hover
-        text-decoration: underline
-        
-.new-popup-registration__skip-link
-    color: #dedede
-    +transition()
-    cursor: pointer
-    
-    &:hover
-        color: #666
+  &:after
+    display: block
+    content: ''
+    margin-top: 106px
 
-.new-popup-registration
-    line-height: 1.36
-    .display-flex
-        display: flex
+  &:not(:nth-child(5n))
+    margin-right: 2.5%
 
-    .selectbox
-        .select
-            border-radius: 3px
-            background-color: #f4f4f4
-
-    .select_wrap
-        font-size: 0
-
-    .form-line
-        margin-bottom: 15px
-        
-    .grey-color
-        color: #666666
-    input[type="text"], input[type="number"], input[type="email"], textarea
-        border: 1px solid #9e9e9e
-        background: #f4f4f4
-        display: block
-        width: 100%
-        box-sizing: border-box
-        height: 40px
-        border-radius: 3px
-        color: #808080
-        text-align: left
-        padding: 0 10px
-        box-shadow: none
-        font-family: TruthCYR
-        font-size: 14px
-
-        &.error-input
-            border-color: #ff0000
-
-        &:focus
-            border-color: #b263b8
-            box-shadow: 0 0 0 1px #b263b8
-
-        &.small-input
-            width: 130px
-
-    textarea
-        padding: 10px
-        height: 120px
-
-    .violet_btn
-        &.db
-            display: block
-            width: 100%
-
-    .light-text
-        font-family: TruthCYR
-
-    .bottom-skip-button
-        position: absolute
-        bottom: 20px
-        left: 0
-        right: 0
-        text-align: center
-
-.violet_btn
-    &:disabled
-        background: linear-gradient(to bottom, #c1c1c1, #a2a2a2)
-    
-.new-popup-registration__step2__form-overlay
+  img
     position: absolute
     top: 0
-    bottom: 0
-    right: 0
     left: 0
+    height: 100%
+    width: 100%
+    object-fit: cover
+    border-radius: 8px
+
+  &.add-button
     background: #fff
-    opacity: 0.8
-    z-index: 500
+    color: #6d83ec
+    font-size: 12px
+    line-height: normal
 
-.new-popup-registration__step-container
-    position: relative
-    padding-bottom: 50px
-    min-height: 730px
+    .new-popup-registration__mask-item__added-photo--top-icon,
+    .new-popup-registration__mask-item__added-photo--bottom-text-icon
+      position: absolute
+      top: 20px
+      left: 0
+      text-align: center
+      width: 100%
 
+    .new-popup-registration__mask-item__added-photo--bottom-text-icon
+      top: auto
+      bottom: 10px
 
-@keyframes spin
-    0%, 100%
-        +transform(rotate(0deg))
+.new-popup-registration__back-link--style
+  color: #8e94be
+  display: inline-block
 
-    50%
-        +transform(rotate(180deg))
+  &:hover
+    text-decoration: underline
 
-    100%
-        +transform(rotate(360deg))
-        
-.new-popup-registration__step2__form--send
+.new-popup-registration__skip-link
+  color: #dedede
+  +transition()
+  cursor: pointer
+
+  &:hover
     color: #666
 
+.new-popup-registration, .new-popup-registration__styles
+  line-height: 1.36
+
+  .selectbox
+    .select
+      border-radius: 3px
+      //background-color: #f4f4f4
+      font-size: 14px
+      line-height: 38px
+
+  .get_in_top .selectbox .trigger
+    border: 4px solid transparent
+    border-top: 6px solid #a7a7a7
+
+  .select_wrap
+    font-size: 0
+
+  .form-line
+    margin-bottom: 15px
+
+  .grey-color
+    color: #666666
+  input[type="text"], input[type="number"], input[type="email"], textarea
+    border: 1px solid #9e9e9e
+    background: #f4f4f4
+    display: block
+    width: 100%
+    box-sizing: border-box
+    height: 40px
+    border-radius: 3px
+    color: #808080
+    text-align: left
+    padding: 0 10px
+    box-shadow: none
+    font-family: TruthCYR
+    font-size: 14px
+
+    &.error-input
+      border-color: #ff0000
+
+    &:focus
+      border-color: #b263b8
+      box-shadow: 0 0 0 1px #b263b8
+
+    &.small-input
+      width: 130px
+
+  textarea
+    padding: 10px
+    height: 120px
+
+  .violet_btn
+    &.db
+      display: block
+      width: 100%
+
+  .light-text
+    font-family: TruthCYR
+
+  .bottom-skip-button
+    position: absolute
+    bottom: 20px
+    left: 0
+    right: 0
+    text-align: center
+
+.violet_btn
+  &:disabled
+    background: linear-gradient(to bottom, #c1c1c1, #a2a2a2)
+
+.new-popup-registration__step2__form-overlay
+  position: absolute
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+  background: #fff
+  opacity: 0.8
+  z-index: 500
+
+.new-popup-registration__step-container
+  position: relative
+  font-family: TruthCYR-R
+  &:not(.no-pb)
+    padding-bottom: 50px
+  &:not(.no-min-height)
+    min-height: 730px
+
+.new-popup-registration__thx
+  padding: 35px 0
+
+@keyframes spin
+  0%, 100%
+    +transform(rotate(0deg))
+
+  50%
+    +transform(rotate(180deg))
+
+  100%
+    +transform(rotate(360deg))
+
+.new-popup-registration__step2__form--send
+  color: #666
+
 .curp
-    cursor: pointer
+  cursor: pointer
 
 .form--error-notification
+  position: absolute
+  top: 50%
+  line-height: 40px
+  padding: 0 15px
+  font-size: 12px
+  color: #ff0000
+  border: 1px solid #ff0000
+  background: #fff
+  margin-top: -21px
+  border-radius: 3px
+  left: 0
+  +transform(translateX(-100%))
+  margin-left: -10px
+
+  &:after, &:before
     position: absolute
+    display: block
+    left: 100%
     top: 50%
-    line-height: 40px
-    padding: 0 15px
-    font-size: 12px
-    color: #ff0000
-    border: 1px solid #ff0000
-    background: #fff
-    margin-top: -21px
-    border-radius: 3px
-    left: 0
-    +transform(translateX(-100%))
-    margin-left: -10px
+    content: ''
+    border: 6px solid transparent
+    border-left: 6px solid #ff0000
+    margin-top: -6px
 
-    &:after, &:before
-        position: absolute
-        display: block
-        left: 100%
-        top: 50%
-        content: ''
-        border: 6px solid transparent
-        border-left: 6px solid #ff0000
-        margin-top: -6px
-
-    &:after
-        border-left: 6px solid #fff
-        margin-left: -1px
+  &:after
+    border-left: 6px solid #fff
+    margin-left: -1px
 
 .new-popup-registration__step3-field-container
-    width: 70%
+  width: 70%
 
-    &.checkboxes-cotnainer
-        margin-bottom: -8px
+  &.checkboxes-cotnainer
+    margin-bottom: -8px
 
 .new-popup-registration__step3-field-name
-    width: 30%
-    padding-right: 20px
-    padding-top: 10px
-    box-sizing: border-box
-    text-align: left
-    font-family: TruthCYR-M
+  width: 30%
+  padding-right: 20px
+  padding-top: 10px
+  box-sizing: border-box
+  text-align: left
+  font-family: TruthCYR-M
 
 .new-popup-registration__step3-separator
-    border-bottom: 1px solid #dadada
+  border-bottom: 1px solid #dadada
 
 .text-light
-    font-family: TruthCYR
-    
+  font-family: TruthCYR
+
 .new-popup-reg__radio-detect
-    line-height: 38px
-    background: #a7a7a7
-    border-radius: 5px
-    display: inline-block
-    color: #fff
-    padding: 0 15px
-    margin-bottom: 8px
-    
+  line-height: 38px
+  background: #a7a7a7
+  border-radius: 5px
+  display: inline-block
+  color: #fff
+  padding: 0 15px
+  margin-bottom: 8px
+
 input:checked
-    & + .new-popup-reg__radio-detect
-        background: #000
-        background: linear-gradient(to bottom, #cb83d2, #8b5a8f)
+  & + .new-popup-reg__radio-detect
+    background: #000
+    background: linear-gradient(to bottom, #cb83d2, #8b5a8f)
 
+.display-flex
+  display: flex
 
+.flex-middle
+  align-items: center
+
+.space-between
+  justify-content: space-between
+
+.new-popup-reg__left, .new-popup-reg__right
+  width: 48%
+
+.new-popup-reg__left-text
+  line-height: 1.7
+
+.new-popup-reg__left
+  padding-bottom: 70px
+  position: relative
+
+  .new-popup-reg__present
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+
+.new-popup-reg__present
+  color: #747aa8
+  line-height: 1.36
+  background: #f9faff
+  border-radius: 5px
+  border: 1px solid #bec2e8
+  padding: 12px
+
+.new-reg__gender-wrapper
+  border-radius: 3px
+  border: 1px solid #9e9e9e
+
+  .new-reg__radio-detector
+    line-height: 38px
+    color: #4d4d4d
+
+  & 
+    > *
+      box-sizing: border-box
+      &:not(:last-child)
+        border-right: 1px solid #9e9e9e
+  input
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    opacity: 0
+    z-index: 1
+    cursor: pointer
+
+    &:checked
+      & + .new-reg__radio-detector
+        background: #8b5a8f
+        color: #fff
+        
+.new-purple-link
+  color: #a168a6
+  font-family: TruthCYR-R
+  text-decoration: none
+
+  &:hover
+    text-decoration: underline
+
+.multi-select-emitation__text
+  line-height: 38px
+  border: 1px solid #9e9e9e
+  background: #fff
+  padding: 0 35px 0 35px
+  border-radius: 3px
+  position: relative
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+  cursor: pointer
+
+  &.not-empty
+    &:before
+      display: block
+      content: ''
+      position: absolute
+      left: 10px
+      top: 50%
+      margin-top: -6px
+      height: 8px
+      width: 12px
+      border-left: 3px solid #9e4fa6
+      border-bottom: 3px solid #9e4fa6
+      +transform(rotate(-45deg))
+
+  &:after
+    border: 4px solid transparent
+    border-top: 6px solid #a7a7a7
+    content: ''
+    display: block
+    position: absolute
+    right: 15px
+    top: 50%
+    margin-top: -3px
+
+.multi-select-emitation__dropdown
+  position: absolute
+  top: 100%
+  left: 0
+  min-width: 100%
+  z-index: 5
+  background: #fff
+  border: 1px solid #a7a7a7
+  margin-top: -1px
+  padding: 3px 0
+
+.multi-select-emitation__item
+  display: block
+
+  > label
+    display: block
+    padding: 3px 15px 3px 35px
+    position: relative
+
+  .multi-select-emitation__icon-detection
+    position: absolute
+    top: 50%
+    height: 0
+    width: 0
+    left: 10px
+    line-height: 20px
+    margin-top: -10px
+    display: none
+
+  input:checked
+    & + .multi-select-emitation__detection
+      .multi-select-emitation__icon-detection
+        display: block

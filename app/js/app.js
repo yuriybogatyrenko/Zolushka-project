@@ -21,7 +21,7 @@ $(function () {
 
     var mask_container = document.getElementsByClassName('new-popup-registration__mask-container')[0];
     // console.log(mask_container)
-    if(mask_container) {
+    if (mask_container) {
         mask_container.ondragover = function (e) {
             var container = document.getElementsByClassName('new-popup-registration__mask-container')[0];
             container.classList.add('dragfile-drag');
@@ -37,20 +37,20 @@ $(function () {
     }
 
     $doc.on('change', '#news-popup-registration__mask-input', function () {
-        if(mask_container)
+        if (mask_container)
             mask_container.classList.remove('dragfile-drag');
 
         if (this.files && this.files[0] && window.FileReader) {
             console.log(this.files);
             _this = this;
             var the_files = this.files;
-            Object.keys(the_files).map(function(objectKey, index) {
+            Object.keys(the_files).map(function (objectKey, index) {
                 var value = the_files[objectKey];
                 var input = _this;
                 var reader = new FileReader();
                 var template = function (ev) {
                     return '' +
-                        '<div data-key="'+objectKey+'" class="new-popup-registration__mask-item__added-photo" style="width: 0;">' +
+                        '<div data-key="' + objectKey + '" class="new-popup-registration__mask-item__added-photo" style="width: 0;">' +
                         '<div class="new-popup-registration__mask-item__added-photo__wrapper">' +
                         '<img alt="" src="' + ev.target.result + '"/>' +
                         '</div>' +
@@ -70,4 +70,94 @@ $(function () {
             });
         }
     });
+});
+
+var App = {};
+
+App.multiselect = $('.multi-select-emulation');
+
+App.multiselect.each(function (e) {
+    var multiselect = {};
+
+    multiselect.el = $(this);
+
+    multiselect.checkboxes = multiselect.el.find('input:checkbox');
+    multiselect.current = multiselect.el.find('.multi-select-emitation__text');
+    multiselect.dropdown = multiselect.el.find('.multi-select-emitation__dropdown');
+    multiselect.values = [];
+
+    multiselect.init = function () {
+        multiselect.checkboxes.each(function () {
+            var $this = $(this);
+            if ($this.is(":checked")) {
+                multiselect.values.push($this.attr('title'));
+            }
+        });
+        multiselect.update();
+        multiselect.watch();
+    };
+
+    multiselect.watch = function () {
+        var checkboxes = multiselect.checkboxes;
+
+        checkboxes.on('change', function () {
+            var $this = $(this);
+            var title = $this.attr('title');
+
+            var index = multiselect.values.indexOf(title);
+
+            if (index < 0 && $this.is(":checked")) {
+                multiselect.values.push(title);
+            } else if (index >= 0 && !$this.is(':checked')) {
+                multiselect.values.splice(index, 1);
+            }
+
+            multiselect.update();
+        });
+    };
+
+    multiselect.update = function () {
+        if (multiselect.values.length > 0) {
+            multiselect.current.text(multiselect.values.join(', '));
+            multiselect.current.addClass('not-empty');
+        } else {
+            multiselect.current.removeClass('not-empty');
+            multiselect.current.html('&nbsp;');
+        }
+    };
+
+
+    multiselect.current.bind('click', function (e) {
+        multiselect.toggle();
+    });
+
+    multiselect.toggle = function () {
+        multiselect.dropdown.slideToggle(200);
+    };
+
+    multiselect.close = function () {
+        multiselect.dropdown.slideUp(200);
+    };
+
+    multiselect.open = function () {
+        multiselect.dropdown.slideDown(200);
+    };
+
+    $doc.on('click', function (e) {
+        var el = $(e.target);
+
+        if(
+            !el.hasClass('multi-select-emitation__text')
+            && el.closest('.multi-select-emulation').length == 0
+        ) {
+            multiselect.close();
+            console.log('click2')
+        } else {
+            console.log('click')
+        }
+
+        console.log(el.closest('.multi-select-emitation').length)
+    });
+
+    multiselect.init();
 });
