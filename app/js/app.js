@@ -132,15 +132,15 @@ App.multiselect.each(function (e) {
     });
 
     multiselect.toggle = function () {
-        multiselect.dropdown.slideToggle(200);
+        multiselect.dropdown.toggle();
     };
 
     multiselect.close = function () {
-        multiselect.dropdown.slideUp(200);
+        multiselect.dropdown.hide();
     };
 
     multiselect.open = function () {
-        multiselect.dropdown.slideDown(200);
+        multiselect.dropdown.show();
     };
 
     $doc.on('click', function (e) {
