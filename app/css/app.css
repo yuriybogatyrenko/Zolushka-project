@@ -543,7 +543,7 @@
 }
 .new-popup-registration .bottom-skip-button, .new-popup-registration__styles .bottom-skip-button {
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
   left: 0;
   right: 0;
   text-align: center;

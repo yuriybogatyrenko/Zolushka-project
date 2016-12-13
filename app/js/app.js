@@ -74,90 +74,89 @@ $(function () {
 
 var App = {};
 
-App.multiselect = $('.multi-select-emulation');
+App.multiselect = function (class_name) {
+    $(class_name).each(function () {
+        var multiselect = {};
 
-App.multiselect.each(function (e) {
-    var multiselect = {};
+        multiselect.el = $(this);
 
-    multiselect.el = $(this);
+        multiselect.checkboxes = multiselect.el.find('input:checkbox');
+        multiselect.current = multiselect.el.find('.multi-select-emitation__text');
+        multiselect.dropdown = multiselect.el.find('.multi-select-emitation__dropdown');
+        multiselect.values = [];
 
-    multiselect.checkboxes = multiselect.el.find('input:checkbox');
-    multiselect.current = multiselect.el.find('.multi-select-emitation__text');
-    multiselect.dropdown = multiselect.el.find('.multi-select-emitation__dropdown');
-    multiselect.values = [];
-
-    multiselect.init = function () {
-        multiselect.checkboxes.each(function () {
-            var $this = $(this);
-            if ($this.is(":checked")) {
-                multiselect.values.push($this.attr('title'));
-            }
-        });
-        multiselect.update();
-        multiselect.watch();
-    };
-
-    multiselect.watch = function () {
-        var checkboxes = multiselect.checkboxes;
-
-        checkboxes.on('change', function () {
-            var $this = $(this);
-            var title = $this.attr('title');
-
-            var index = multiselect.values.indexOf(title);
-
-            if (index < 0 && $this.is(":checked")) {
-                multiselect.values.push(title);
-            } else if (index >= 0 && !$this.is(':checked')) {
-                multiselect.values.splice(index, 1);
-            }
-
+        multiselect.init = function () {
+            multiselect.checkboxes.each(function () {
+                var $this = $(this);
+                if ($this.is(":checked")) {
+                    multiselect.values.push($this.attr('title'));
+                }
+            });
             multiselect.update();
+            multiselect.watch();
+        };
+
+        multiselect.watch = function () {
+            var checkboxes = multiselect.checkboxes;
+
+            checkboxes.on('change', function () {
+                var $this = $(this);
+                var title = $this.attr('title');
+
+                var index = multiselect.values.indexOf(title);
+
+                if (index < 0 && $this.is(":checked")) {
+                    multiselect.values.push(title);
+                } else if (index >= 0 && !$this.is(':checked')) {
+                    multiselect.values.splice(index, 1);
+                }
+
+                multiselect.update();
+            });
+        };
+
+        multiselect.update = function () {
+            if (multiselect.values.length > 0) {
+                multiselect.current.text(multiselect.values.join(', '));
+                multiselect.current.addClass('not-empty');
+            } else {
+                multiselect.current.removeClass('not-empty');
+                multiselect.current.html('&nbsp;');
+            }
+        };
+
+
+        multiselect.current.bind('click', function (e) {
+            multiselect.toggle();
         });
-    };
 
-    multiselect.update = function () {
-        if (multiselect.values.length > 0) {
-            multiselect.current.text(multiselect.values.join(', '));
-            multiselect.current.addClass('not-empty');
-        } else {
-            multiselect.current.removeClass('not-empty');
-            multiselect.current.html('&nbsp;');
-        }
-    };
+        multiselect.toggle = function () {
+            multiselect.dropdown.toggle();
+        };
 
+        multiselect.close = function () {
+            multiselect.dropdown.hide();
+        };
 
-    multiselect.current.bind('click', function (e) {
-        multiselect.toggle();
+        multiselect.open = function () {
+            multiselect.dropdown.show();
+        };
+
+        $doc.on('click', function (e) {
+            var el = $(e.target);
+
+            if (
+                !el.hasClass('multi-select-emitation__text')
+                && el.closest(class_name).length == 0
+            ) {
+                multiselect.close();
+            }
+
+            // console.log(el.closest('.multi-select-emitation').length)
+        });
+
+        multiselect.init();
     });
+};
 
-    multiselect.toggle = function () {
-        multiselect.dropdown.toggle();
-    };
-
-    multiselect.close = function () {
-        multiselect.dropdown.hide();
-    };
-
-    multiselect.open = function () {
-        multiselect.dropdown.show();
-    };
-
-    $doc.on('click', function (e) {
-        var el = $(e.target);
-
-        if(
-            !el.hasClass('multi-select-emitation__text')
-            && el.closest('.multi-select-emulation').length == 0
-        ) {
-            multiselect.close();
-            console.log('click2')
-        } else {
-            console.log('click')
-        }
-
-        console.log(el.closest('.multi-select-emitation').length)
-    });
-
-    multiselect.init();
-});
+App.multiselect('.multi-select-emulation');
