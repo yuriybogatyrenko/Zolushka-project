@@ -4,7 +4,7 @@
   //left: 50%
   //+transform(translateY(-50%))
   width: 610px
-  margin: 20px auto
+  margin: 0 auto
   //margin-left: -305px
   font-family: TruthCYR-r
   font-size: 14px
@@ -22,6 +22,10 @@
 
   &.has-skip-link
     padding-bottom: 50px
+
+  &.new-popup-registration__styles
+    .bottom-skip-button
+      bottom: 15px
 
 .new-popup-registration__step-title
   color: #a9a9a9
@@ -275,7 +279,8 @@
   &:not(.no-pb)
     padding-bottom: 50px
   &:not(.no-min-height)
-    min-height: 730px
+    min-height: calc(100vh - 70px)
+    //height: 720px
 
 .new-popup-registration__thx
   padding: 35px 0
@@ -510,3 +515,22 @@ input:checked
     & + .multi-select-emitation__detection
       .multi-select-emitation__icon-detection
         display: block
+
+.overlay
+  &.registration-popups
+    .table_wrap
+      padding: 20px
+
+.new-popup-registration__mask-container__text
+  color: #9b9b9b
+  position: absolute
+  top: 50%
+  +transform(translateY(-50%))
+  left: 0
+  width: 100%
+  text-align: center
+  font-size: 14px
+  line-height: 1.3
+
+.new-popup-reg__three-in-row
+  width: 31.8%

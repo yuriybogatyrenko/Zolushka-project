@@ -271,7 +271,7 @@
 
 .new-popup-registration, .new-popup-registration__wrapper {
   width: 610px;
-  margin: 20px auto;
+  margin: 0 auto;
   font-family: TruthCYR-r;
   font-size: 14px;
   padding: 0 15px;
@@ -289,6 +289,9 @@
 }
 .new-popup-registration__wrapper.has-skip-link {
   padding-bottom: 50px;
+}
+.new-popup-registration__wrapper.new-popup-registration__styles .bottom-skip-button {
+  bottom: 15px;
 }
 
 .new-popup-registration__step-title {
@@ -572,7 +575,7 @@
   padding-bottom: 50px;
 }
 .new-popup-registration__step-container:not(.no-min-height) {
-  min-height: 730px;
+  min-height: calc(100vh - 70px);
 }
 
 .new-popup-registration__thx {
@@ -846,4 +849,28 @@ input:checked + .new-popup-reg__radio-detect {
 }
 .multi-select-emitation__item input:checked + .multi-select-emitation__detection .multi-select-emitation__icon-detection {
   display: block;
+}
+
+.overlay.registration-popups .table_wrap {
+  padding: 20px;
+}
+
+.new-popup-registration__mask-container__text {
+  color: #9b9b9b;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.new-popup-reg__three-in-row {
+  width: 31.8%;
 }
