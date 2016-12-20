@@ -98,8 +98,6 @@ App.photosUpload = function (className) {
             }
         });
     });
-
-
 };
 
 App.photosUpload('.new-popup-registration__mask');
