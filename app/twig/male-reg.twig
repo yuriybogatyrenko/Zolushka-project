@@ -161,7 +161,7 @@
                 <!-- START standard-form-content -->
                 <div class="new-popup-registration__step2__form-content">
                     <p class="mb20 pos_r">
-                        <input type="text" placeholder="Код из СМС">
+                        <input type="number" placeholder="Код из СМС">
                         <span class="form--error-notification">Неверный код</span>
                     </p>
                     <p class="mb20">
@@ -170,12 +170,8 @@
                     <p><a href="#" class="new-popup-registration__back-link--style">Выслать другой код</a></p>
                 </div>
                 <!-- // END standard-form-content -->
-                <!-- START preloader -->
-                <div class="new-popup-registration__form--preloader hidden">
-                    <div class="new-popup-registration__step2__form-overlay"></div>
-                    <i class="icon-registration-preloader"></i>
-                </div>
-                <!-- // END preloader -->
+
+                {% include 'widgets/preloader.twig' with { "visible": "true" } %}
 
                 <!-- START new-popup-registration__step2__form--send -->
                 <div class="new-popup-registration__step2__form--send hidden">
@@ -380,12 +376,8 @@
                     </p>
                 </div>
                 <!-- // END standard-form-content -->
-                <!-- START preloader -->
-                <div class="new-popup-registration__form--preloader hidden">
-                    <div class="new-popup-registration__step2__form-overlay"></div>
-                    <i class="icon-registration-preloader"></i>
-                </div>
-                <!-- // END preloader -->
+
+                {% include 'widgets/preloader.twig' %}
             </form>
             <div class="tac bottom-skip-button">
                 <a href="#" class="new-popup-registration__skip-link">Подтвердить позднее</a>
@@ -415,7 +407,7 @@
             <p class="mb20"><i class="icon-new-reg-success"></i></p>
             <p class="new-popup-registration__title lhn tac">Спасибо, Ваши данные добавлены</p>
             <p class="mb30">По <a href="#" class="new-popup-registration__back-link--style">правилам</a> сайта
-                информация о себе и фотографии станут <br>доступны другим пользователям в течении 30 минут.</p>
+                информация <strong>о себе</strong> и <strong>фотографии</strong> станут <br>доступны другим пользователям в течении 30 минут.</p>
             <p class="mb20">
                 <a href="#" class="violet_btn">Перейти в поиск</a>
             </p>
