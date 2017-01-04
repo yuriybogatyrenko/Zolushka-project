@@ -5,20 +5,21 @@
 {% block content %}
 <!-- START popup registration -->
 <div class="new-popup-registration__wrapper is-reg-page lhn new-popup-registration__styles has-skip-link pos_r">
+    <p class="new-popup-registration__title tac mb20">Регистрация</p>
     <div class="display-flex space-between mb30">
         <div class="new-popup-reg__left">
-            <div class="new-popup-reg__left-text text-light">
+            <div class="new-popup-reg__left-text text-light mb30">
                 <p class="mb30">Регистрация на портале – это быстрый способ найти партнера
                     для серьезных или мимолетных увлечений. </p>
-                <p class="mb20">Зарегистрировавшись, Вы получаете доступ к анкетам лучших Золушек рунета с проверенными фото, а
+                <p>Зарегистрировавшись, Вы получаете доступ к анкетам лучших Золушек рунета с проверенными фото, а
                     так же возможность следить за активностью других посетителей, отправлять сообщения, совершать
                     анонимные звонки и делать рассылки.</p>
+            </div>
 
-                <div class="icon-wrapper display-flex space-between flex-middle flex-wrap">
-                    <a href="#" class="dib vam"><i class="icon-confidence"></i></a>
-                    <a href="#" class="dib vam"><i class="icon-download-appstore"></i></a>
-                    <a href="#" class="dib vam"><i class="icon-download-google-play"></i></a>
-                </div>
+            <div class="icon-wrapper display-flex space-between flex-middle flex-wrap">
+                <a href="#" class="dib vam"><i class="icon-confidence"></i></a>
+                <a href="#" class="dib vam"><i class="icon-download-appstore"></i></a>
+                <a href="#" class="dib vam"><i class="icon-download-google-play"></i></a>
             </div>
 
             <div class="new-popup-reg__present display-flex flex-middle">
@@ -29,11 +30,28 @@
             </div>
         </div>
         <div class="new-popup-reg__right get_in_top">
-            <div class="form-line">
-                <input type="text" placeholder="Ваше имя">
+            <div class="form-line pos_r">
+                <input type="text" placeholder="e-mail">
+                <div class="new-popup-reg__email-question">
+                    <i class="icon-purple-question"></i>
+                    <div class="new-popup-reg__email-question-content fz12 tal text-light hidden">
+                        <p class="ff-bold">Реальный e-mail - тот, который Вы регулярно проверяете. Так почему?</p>
+                        <p>1. Мы не будем отсылать Вам много писем (уведомления на e-mail о просмотрах
+                            и сообщениях для новых пользователей по умолчанию отключены, и их можно
+                            включить по желанию в любой момент)</p>
+                        <p>2. В свою очередь - мы пришлем Вам всего несколько писем, в которых
+                            расскажем о тонкостях работы нашего ресурса, например о том, как работать с
+                            сайтом и не оставлять «следов» в Вашем браузере. Согласитесь - это
+                            действительно интересно!</p>
+                        <p>3. И мы очень хотим, чтобы эти письма Вы обязательно прочитали.</p>
+                    </div>
+                </div>
             </div>
             <div class="form-line">
-                <input type="text" placeholder="Электронная почта (e-mail)">
+                <input type="text" placeholder="Придумайте пароль">
+            </div>
+            <div class="form-line">
+                <input type="text" placeholder="Ваше имя">
             </div>
             <div class="form-line">
                 <input type="text" placeholder="Москва">
@@ -94,7 +112,7 @@
             </div>
         </div>
     </div>
-    <div class="new-popup-registration__bottom tac">
+    <div class="new-popup-registration__bottom tac mb45">
         <div class="mb20">
             <a href="#" class="new-purple-link mr10 dib">Войти</a>
             <a href="#" class="new-purple-link dib">Забыли пароль?</a>
@@ -103,6 +121,29 @@
             Продолжая, Вы принимаете условия
             <a href="#" class="new-purple-link">пользовательского соглашения</a>
         </p>
+    </div>
+    <div class="new-popup-registration__social-media tac mb30">
+        <div class="new-popup-registration__subtitle fz16 mb30">О проекте пишут следующие СМИ:</div>
+        <div class="new-popup-registration__social-media display-flex space-around flex-middle mb20">
+            <i class="icon-mailonline-logo"></i>
+            <i class="icon-metro-logo"></i>
+            <i class="icon-tatler-logo"></i>
+            <i class="icon-wmj-logo"></i>
+        </div>
+        <ul class="new-popup-registration__social-listing fz12 tal dib">
+            <li><a class="new-purple-link">Daily Mail</a> (Ведущее английское печатное издание)</li>
+            <li>Московским холостякам придется платить за свидания - <a href="#"
+                                                                        class="new-purple-link">MetroNews</a></li>
+            <li>Сколько стоят отношения по расчету? - <a href="#" class="new-purple-link">TATLER</a></li>
+            <li>Охота на спонсора: где девушкам искать состоятельных парней? - <a href="#"
+                                                                                  class="new-purple-link">WomanJournal</a></li>
+        </ul>
+    </div>
+    <div class="new-popup-registration__video-about tac mb30">
+        <div class="new-popup-registration__subtitle fz16 mb30">Смотри видео о нас</div>
+        <a href="#">
+            <i class="icon-reg-video"></i>
+        </a>
     </div>
 </div>
 <!-- // END popup registration -->

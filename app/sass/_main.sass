@@ -58,6 +58,9 @@
 .fz12
   font-size: 12px
 
+.fz16
+  font-size: 16px
+
 .new-popup-registration__photo-requirements-content-title
   margin-bottom: 10px
   color: #3a3a3a
@@ -81,6 +84,9 @@
 
 .mb30
   margin-bottom: 30px
+
+.mb45
+  margin-bottom: 45px
 
 .new-popup-registration__dotted-listing
   padding-left: 25px
@@ -382,6 +388,9 @@ input:checked
 .space-between
   justify-content: space-between
 
+.space-around
+  justify-content: space-around
+
 .new-popup-reg__left, .new-popup-reg__right
   width: 48%
 
@@ -413,6 +422,7 @@ input:checked
   .new-reg__radio-detector
     line-height: 38px
     color: #4d4d4d
+    +transition()
 
   & 
     > *
@@ -543,3 +553,50 @@ input:checked
 
 .new-popup-reg__three-in-row
   width: 31.8%
+
+.new-popup-registration__social-listing
+  li:not(:last-child)
+    margin-bottom: 5px
+
+.new-popup-reg__email-question-content
+  p:not(:last-child)
+    margin-bottom: 20px
+
+.new-popup-reg__email-question
+  .icon-purple-question
+    position: absolute
+    top: 50%
+    right: 15px
+    +transform(translateY(-50%))
+
+    &:hover
+      & + .new-popup-reg__email-question-content
+        display: block
+
+.new-popup-reg__email-question-content
+  position: absolute
+  top: 100%
+  border-radius: 5px
+  background-color: #ffffff
+  box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.43)
+  padding: 20px
+  z-index: 20
+  margin-top: 10px
+
+  &:before, &:after
+    position: absolute
+    bottom: 100%
+    content: ''
+    display: block
+    border: 8px solid transparent
+    border-bottom: 8px solid #fff
+    right: 20px
+    
+  &:before
+    margin-bottom: 1px
+    border-bottom-color: #eee
+
+.icon-photo-mask-moderation
+  position: absolute
+  bottom: 8px
+  right: 8px

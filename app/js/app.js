@@ -24,6 +24,9 @@ App.photosUpload = function (className) {
         mask.input = $('#news-popup-registration__mask-input');
         mask.container_text = mask.container.getElementsByClassName('new-popup-registration__mask-container__text')[0];
         mask.added_photos = 0;
+        mask.continue_button = $(mask.container).closest('.new-popup-registration__mask').siblings('.new-popup-registration__buttons').find('.js-photo-upload-button');
+
+        console.log(mask.continue_button);
 
         $doc.on('click', mask.detele_iconsClass, function (e) {
             var el = $(this).closest('.new-popup-registration__mask-item__added-photo');
@@ -31,7 +34,7 @@ App.photosUpload = function (className) {
             setTimeout(function () {
                 el.remove();
 
-                mask.textUpdate();
+                mask.conditionUpdate();
             }, 300);
         });
 
@@ -47,11 +50,13 @@ App.photosUpload = function (className) {
             };
         }
 
-        mask.textUpdate = function () {
+        mask.conditionUpdate = function () {
             if(mask.countUpdate() > 0) {
-                mask.container_text.classList.add('hidden')
+                mask.container_text.classList.add('hidden');
+                mask.continue_button.removeAttr('disabled');
             } else {
-                mask.container_text.classList.remove('hidden')
+                mask.container_text.classList.remove('hidden');
+                mask.continue_button.attr('disabled', true);
             }
         };
 
@@ -66,9 +71,9 @@ App.photosUpload = function (className) {
                 mask.container.classList.remove('dragfile-drag');
 
             if (this.files && this.files[0] && window.FileReader) {
-                console.log(this.files);
+                // console.log(this.files);
                 _this = this;
-                var the_files = this.files;
+                var the_files = _this.files;
                 Object.keys(the_files).map(function (objectKey, index) {
                     var value = the_files[objectKey];
                     var input = _this;
@@ -81,8 +86,10 @@ App.photosUpload = function (className) {
                             '</div>' +
                             '<i class="icon-mask-delete"></i>' +
                             '<i class="icon-mask-crop"></i>' +
+                            '<i class="icon-photo-mask-moderation"></i>' +
                             '</div>';
                     };
+
                     reader.onload = function (e) {
                         $('.new-popup-registration__mask-container-units')
                             .append(template(e));
@@ -90,7 +97,7 @@ App.photosUpload = function (className) {
                             $('.new-popup-registration__mask-item__added-photo').removeAttr('style');
                             input.removeAttribute("value");
 
-                            mask.textUpdate();
+                            mask.conditionUpdate();
                         }, 20);
                     };
                     reader.readAsDataURL(value);
