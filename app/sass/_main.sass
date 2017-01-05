@@ -17,6 +17,10 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5)
     padding: 15px 20px
 
+  &.premium-registration
+    width: 900px
+    box-sizing: border-box
+
 .new-popup-registration__wrapper
   width: 950px
 
@@ -187,6 +191,7 @@
 .new-popup-registration__back-link--style
   color: #8e94be
   display: inline-block
+  cursor: pointer
 
   &:hover
     text-decoration: underline
@@ -287,6 +292,29 @@
   &:not(.no-min-height)
     min-height: calc(100vh - 70px)
     //height: 720px
+
+  &:before
+    z-index: -100
+    content: ''
+    display: block
+    right: -20px
+    left: -20px
+    top: -15px
+    bottom: -15px
+    position: absolute
+    background: rgba(215, 215, 215, .7)
+    border-radius: 10px
+    opacity: 0
+    +transition()
+    
+  &.show-mask-notice
+    &:before
+      z-index: 199
+      opacity: 1
+      
+    .new-popup-registration__notice
+      opacity: 1
+      z-index: 200
 
 .new-popup-registration__thx
   padding: 35px 0
@@ -599,4 +627,181 @@ input:checked
 .icon-photo-mask-moderation
   position: absolute
   bottom: 8px
+  cursor: pointer
   right: 8px
+
+.new-popup-registration__notice
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 410px
+  background: #fff
+  border-radius: 5px
+  padding: 20px
+  box-sizing: border-box
+  +transform(translate3d(-50%, -50%, 0))
+  +transition()
+  z-index: -100
+  opacity: 0
+
+.inherit
+  color: inherit
+  font-size: inherit
+  text-decoration: inherit
+
+.green-round-button
+  border-radius: 100px
+  background: linear-gradient(to bottom, #48ddb0, #3fd0a5)
+  background: -webkit-linear-gradient(to bottom, #48ddb0, #3fd0a5)
+  background: -moz-linear-gradient(to bottom, #48ddb0, #3fd0a5)
+  background: -o-linear-gradient(to bottom, #48ddb0, #3fd0a5)
+  background: -ms-linear-gradient(to bottom, #48ddb0, #3fd0a5)
+  box-shadow: 0 1px 3px 0 rgba(63, 208, 165, 0.7)
+  display: inline-block
+  padding: 0 40px
+  line-height: 40px
+  text-decoration: none
+  +transition()
+
+  &:hover
+    box-shadow: 0 1px 3px 0 rgba(63, 208, 165, 0.7), inset 0 0 0 500px rgba(#000, 0.2)
+
+.new-reg-premium
+  &__subtitle
+    font-size: 18px
+
+  &__info-plate
+    color: #fff
+    margin-left: -20px
+    margin-right: -20px
+
+  &__title
+    font-size: 22px
+
+  &__header
+    color: #fff
+    margin-top: -15px
+    margin-right: -20px
+    margin-left: -20px
+    border-radius: 10px 10px 0 0
+    +retina-bg("premium-popup-bg.jpg", "premium-popup-bg@2x.jpg", cover)
+    background-size: cover
+    padding: 40px
+
+  &__info-plate
+    background: #f2535c
+    padding: 10px
+    a
+      &:hover
+        text-decoration: underline
+
+  &__abilities
+    padding: 40px 0
+
+    &-item
+      color: #585858
+
+    &-icon-wrapper
+      line-height: 80px
+      display: inline-block
+      margin-bottom: 10px
+
+    &-title
+      font-size: 18px
+      color: #0c0c0c
+      margin-bottom: 20px
+      
+  &__feedbacks
+    color: #000
+    background: rgba(#8e94be, 0.1)
+    display: flex
+    align-items: center
+    margin-left: -20px
+    margin-right: -20px
+    &:before
+      +retina-bg("many-photos-bg.png", "many-photos-bg@2x.png")
+      width: 303px
+      height: 181px
+      background-size: cover
+      display: inline-block
+      vertical-align: middle
+      margin-right: 40px
+      content: ''
+
+    &-text
+      width: 440px
+      text-align: left
+
+  &__choseLifetime
+    padding: 20px 0
+
+    &-title
+      font-size: 18px
+      margin-bottom: 15px
+      
+    &-subTitle
+      color: #585858
+      margin-bottom: 30px
+
+    &-buy-button
+      width: 300px
+      margin-left: 20px
+
+    .select_wrap
+      width: 300px
+
+  &__notify
+    padding: 40px 0
+    color: #585858
+
+    .icon-premium-notify-star
+      position: absolute
+      left: -30px
+      top: 5px
+
+.new-popup-registration__crop
+  margin-bottom: 10px
+
+  &-wrapper
+    position: absolute
+    top: -15px
+    bottom: -15px
+    left: -20px
+    right: -20px
+    border-radius: 10px
+    background: #000
+    z-index: 20
+    color: #fff
+    padding: 20px
+
+  &-title
+    font-size: 20px
+    margin-bottom: 10px
+
+  &-subtitle
+    font-size: 14px
+    margin-bottom: 15px
+
+
+  &-mask-wrapper
+    position: relative
+    padding-top: 11px
+    margin-bottom: 30px
+    
+    &:before
+      margin-bottom: 5px
+      height: 4px
+      background: #09c899
+      border-radius: 1px
+      width: 80%
+      display: block
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      
+  &-success
+    color: #10c899
+
+  &-cross
+    color: #df6365

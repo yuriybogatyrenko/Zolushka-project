@@ -21,12 +21,16 @@ App.photosUpload = function (className) {
 
         mask.container = document.getElementsByClassName('new-popup-registration__mask-container')[0];
         mask.detele_iconsClass = '.icon-mask-delete';
+        mask.crop_iconsClass = '.icon-mask-crop';
+        mask.crop_closeClass = '.js-close-crop';
         mask.input = $('#news-popup-registration__mask-input');
         mask.container_text = mask.container.getElementsByClassName('new-popup-registration__mask-container__text')[0];
         mask.added_photos = 0;
         mask.continue_button = $(mask.container).closest('.new-popup-registration__mask').siblings('.new-popup-registration__buttons').find('.js-photo-upload-button');
 
-        console.log(mask.continue_button);
+        // crop vars
+        mask.cropContainer = $('.new-popup-registration__crop-wrapper');
+        mask.crop = $('.new-popup-registration__crop');
 
         $doc.on('click', mask.detele_iconsClass, function (e) {
             var el = $(this).closest('.new-popup-registration__mask-item__added-photo');
@@ -36,6 +40,22 @@ App.photosUpload = function (className) {
 
                 mask.conditionUpdate();
             }, 300);
+        });
+
+        mask.cropOpen = function () {
+            mask.cropContainer.fadeIn(200);
+        };
+
+        mask.cropClose = function () {
+            mask.cropContainer.fadeOut(200);
+        };
+
+        $doc.on('click', mask.crop_iconsClass, function () {
+            mask.cropOpen();
+        });
+
+        $doc.on('click', mask.crop_closeClass, function () {
+            mask.cropClose();
         });
 
         if (mask.container) {
@@ -65,6 +85,22 @@ App.photosUpload = function (className) {
 
             return array.length;
         };
+
+        mask.showNotice = function (bl) {
+            bl.closest('.new-popup-registration__step-container').addClass('show-mask-notice');
+        };
+
+        mask.hideNotice = function (bl) {
+            bl.closest('.new-popup-registration__step-container').removeClass('show-mask-notice');
+        };
+
+        $doc.on('click', '.new-popup-registration__mask-container-units .icon-photo-mask-moderation', function () {
+            mask.showNotice($(this));
+        });
+
+        $doc.on('click', '.js-close-notice', function () {
+            mask.hideNotice($(this));
+        });
 
         mask.input.on('change', function () {
             if (mask.container)
