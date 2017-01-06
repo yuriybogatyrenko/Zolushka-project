@@ -168,6 +168,7 @@
 								<br>кадрируйте фотографию
 							</div>
 							<div class="dib">
+								<div class="new-popup-registration__crop-mask-progressbar"></div>
 								<div class="new-popup-registration__crop-mask-wrapper display-flex space-between">
 									<i class="icon-photo-mask1"></i>
 									<i class="icon-photo-mask2"></i>
@@ -179,8 +180,14 @@
 									<img src="http://placehold.it/370x370" alt="">
 								</div>
 								<div class="new-popup-registration__crop-buttons display-flex space-between">
-									<a href="#" class="js-close-crop new-popup-registration__crop-success"><i class="icon-crop-success"></i> Готово</a>
-									<a href="#" class="js-close-crop new-popup-registration__crop-cross"><i class="icon-crop-cross"></i> Без фильтра</a>
+									<a href="#" class="js-close-crop new-popup-registration__crop-success">
+										<i class="icon-crop-success mr5"></i>
+										<span class="dib vam">Готово</span>
+									</a>
+									<a href="#" class="js-close-crop new-popup-registration__crop-cross">
+										<i class="icon-crop-cross mr5"></i>
+										<span class="dib vam">Без фильтра</span>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -477,7 +484,7 @@
 						 data-popup-block="6">
 					<p class="new-popup-registration__title tac mb20">Регистрация</p>
 					<div class="display-flex space-between mb30">
-						<div class="new-popup-reg__left">
+						<div class="new-popup-reg__left tal">
 							<div class="new-popup-reg__left-text text-light mb30">
 								<p class="mb30">Регистрация на портале – это быстрый способ найти партнера
 									для серьезных или мимолетных увлечений. </p>
@@ -633,7 +640,7 @@
 								уверены, что не <br>наткнутся на очередного «любителя поболтать», не имеющего серьезных намерений <br>на сайте,
 								вследствие чего они заинтересованы первыми начать знакомство.</p>
 							<p>
-								<a href="#" class="green-round-button">Купить премиум</a>
+								<a href="#" class="js-scrollto-button green-round-button" data-scrollto=".js-premium-buy-block">Купить премиум</a>
 							</p>
 						</div>
 						<div class="new-reg-premium__info-plate tac fz12">
@@ -670,7 +677,7 @@
 						</div>
 						<!-- // END new-reg-premium__feedbacks -->
 						<!-- START new-reg-premium__choseLifetime -->
-						<div class="new-reg-premium__choseLifetime tac">
+						<div class="js-premium-buy-block new-reg-premium__choseLifetime tac">
 							<p class="new-reg-premium__choseLifetime-title">Выберите срок действия.</p>
 							<p class="new-reg-premium__choseLifetime-subTitle">Мы не используем подписки с автоплатежами – оплачивайте
 								<br>

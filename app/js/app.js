@@ -143,4 +143,17 @@ App.photosUpload = function (className) {
     });
 };
 
+App.scrollTo = function (el) {
+    $(el).each(function () {
+        var $this = $(this);
+
+        $this.on('click', function () {
+            var pos = $($this.attr('data-scrollto')).offset().top;
+            $this.closest('.overlay').animate({scrollTop: pos}, 500);
+        });
+    });
+};
+
+App.scrollTo('.js-scrollto-button');
+
 App.photosUpload('.new-popup-registration__mask');
