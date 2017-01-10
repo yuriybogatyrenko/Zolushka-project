@@ -29,12 +29,28 @@
 			Спасибо 3
 		</a>
 
+		<a href="#" class="violet_btn" data-popup-open="9">
+			Спасибо 4
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="10">
+			Спасибо 5
+		</a>
+
 		<a href="#" class="violet_btn" data-popup-open="6">
 			Регистрация попап
 		</a>
 
 		<a href="#" class="violet_btn" data-popup-open="8">
 			premium popup
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="11">
+			confirm email
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="12">
+			change email
 		</a>
 	</div>
 
@@ -478,6 +494,41 @@
 					<!-- // END thx registration -->
 				</div>
 
+				<div class="new-popup-registration tac hidden" data-popup-block="9">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height new-popup-registration__thx pos_r">
+						<p class="mb20"><i class="icon-new-reg-success"></i></p>
+						<p class="new-popup-registration__title lhn tac">Спасибо, Ваши данные добавлены</p>
+						<p class="mb20">Подтвердите почту и получите бесплатный премиум доступ на 36 часов, для этого перейдите по ссылке в письме, которое мы отправили на info@me.com</p>
+						<p class="text-light mb20">Если вы не получили письмо в течение 30 секунд, проверьте папку спам</p>
+						<p class="mb20">
+							<a href="#" class="violet_btn">Перейти в поиск</a>
+						</p>
+						<p class="mb20"><a href="#" class="new-popup-registration__back-link--style">Продублировать письмо с активацией</a></p>
+						<p><a href="#" class="new-popup-registration__back-link--style">Указать другую почту</a></p>
+						<div class="tac bottom-skip-button">
+							<a href="#" class="new-popup-registration__skip-link">Подтвердить позднее</a>
+						</div>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+
+				<div class="new-popup-registration tac hidden" data-popup-block="10">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height no-pb new-popup-registration__thx pos_r">
+						<p class="mb20"><i class="icon-new-reg-success"></i></p>
+						<p class="new-popup-registration__title lhn tac">Спасибо, Ваши данные добавлены</p>
+						<p class="mb20">Для активации анкеты подтвердите почту. Для этого перейдите по <br>ссылке в письме, которое мы отправили на info@me.com</p>
+						<p class="text-light mb20">Если вы не получили письмо в течение 30 секунд, проверьте папку спам</p>
+						<p class="mb20">
+							<a href="#" class="violet_btn">Перейти в поиск</a>
+						</p>
+						<p class="mb20"><a href="#" class="new-popup-registration__back-link--style">Продублировать письмо с активацией</a></p>
+						<p><a href="#" class="new-popup-registration__back-link--style">Указать другую почту</a></p>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+
 				<!-- START popup registration -->
 				<div class="new-popup-registration__wrapper lhn new-popup-registration__styles has-skip-link pos_r hidden"
 						 data-popup-block="6">
@@ -717,6 +768,46 @@
 					</div>
 					<!-- // END new-reg-premium -->
 				</div>
+
+
+
+				<div class="new-popup-registration tac hidden" data-popup-block="11">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height no-pb new-popup-registration__thx pos_r">
+						<p class="new-popup-registration__title lhn tac">Подтвердите почту</p>
+						<p class="mb20">Для активации анкеты подтвердите почту. Для этого перейдите по <br>ссылке в письме, которое мы отправили на info@me.com</p>
+						<p class="mb20"><a href="#" class="green-round-button">Продублировать письмо с активацией</a></p>
+						<p class="mb10">Указать другую почту для регистрации и отправить <br>письмо с активацией</p>
+						<form action="#">
+							<div class="dib vam">
+								<input type="email" placeholder="E-mail" required>
+							</div>
+							<div class="dib vam">
+								<button class="violet_btn db">Отправить</button>
+							</div>
+						</form>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+
+				<div class="new-popup-registration tac hidden" data-popup-block="12">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height no-pb new-popup-registration__thx pos_r">
+						<p class="new-popup-registration__title lhn tac">Укажите правильную почту</p>
+						<!-- что бы текст стал прозрачным надо убрать класс #remove-opacity# -->
+						<p class="mb60 new-popup-registration__for-activation-opacity-text remove-opacity">Для активации анкеты подтвердите почту. Для этого перейдите по <br>ссылке в письме, которое мы отправили на info@me.com</p>
+						<form action="#" class="dib w40">
+							<div class="vam mb20">
+								<input type="email" class="db" placeholder="E-mail" required>
+							</div>
+							<div class="vam">
+								<button class="violet_btn db" disabled>Отправить</button>
+							</div>
+						</form>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+
 			</div>
 		</div>
 	</div>
