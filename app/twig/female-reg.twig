@@ -3,5 +3,816 @@
 {% block pageTitle %}Регистрация Женщин{% endblock %}
 
 {% block content %}
+	<div class="mb30 tac">
+		<a href="#" class="violet_btn" data-popup-open="1">
+			step 1
+		</a>
 
+		<a href="#" class="violet_btn" data-popup-open="2">
+			попап 2
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="3">
+			попап 3
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="4">
+			Спасибо 1
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="5">
+			Спасибо 2
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="7">
+			Спасибо 3
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="9">
+			Спасибо 4
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="10">
+			Спасибо 5
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="6">
+			Регистрация попап
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="8">
+			premium popup
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="11">
+			confirm email
+		</a>
+
+		<a href="#" class="violet_btn" data-popup-open="12">
+			change email
+		</a>
+	</div>
+
+	<div class="overlay registration-popups">
+		<div class="table_wrap">
+			<div class="td_wrap">
+				<div class="new-popup-registration tac hidden" data-popup-block="1">
+					<!-- START step 1 registration -->
+					<div class="new-popup-registration__step-container new-popup-registration__step1 pos_r">
+						<div class="new-popup-registration__step1-container-inner in_bl tal">
+							<p class="new-popup-registration__step-title tac">Шаг 1 из 3. Добавление фото.</p>
+							<p class="new-popup-registration__title tac">Создайте Вашу конфиденциальную фотографию</p>
+							<p class="new-popup-registration__sub-title tac">Чтобы сохранить вашу анонимность, мы сделали мужские
+								анкеты не
+								<br>доступными для незарегистрированных пользователей. <br>
+								Так же , Вы можете применить один из фильтров к своей фотографии.</p>
+							<div class="new-popup-registration__photo-requirements-wrapper mb20 tac">
+								<div class="new-popup-registration__photo-requirements-title in_bl"
+										 data-toggle="photo-requirements">
+									Требования к фото <i class="icon-purple-arrow-down"></i>
+								</div>
+								<div class="new-popup-registration__photo-requirements-content fz12 hidden"
+										 data-toggle-target="photo-requirements">
+									<p class="new-popup-registration__photo-requirements-content-title ff-bold tac mb10 fz12">
+										Допускаются
+										фотографии:</p>
+									<ul class="new-popup-registration__dotted-listing tal mb10 text-light">
+										<li class="new-popup-registration__dotted-item">
+											На которых изображен реальный владелец (мужские анкеты доступны только зарегистрированным
+											пользователям)
+										</li>
+										<li class="new-popup-registration__dotted-item">
+											Четко и полностью видно лицо
+										</li>
+										<li class="new-popup-registration__dotted-item">
+											Фотографии хорошего качества, без размытий, шумов, засветов, <br>сделанные в дневное
+											время суток
+										</li>
+									</ul>
+									<p class="new-popup-registration__photo-requirements-content-title ff-bold tac mb10 fz12">
+										Допускаются
+										фотографии:</p>
+									<ul class="new-popup-registration__dotted-listing tal mb10 text-light">
+										<li class="new-popup-registration__ditted-item">Эротического, политического, религиозного
+											характера
+										</li>
+										<li class="new-popup-registration__ditted-item">С третьими лицами (групповые фото), в том
+											числе с детьми
+										</li>
+										<li class="new-popup-registration__ditted-item">Обрезанные фото (например, только части
+											тела)
+										</li>
+										<li class="new-popup-registration__ditted-item">Содержащие сцены насилия, оружия и
+											правонарушения
+										</li>
+										<li class="new-popup-registration__ditted-item">Нарушающие авторское право владельца</li>
+										<li class="new-popup-registration__ditted-item">Несущие оскорбительный характер</li>
+										<li class="new-popup-registration__ditted-item">Пропагандирующие употребление наркотиков,
+											спиртных
+											напитков
+											<br>и табакокурение
+										</li>
+										<li class="new-popup-registration__ditted-item">Несущие рекламу</li>
+										<li class="new-popup-registration__ditted-item">Нарушающие законодательство РФ</li>
+									</ul>
+									<p>Администрация в праве отказать в публикации фотографий без объяснения причин</p>
+								</div>
+							</div>
+						</div>
+						<div class="new-popup-registration__mask mb20">
+							<div class="new-popup-registration__mask-header mb10 tac">
+								<div class="in_bl new-popup-registration__mask-item">
+									<i class="icon-photo-mask1"></i>
+								</div>
+								<div class="in_bl new-popup-registration__mask-item">
+									<i class="icon-photo-mask2"></i>
+								</div>
+								<div class="in_bl new-popup-registration__mask-item">
+									<i class="icon-photo-mask3"></i>
+								</div>
+								<div class="in_bl new-popup-registration__mask-item">
+									<i class="icon-photo-mask4"></i>
+								</div>
+								<div class="in_bl new-popup-registration__mask-item">
+									<i class="icon-photo-mask5"></i>
+								</div>
+							</div>
+							<div class="new-popup-registration__mask-container">
+								<input type="file" multiple class="news-popup-registration__mask-input"
+											 id="news-popup-registration__mask-input">
+
+								<div class="new-popup-registration__mask-container-units tal">
+									<div class="new-popup-registration__mask-item__added-photo add-button">
+										<p class="new-popup-registration__mask-item__added-photo--top-icon"><i
+													class="icon-reg-camera"></i></p>
+										<p class="new-popup-registration__mask-item__added-photo--bottom-text-icon">Добавить
+											фото</p>
+									</div>
+									{#<div class="new-popup-registration__mask-item__added-photo">
+											<div class="new-popup-registration__mask-item__added-photo__wrapper">
+													<img alt="" src="http://placehold.it/106x106"/>
+											</div>
+											<i class="icon-mask-delete"></i>
+											<i class="icon-mask-crop"></i>
+											<i class="icon-photo-mask-moderation"></i>
+									</div>#}
+								</div>
+								<div class="new-popup-registration__mask-container__text">
+									Перетащите сюда свои фото или <br><span class="new-purple-link">выберите</span> файл
+								</div>
+							</div>
+						</div>
+						<div class="new-popup-registration__buttons">
+							<p class="mb20">
+								<button class="js-photo-upload-button violet_btn" disabled>Продолжить</button>
+							</p>
+							<p><a href="#"
+										class="new-popup-registration__back-link new-popup-registration__back-link--style">Назад</a></p>
+						</div>
+						<div class="new-popup-registration__notice tac">
+							<i class="icon-big-photo-mask-moderation mb20"></i>
+							<p class="mb30">
+								Фото добавлено и отправлено на модерацию <br>
+								Сейчас это фото не видно другим пользователям
+							</p>
+							<span class="js-close-notice dib new-popup-registration__back-link--style">Понятно</span>
+						</div>
+						<div class="new-popup-registration__crop-wrapper hidden tac">
+							<div class="new-popup-registration__crop-title">Выберите один из фильтров или просто
+								<br>кадрируйте фотографию
+							</div>
+							<div class="dib">
+								<div class="new-popup-registration__crop-mask-progressbar"></div>
+								<div class="new-popup-registration__crop-mask-wrapper display-flex space-between">
+									<i class="icon-photo-mask1"></i>
+									<i class="icon-photo-mask2"></i>
+									<i class="icon-photo-mask3"></i>
+									<i class="icon-photo-mask4"></i>
+									<i class="icon-photo-mask5"></i>
+								</div>
+								<div class="new-popup-registration__crop">
+									<img src="http://placehold.it/370x370" alt="">
+								</div>
+								<div class="new-popup-registration__crop-buttons display-flex space-between">
+									<a href="#" class="js-close-crop new-popup-registration__crop-success">
+										<i class="icon-crop-success mr5"></i>
+										<span class="dib vam">Готово</span>
+									</a>
+									<a href="#" class="js-close-crop new-popup-registration__crop-cross">
+										<i class="icon-crop-cross mr5"></i>
+										<span class="dib vam">Без фильтра</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="tac bottom-skip-button">
+							<a href="#" class="new-popup-registration__skip-link">Пропустить</a>
+						</div>
+					</div>
+					<!-- // END step 1 registration -->
+				</div>
+
+				<div class="new-popup-registration tac hidden" data-popup-block="2">
+					<!-- START step 2 registration -->
+					<div class="new-popup-registration__step-container new-popup-registration__step2 pos_r">
+						<div class="in_bl tal">
+							<p class="new-popup-registration__step-title tac">Шаг 2 из 3. Защита анкеты.</p>
+							<p class="new-popup-registration__title tac">Защитите Вашу анкету</p>
+							<p class="new-popup-registration__sub-title tac">Чтобы сделать доступ к учетной записи безопасным,
+								добавьте свой
+								номер мобильного телефона, на который мы вышлем бесплатное СМС с кодом подтверждения.</p>
+						</div>
+						<form action="#" class="new-popup-registration__step2__form mb20 pos_r">
+							<!-- START standard-form-content -->
+							<div class="new-popup-registration__step2__form-content">
+								<p class="mb20 pos_r">
+									<input type="number" placeholder="Код из СМС">
+									<span class="form--error-notification">Неверный код</span>
+								</p>
+								<p class="mb20">
+									<button class="violet_btn db">Отрпавить</button>
+								</p>
+								<p><a href="#" class="new-popup-registration__back-link--style">Выслать другой код</a></p>
+							</div>
+							<!-- // END standard-form-content -->
+
+							{% include 'widgets/preloader.twig' with { "visible": "true" } %}
+
+							<!-- START new-popup-registration__step2__form--send -->
+							<div class="new-popup-registration__step2__form--send hidden">
+								<p class="mb20">Готово!</p>
+								<p><a href="#" class="violet_btn">Продолжить</a></p>
+							</div>
+							<!-- // END new-popup-registration__step2__form--send -->
+						</form>
+						<p class="light-text">Данная информация необходима для защиты учетной записи. Мы ни кому не разглашаем Ваши
+							данные, Ваш номер не будет доступен другим пользователям. Вся процедура бесплатна.</p>
+						<div class="tac bottom-skip-button">
+							<a href="#" class="new-popup-registration__skip-link">Подтвердить позднее</a>
+						</div>
+					</div>
+					<!-- // END step 2 registration -->
+				</div>
+				<div class="new-popup-registration tac hidden" data-popup-block="3">
+					<!-- START step 3 registration -->
+					<div class="new-popup-registration__step-container new-popup-registration__step3 pos_r">
+						<div class="in_bl tal">
+							<p class="new-popup-registration__step-title tac">Шаг 3 из 3. Анкета.</p>
+							<p class="new-popup-registration__title tac">Заполните Вашу анкету</p>
+							<p class="new-popup-registration__sub-title tac">Мы рекомендуем заполнять анкету подробно, чтобы
+								девушкам со
+								схожими интересами и целями было проще найти подходящую пару.</p>
+						</div>
+						<form action="#" class="new-popup-registration__step3__form mb20 pos_r">
+							<!-- START standard-form-content -->
+							<div class="new-popup-registration__step3__form-content">
+								<div class="display-flex form-line">
+									<div class="new-popup-registration__step3-field-name">
+										Расскажите о себе
+									</div>
+									<div class="new-popup-registration__step3-field-container">
+										<div class="pos_r">
+                                <textarea class="error-input mb5"
+																					placeholder="Напишите что вы хотите от девушки или какие отношения предпочитаете (максимум 500 символов)"></textarea>
+											<span class="form--error-notification">Неверный код</span>
+										</div>
+										<p class="fz12 tal grey-color">Согласно <a href="#"
+																															 class="new-popup-registration__back-link--style">правилам</a>
+											сайта запрещено указывать контактые данные, а так же использовать нецензурную лексику
+										</p>
+									</div>
+								</div>
+								<div class="display-flex form-line">
+									<div class="new-popup-registration__step3-field-name">
+										Цель знакомства
+									</div>
+									<div class="new-popup-registration__step3-field-container">
+										<div class="pos_r tal">
+											<label class="dib vam mr5">
+												<input type="checkbox" class="hidden no-style" name="1">
+												<span class="new-popup-reg__radio-detect">блондин</span>
+											</label>
+											<label class="dib vam mr5">
+												<input type="checkbox" class="hidden no-style" name="1">
+												<span class="new-popup-reg__radio-detect">блондин</span>
+											</label>
+											<label class="dib vam mr5">
+												<input type="checkbox" class="hidden no-style" name="1">
+												<span class="new-popup-reg__radio-detect">блондин</span>
+											</label>
+											<label class="dib vam mr5">
+												<input type="checkbox" class="hidden no-style" name="1">
+												<span class="new-popup-reg__radio-detect">блондин</span>
+											</label>
+											<span class="form--error-notification hidden">Неверный код</span>
+										</div>
+									</div>
+								</div>
+								<div class="new-popup-registration__step3-separator form-line"></div>
+								<div class="display-flex form-line">
+									<div class="new-popup-registration__step3-field-name">
+										Рост
+									</div>
+									<div class="new-popup-registration__step3-field-container get_in_top">
+										<div class="pos_r tal">
+											<div class="dib mr5">
+												<input type="text" class="small-input">
+											</div>
+											<div class="dib vam text-light">см</div>
+											<span class="form--error-notification hidden">Неверный код</span>
+										</div>
+									</div>
+								</div>
+								<div class="display-flex form-line">
+									<div class="new-popup-registration__step3-field-name">
+										Вес
+									</div>
+									<div class="new-popup-registration__step3-field-container get_in_top">
+										<div class="pos_r tal">
+											<div class="dib mr5">
+												<input type="text" class="small-input">
+											</div>
+											<div class="dib vam text-light">кг</div>
+											<span class="form--error-notification hidden">Неверный код</span>
+										</div>
+									</div>
+								</div>
+								<div class="display-flex form-line">
+									<div class="new-popup-registration__step3-field-name">
+										Внешность
+									</div>
+									<div class="new-popup-registration__step3-field-container get_in_top">
+										<div class="pos_r tal">
+											<div class="select_wrap vam tal text-light">
+												<select class="selectbox">
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+												</select>
+											</div>
+											<span class="form--error-notification hidden">Неверный код</span>
+										</div>
+									</div>
+								</div>
+								<div class="display-flex form-line">
+									<div class="new-popup-registration__step3-field-name">
+										Телосложение
+									</div>
+									<div class="new-popup-registration__step3-field-container get_in_top">
+										<div class="pos_r tal">
+											<div class="select_wrap vam tal text-light">
+												<select class="selectbox">
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+													<option value="">asdasd</option>
+												</select>
+											</div>
+											<span class="form--error-notification hidden">Неверный код</span>
+										</div>
+									</div>
+								</div>
+								<div class="display-flex form-line">
+									<div class="new-popup-registration__step3-field-name">
+										Цвет волос
+									</div>
+									<div class="new-popup-registration__step3-field-container checkboxes-container tal">
+										<label class="dib vam mr5">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">блондин</span>
+										</label>
+										<label class="dib vam mr5">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">блондин</span>
+										</label>
+										<label class="dib vam mr5">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">блондин</span>
+										</label>
+										<label class="dib vam mr5">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">блондин</span>
+										</label>
+									</div>
+								</div>
+								<div class="display-flex form-line">
+									<div class="new-popup-registration__step3-field-name">
+										Цвет глаз
+									</div>
+									<div class="new-popup-registration__step3-field-container checkboxes-container tal">
+										<label class="dib vam mr5 curp">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">карие</span>
+										</label>
+										<label class="dib vam mr5 curp">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">карие</span>
+										</label>
+										<label class="dib vam mr5 curp">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">карие</span>
+										</label>
+										<label class="dib vam mr5 curp">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">карие</span>
+										</label>
+										<label class="dib vam mr5 curp">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">карие</span>
+										</label>
+										<label class="dib vam mr5 curp">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">карие</span>
+										</label>
+										<label class="dib vam mr5 curp">
+											<input type="radio" class="hidden no-style" name="1">
+											<span class="new-popup-reg__radio-detect">карие</span>
+										</label>
+									</div>
+								</div>
+								<div class="new-popup-registration__step3-separator form-line"></div>
+								<p class="mb20">
+									<button class="violet_btn">Отрпавить</button>
+								</p>
+							</div>
+							<!-- // END standard-form-content -->
+
+							{% include 'widgets/preloader.twig' %}
+						</form>
+						<div class="tac bottom-skip-button">
+							<a href="#" class="new-popup-registration__skip-link">Подтвердить позднее</a>
+						</div>
+					</div>
+					<!-- // END step 3 registration -->
+				</div>
+				<div class="new-popup-registration tac hidden" data-popup-block="4">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height no-pb new-popup-registration__thx pos_r">
+						<p class="mb20"><i class="icon-new-reg-success"></i></p>
+						<p class="mb20 new-popup-registration__title lhn tac">Поздравляем, Вы зарегистрированы <br> и получаете
+							премиум-доступ на 36 часов бесплатно!</p>
+						<p class="mb30">Для получения доступа ко всем возможностям сайта и <br>активации анкеты перейдите по ссылке
+							в письме, которое мы
+							<br>отправили на info@me.com</p>
+						<p>
+							<a href="#" class="violet_btn">Продолжить</a>
+						</p>
+
+					</div>
+					<!-- // END thx registration -->
+				</div>
+				<div class="new-popup-registration tac hidden" data-popup-block="5">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height no-pb new-popup-registration__thx pos_r">
+						<p class="mb20"><i class="icon-new-reg-success"></i></p>
+						<p class="new-popup-registration__title lhn tac">Спасибо, Ваши данные добавлены</p>
+						<p class="mb30">По <a href="#" class="new-popup-registration__back-link--style">правилам</a> сайта
+							информация <strong>о себе</strong> и <strong>фотографии</strong> станут <br>доступны другим пользователям
+							в течении 30 минут.</p>
+						<p class="mb20">
+							<a href="#" class="violet_btn">Перейти в поиск</a>
+						</p>
+						<p><a href="#" class="new-popup-registration__back-link--style">Редактировать анкету</a></p>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+				<div class="new-popup-registration tac hidden" data-popup-block="7">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height no-pb new-popup-registration__thx pos_r">
+						<p class="mb20"><i class="icon-new-reg-success"></i></p>
+						<p class="new-popup-registration__title lhn tac mb30">Поздравляем, Вы зарегистрированы.</p>
+						<p class="mb20">
+							<a href="#" class="violet_btn">Продолжить</a>
+						</p>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+
+				<div class="new-popup-registration tac hidden" data-popup-block="9">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height new-popup-registration__thx pos_r">
+						<p class="mb20"><i class="icon-new-reg-success"></i></p>
+						<p class="new-popup-registration__title lhn tac">Спасибо, Ваши данные добавлены</p>
+						<p class="mb20">Подтвердите почту и получите бесплатный премиум доступ на 36 часов, для этого перейдите по
+							ссылке в письме, которое мы отправили на info@me.com</p>
+						<p class="text-light mb20">Если вы не получили письмо в течение 30 секунд, проверьте папку спам</p>
+						<p class="mb20">
+							<a href="#" class="violet_btn">Перейти в поиск</a>
+						</p>
+						<p class="mb20"><a href="#" class="new-popup-registration__back-link--style">Продублировать письмо с
+								активацией</a></p>
+						<p><a href="#" class="new-popup-registration__back-link--style">Указать другую почту</a></p>
+						<div class="tac bottom-skip-button">
+							<a href="#" class="new-popup-registration__skip-link">Подтвердить позднее</a>
+						</div>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+
+				<div class="new-popup-registration tac hidden" data-popup-block="10">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height no-pb new-popup-registration__thx pos_r">
+						<p class="mb20"><i class="icon-new-reg-success"></i></p>
+						<p class="new-popup-registration__title lhn tac">Спасибо, Ваши данные добавлены</p>
+						<p class="mb20">Для активации анкеты подтвердите почту. Для этого перейдите по <br>ссылке в письме, которое
+							мы отправили на info@me.com</p>
+						<p class="text-light mb20">Если вы не получили письмо в течение 30 секунд, проверьте папку спам</p>
+						<p class="mb20">
+							<a href="#" class="violet_btn">Перейти в поиск</a>
+						</p>
+						<p class="mb20"><a href="#" class="new-popup-registration__back-link--style">Продублировать письмо с
+								активацией</a></p>
+						<p><a href="#" class="new-popup-registration__back-link--style">Указать другую почту</a></p>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+
+				<!-- START popup registration -->
+				<div class="new-popup-registration__wrapper lhn new-popup-registration__styles has-skip-link pos_r hidden"
+						 data-popup-block="6">
+					<p class="new-popup-registration__title tac mb20">Регистрация</p>
+					<div class="display-flex space-between mb30">
+						<div class="new-popup-reg__left tal">
+							<div class="new-popup-reg__left-text text-light mb30">
+								<p class="mb30">Регистрация на портале – это быстрый способ найти партнера
+									для серьезных или мимолетных увлечений. </p>
+								<p>Зарегистрировавшись, Вы получаете доступ к анкетам лучших Золушек рунета с проверенными фото, а
+									так же возможность следить за активностью других посетителей, отправлять сообщения, совершать
+									анонимные звонки и делать рассылки.</p>
+							</div>
+
+							<div class="icon-wrapper display-flex space-between flex-middle flex-wrap">
+								<a href="#" class="dib vam"><i class="icon-confidence"></i></a>
+								<a href="#" class="dib vam"><i class="icon-download-appstore"></i></a>
+								<a href="#" class="dib vam"><i class="icon-download-google-play"></i></a>
+							</div>
+
+							<div class="new-popup-reg__present display-flex flex-middle">
+								<i class="icon-new-reg-present mr10"></i>
+								<div class="ff-bold">
+									Дарим премиум-доступ на 12 часов <br>Всем мужчинам, прошедшим регистрацию
+								</div>
+							</div>
+						</div>
+						<div class="new-popup-reg__right get_in_top">
+							<div class="form-line pos_r">
+								<input type="text" class="input-has-focus-tooltip" placeholder="e-mail">
+								<div class="new-popup-reg__email-question">
+									<i class="icon-purple-question"></i>
+									<div class="new-popup-reg__email-question-content fz12 tal text-light hidden">
+										<p class="ff-bold">Реальный e-mail - тот, который Вы регулярно проверяете. Так почему?</p>
+										<p>1. Мы не будем отсылать Вам много писем (уведомления на e-mail о просмотрах
+											и сообщениях для новых пользователей по умолчанию отключены, и их можно
+											включить по желанию в любой момент)</p>
+										<p>2. В свою очередь - мы пришлем Вам всего несколько писем, в которых
+											расскажем о тонкостях работы нашего ресурса, например о том, как работать с
+											сайтом и не оставлять «следов» в Вашем браузере. Согласитесь - это
+											действительно интересно!</p>
+										<p>3. И мы очень хотим, чтобы эти письма Вы обязательно прочитали.</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-line">
+								<input type="text" placeholder="Придумайте пароль">
+							</div>
+							<div class="form-line">
+								<input type="text" placeholder="Ваше имя">
+							</div>
+							<div class="form-line">
+								<input type="text" placeholder="Москва">
+							</div>
+							<div class="form-line new-reg__gender-wrapper display-flex tac">
+								<div class="w50 pos_r">
+									<input type="radio" name="1" class="no-style">
+									<div class="new-reg__radio-detector">М</div>
+								</div>
+								<div class="w50 pos_r">
+									<input type="radio" name="1" class="no-style">
+									<div class="new-reg__radio-detector">Ж</div>
+								</div>
+							</div>
+							<div class="form-line pos_r tal new-popup-reg__main-block display-flex space-between flex-middle">
+								<div class="w30 pos_r">
+									<div class="select_wrap vam tal text-light">
+										<select class="selectbox">
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+										</select>
+									</div>
+									<span class="form--error-notification hidden">Неверный код</span>
+								</div>
+								<div class="w30 pos_r">
+									<div class="select_wrap vam tal text-light">
+										<select class="selectbox">
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+										</select>
+									</div>
+									<span class="form--error-notification hidden">Неверный код</span>
+								</div>
+								<div class="w30 pos_r">
+									<div class="select_wrap vam tal text-light">
+										<select class="selectbox">
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+											<option value="">asdasd</option>
+										</select>
+									</div>
+									<span class="form--error-notification hidden">Неверный код</span>
+								</div>
+							</div>
+							<div>
+								<button type="submit" class="violet_btn db">Продолжить</button>
+							</div>
+						</div>
+					</div>
+					<div class="new-popup-registration__bottom tac mb45">
+						<div class="mb20">
+							<a href="#" class="new-purple-link mr10 dib">Войти</a>
+							<a href="#" class="new-purple-link dib">Забыли пароль?</a>
+						</div>
+						<p class="fz12">
+							Продолжая, Вы принимаете условия
+							<a href="#" class="new-purple-link">пользовательского соглашения</a>
+						</p>
+					</div>
+					<div class="new-popup-registration__social-media tac mb30">
+						<div class="new-popup-registration__subtitle fz16 mb30">О проекте пишут следующие СМИ:</div>
+						<div class="new-popup-registration__social-media display-flex space-around flex-middle mb20">
+							<i class="icon-mailonline-logo"></i>
+							<i class="icon-metro-logo"></i>
+							<i class="icon-tatler-logo"></i>
+							<i class="icon-wmj-logo"></i>
+						</div>
+						<ul class="new-popup-registration__social-listing fz12 tal dib">
+							<li><a class="new-purple-link">Daily Mail</a> (Ведущее английское печатное издание)</li>
+							<li>Московским холостякам придется платить за свидания - <a href="#"
+																																					class="new-purple-link">MetroNews</a></li>
+							<li>Сколько стоят отношения по расчету? - <a href="#" class="new-purple-link">TATLER</a></li>
+							<li>Охота на спонсора: где девушкам искать состоятельных парней? - <a href="#"
+																																										class="new-purple-link">WomanJournal</a>
+							</li>
+						</ul>
+					</div>
+					<div class="new-popup-registration__video-about tac mb30">
+						<div class="new-popup-registration__subtitle fz16 mb30">Смотри видео о нас</div>
+						<a href="#">
+							<i class="icon-reg-video"></i>
+						</a>
+					</div>
+					<div class="tac bottom-skip-button">
+						<a href="#" class="new-popup-registration__skip-link">Позже</a>
+					</div>
+				</div>
+				<!-- // END popup registration -->
+
+				<div class="new-popup-registration premium-registration tac hidden pos_r" data-popup-block="8">
+					<!-- START new-reg-premium -->
+					<div class="new-reg-premium new-popup-registration__step-container new-popup-registration__styles">
+						<div class="new-reg-premium__header tac">
+							<p class="mb20"><i class="icon-premium-crown"></i></p>
+							<p class="new-reg-premium__title mb20">Станьте членом эксклюзивного клуба «Золушка Project» –
+								<br>подключите премиум-доступ!</p>
+							<p class="new-reg-premium__subtitle mb30">Клубная система экономит Ваше время. Почему? Наши девушки
+								уверены, что не <br>наткнутся на очередного «любителя поболтать», не имеющего серьезных намерений <br>на
+								сайте,
+								вследствие чего они заинтересованы первыми начать знакомство.</p>
+							<p>
+								<a href="#" class="js-scrollto-button green-round-button" data-scrollto=".js-premium-buy-block">Купить
+									премиум</a>
+							</p>
+						</div>
+						<div class="new-reg-premium__info-plate tac fz12">
+							Подтвердите почту и получите 24 часа премиум доступа бесплатно. <a href="#"
+																																								 class="inherit">Подробнее...</a>
+						</div>
+						<div class="new-reg-premium__abilities">
+							<div class="new-reg-premium__abilities-title">Возможности премиум-доступа</div>
+							<div class="new-reg-premium__abilities-grid display-flex space-around">
+								<div class="new-reg-premium__abilities-item">
+									<div class="new-reg-premium__abilities-icon-wrapper">
+										<i class="icon-man-popup-comments"></i>
+									</div>
+									<p>Общение без ограничений – <br>пишите понравившимся <br>девушкам.</p>
+								</div>
+								<div class="new-reg-premium__abilities-item">
+									<div class="new-reg-premium__abilities-icon-wrapper">
+										<i class="icon-man-popup-settings"></i>
+									</div>
+									<p>Расширенные критерии поиска – <br>найдите любовницу по нужным <br>параметрам.</p>
+								</div>
+								<div class="new-reg-premium__abilities-item">
+									<span class="new-reg-premium__abilities-icon-wrapper">
+										<i class="icon-man-popup-directions"></i>
+									</span>
+									<p>Обмен контактными данными – <br>получайте телефоны и e-mail <br>девушек без ограничений.</p>
+								</div>
+							</div>
+						</div>
+						<!-- START new-reg-premium__feedbacks -->
+						<div class="new-reg-premium__feedbacks text-light">
+							<p class="new-reg-premium__feedbacks-text">По отзывам более чем 600 членов нашего клуба, именно
+								эксклюзивность сервиса помогла им начать
+								принципиально новую жизнь, наполненную яркими эмоциями и любовными наслаждениями.</p>
+						</div>
+						<!-- // END new-reg-premium__feedbacks -->
+						<!-- START new-reg-premium__choseLifetime -->
+						<div class="js-premium-buy-block new-reg-premium__choseLifetime tac">
+							<p class="new-reg-premium__choseLifetime-title">Выберите срок действия.</p>
+							<p class="new-reg-premium__choseLifetime-subTitle">Мы не используем подписки с автоплатежами – оплачивайте
+								<br>
+								премиум-доступ только тогда, когда вам это нужно!</p>
+							<form action="#">
+								<div class="select_wrap_ select_wrap get_in_top dib vam">
+									<select class="selectbox">
+										<option value="">фывф</option>
+										<option value="">фыв22</option>
+										<option value="">фыв11</option>
+										<option value="">333</option>
+										<option value="">фывфыв</option>
+									</select>
+								</div>
+								<div class="new-reg-premium__choseLifetime-buy-button dib vam">
+									<button class="violet_btn db">Купить</button>
+								</div>
+							</form>
+						</div>
+						<!-- // END new-reg-premium__choseLifetime -->
+						<!-- START new-reg-premium__notify -->
+						<div class="new-reg-premium__notify text-light">
+							<div class="dib vam pos_r">
+								<i class="icon-premium-notify-star"></i>
+								При продлении премиум аккаунта оплаченный период добавляется к <br>имеющемуся. Таким образом оплаченные
+								периоды не теряются.
+							</div>
+						</div>
+						<!-- // END new-reg-premium__notify -->
+
+
+						<div class="tac bottom-skip-button">
+							<a href="#" class="new-popup-registration__skip-link">Позже</a>
+						</div>
+					</div>
+					<!-- // END new-reg-premium -->
+				</div>
+
+
+				<div class="new-popup-registration tac hidden" data-popup-block="11">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height no-pb new-popup-registration__thx pos_r">
+						<p class="new-popup-registration__title lhn tac">Подтвердите почту</p>
+						<p class="mb20">Для активации анкеты подтвердите почту. Для этого перейдите по <br>ссылке в письме, которое
+							мы отправили на info@me.com</p>
+						<p class="mb20"><a href="#" class="green-round-button">Продублировать письмо с активацией</a></p>
+						<p class="mb10">Указать другую почту для регистрации и отправить <br>письмо с активацией</p>
+						<form action="#">
+							<div class="dib vam">
+								<input type="email" placeholder="E-mail" required>
+							</div>
+							<div class="dib vam">
+								<button class="violet_btn db">Отправить</button>
+							</div>
+						</form>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+
+				<div class="new-popup-registration tac hidden" data-popup-block="12">
+					<!-- START thx registration -->
+					<div class="new-popup-registration__step-container no-min-height no-pb new-popup-registration__thx pos_r">
+						<p class="new-popup-registration__title lhn tac">Укажите правильную почту</p>
+						<!-- что бы текст стал прозрачным надо убрать класс #remove-opacity# -->
+						<p class="mb60 new-popup-registration__for-activation-opacity-text remove-opacity">Для активации анкеты
+							подтвердите почту. Для этого перейдите по <br>ссылке в письме, которое мы отправили на info@me.com</p>
+						<form action="#" class="dib w40">
+							<div class="vam mb20">
+								<input type="email" class="db" placeholder="E-mail" required>
+							</div>
+							<div class="vam">
+								<button class="violet_btn db" disabled>Отправить</button>
+							</div>
+						</form>
+					</div>
+					<!-- // END thx registration -->
+				</div>
+
+			</div>
+		</div>
+	</div>
 {% endblock %}
