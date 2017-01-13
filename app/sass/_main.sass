@@ -201,6 +201,12 @@
             top: auto
             bottom: 10px
 
+    .icon-photo-mask-moderation
+        position: absolute
+        bottom: 8px
+        cursor: pointer
+        right: 8px
+
 .new-popup-registration__back-link--style
     color: #8e94be
     display: inline-block
@@ -284,7 +290,7 @@
         text-align: center
 
 .violet_btn
-    &:disabled
+    &:disabled, &.disabled
         background: linear-gradient(to bottom, #c1c1c1, #a2a2a2)
 
 .new-popup-registration__step2__form-overlay
@@ -647,12 +653,6 @@ input:checked
     &:before
         margin-left: 1px
         border-left-color: #eee
-
-.icon-photo-mask-moderation
-    position: absolute
-    bottom: 8px
-    cursor: pointer
-    right: 8px
 
 .new-popup-registration__notice
     position: absolute
