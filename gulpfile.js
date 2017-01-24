@@ -84,7 +84,7 @@ gulp.task('pug', function () {
             pretty: true
         }))
         .pipe(gulp.dest(sources.pug.dist))
-        // .pipe(browserSync.reload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
         // .pipe(notify('PUG was compiled'));
 });
 
@@ -106,7 +106,7 @@ gulp.task('twig', function () {
                             .pipe(clean());
                     }, 1000);
                 }))*/
-                // .pipe(browserSync.reload({stream: true}));
+                .pipe(browserSync.reload({stream: true}));
                 // .pipe(notify('TWIG was compiled'));
         }));
 
@@ -124,7 +124,7 @@ gulp.task('compass', function () {
             image: 'app/images'
         }))
         .pipe(gulp.dest(sources.css.dist))
-        // .pipe(browserSync.reload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 });
 
 /* SASS --------------------------------------------------------------------- */
@@ -140,8 +140,8 @@ gulp.task('sass', ["compass"], function() {
         }))
         .pipe(sourcemaps.init())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(sources.css.dist));
-        // .pipe(browserSync.reload({stream: true}));
+        .pipe(gulp.dest(sources.css.dist))
+        .pipe(browserSync.reload({stream: true}));
         // .pipe(notify('SASS was compiled'));
 });
 
@@ -226,8 +226,6 @@ gulp.task('watch', function () {
     // gulp.watch(sources.pug.watch, ["pug"]);
     gulp.watch(sources.twig.watch, ["twig"]);
     gulp.watch(sources.js.watch).on('change', browserSync.reload);
-    gulp.watch(sources.html.src).on("change", browserSync.reload);
-    gulp.watch(sources.css.src).on("change", browserSync.reload);
 });
 
 gulp.task('default', ['browser-sync', 'twig', 'sass', 'watch']);
