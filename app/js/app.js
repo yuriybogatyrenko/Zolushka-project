@@ -154,6 +154,23 @@ App.scrollTo = function (el) {
     });
 };
 
+App.multiselect = function (el) {
+    var multiselect = {};
+
+    multiselect.init = function () {
+        multiselect.bindings();
+    };
+
+    multiselect.bindings = function () {
+
+    };
+
+    multiselect.init();
+    return multiselect;
+};
+
+App.multiselect('.reg-multiselect');
+
 App.scrollTo('.js-scrollto-button');
 
 App.photosUpload('.new-popup-registration__mask');
