@@ -1,175 +1,208 @@
 $doc = $(document);
 
 $(function () {
-    $doc.on('click', '[data-toggle]', function () {
-        var target = $(this).attr('data-toggle');
-        var bl = $('[data-toggle-target="' + target + '"]');
-
-        bl.slideToggle(300);
-        $(this).toggleClass('active');
-        console.log(target);
-        console.log(bl);
-    });
+	$doc.on('click', '[data-toggle]', function () {
+		var target = $(this).attr('data-toggle');
+		var bl = $('[data-toggle-target="' + target + '"]');
+		
+		bl.slideToggle(300);
+		$(this).toggleClass('active');
+		console.log(target);
+		console.log(bl);
+	});
 });
 
 var App = {};
 
 App.photosUpload = function (className) {
-    $(className).each(function () {
-        var mask = {};
-        var $this = $(this);
-
-        mask.container = document.getElementsByClassName('new-popup-registration__mask-container')[0];
-        mask.detele_iconsClass = '.icon-mask-delete';
-        mask.crop_iconsClass = '.icon-mask-crop';
-        mask.crop_closeClass = '.js-close-crop';
-        mask.input = $('#news-popup-registration__mask-input');
-        mask.container_text = mask.container.getElementsByClassName('new-popup-registration__mask-container__text')[0];
-        mask.added_photos = 0;
-        mask.continue_button = $(mask.container).closest('.new-popup-registration__mask').siblings('.new-popup-registration__buttons').find('.js-photo-upload-button');
-
-        // crop vars
-        mask.cropContainer = $('.new-popup-registration__crop-wrapper');
-        mask.crop = $('.new-popup-registration__crop');
-
-        $doc.on('click', mask.detele_iconsClass, function (e) {
-            var el = $(this).closest('.new-popup-registration__mask-item__added-photo');
-            el.css({width: 0, margin: 0});
-            setTimeout(function () {
-                el.remove();
-
-                mask.conditionUpdate();
-            }, 300);
-        });
-
-        mask.cropOpen = function () {
-            mask.cropContainer.fadeIn(200);
-        };
-
-        mask.cropClose = function () {
-            mask.cropContainer.fadeOut(200);
-        };
-
-        $doc.on('click', mask.crop_iconsClass, function () {
-            mask.cropOpen();
-        });
-
-        $doc.on('click', mask.crop_closeClass, function () {
-            mask.cropClose();
-        });
-
-        if (mask.container) {
-            mask.container.ondragover = function (e) {
-                var container = document.getElementsByClassName('new-popup-registration__mask-container')[0];
-                container.classList.add('dragfile-drag');
-            };
-
-            mask.container.ondragleave = function (e) {
-                var container = document.getElementsByClassName('new-popup-registration__mask-container')[0];
-                container.classList.remove('dragfile-drag');
-            };
-        }
-
-        mask.conditionUpdate = function () {
-            if(mask.countUpdate() > 0) {
-                mask.container_text.classList.add('hidden');
-                mask.continue_button.removeAttr('disabled');
-            } else {
-                mask.container_text.classList.remove('hidden');
-                mask.continue_button.attr('disabled', true);
-            }
-        };
-
-        mask.countUpdate = function () {
-            var array = mask.container.getElementsByClassName('new-popup-registration__mask-item__added-photo__wrapper');
-
-            return array.length;
-        };
-
-        mask.showNotice = function (bl) {
-            bl.closest('.new-popup-registration__step-container').addClass('show-mask-notice');
-        };
-
-        mask.hideNotice = function (bl) {
-            bl.closest('.new-popup-registration__step-container').removeClass('show-mask-notice');
-        };
-
-        $doc.on('click', '.new-popup-registration__mask-container-units .icon-photo-mask-moderation', function () {
-            mask.showNotice($(this));
-        });
-
-        $doc.on('click', '.js-close-notice', function () {
-            mask.hideNotice($(this));
-        });
-
-        mask.input.on('change', function () {
-            if (mask.container)
-                mask.container.classList.remove('dragfile-drag');
-
-            if (this.files && this.files[0] && window.FileReader) {
-                // console.log(this.files);
-                _this = this;
-                var the_files = _this.files;
-                Object.keys(the_files).map(function (objectKey, index) {
-                    var value = the_files[objectKey];
-                    var input = _this;
-                    var reader = new FileReader();
-                    var template = function (ev) {
-                        return '' +
-                            '<div data-key="' + objectKey + '" class="new-popup-registration__mask-item__added-photo" style="width: 0;">' +
-                            '<div class="new-popup-registration__mask-item__added-photo__wrapper">' +
-                            '<img alt="" src="' + ev.target.result + '"/>' +
-                            '</div>' +
-                            '<i class="icon-mask-delete"></i>' +
-                            '<i class="icon-mask-crop"></i>' +
-                            '<i class="icon-photo-mask-moderation"></i>' +
-                            '</div>';
-                    };
-
-                    reader.onload = function (e) {
-                        $('.new-popup-registration__mask-container-units')
-                            .append(template(e));
-                        setTimeout(function () {
-                            $('.new-popup-registration__mask-item__added-photo').removeAttr('style');
-                            input.removeAttribute("value");
-
-                            mask.conditionUpdate();
-                        }, 20);
-                    };
-                    reader.readAsDataURL(value);
-                });
-            }
-        });
-    });
+	$(className).each(function () {
+		var mask = {};
+		var $this = $(this);
+		
+		mask.container = document.getElementsByClassName('new-popup-registration__mask-container')[0];
+		mask.detele_iconsClass = '.icon-mask-delete';
+		mask.crop_iconsClass = '.icon-mask-crop';
+		mask.crop_closeClass = '.js-close-crop';
+		mask.input = $('#news-popup-registration__mask-input');
+		mask.container_text = mask.container.getElementsByClassName('new-popup-registration__mask-container__text')[0];
+		mask.added_photos = 0;
+		mask.continue_button = $(mask.container).closest('.new-popup-registration__mask').siblings('.new-popup-registration__buttons').find('.js-photo-upload-button');
+		
+		// crop vars
+		mask.cropContainer = $('.new-popup-registration__crop-wrapper');
+		mask.crop = $('.new-popup-registration__crop');
+		
+		$doc.on('click', mask.detele_iconsClass, function (e) {
+			var el = $(this).closest('.new-popup-registration__mask-item__added-photo');
+			el.css({width: 0, margin: 0});
+			setTimeout(function () {
+				el.remove();
+				
+				mask.conditionUpdate();
+			}, 300);
+		});
+		
+		mask.cropOpen = function () {
+			mask.cropContainer.fadeIn(200);
+		};
+		
+		mask.cropClose = function () {
+			mask.cropContainer.fadeOut(200);
+		};
+		
+		$doc.on('click', mask.crop_iconsClass, function () {
+			mask.cropOpen();
+		});
+		
+		$doc.on('click', mask.crop_closeClass, function () {
+			mask.cropClose();
+		});
+		
+		if (mask.container) {
+			mask.container.ondragover = function (e) {
+				var container = document.getElementsByClassName('new-popup-registration__mask-container')[0];
+				container.classList.add('dragfile-drag');
+			};
+			
+			mask.container.ondragleave = function (e) {
+				var container = document.getElementsByClassName('new-popup-registration__mask-container')[0];
+				container.classList.remove('dragfile-drag');
+			};
+		}
+		
+		mask.conditionUpdate = function () {
+			if (mask.countUpdate() > 0) {
+				mask.container_text.classList.add('hidden');
+				mask.continue_button.removeAttr('disabled');
+			} else {
+				mask.container_text.classList.remove('hidden');
+				mask.continue_button.attr('disabled', true);
+			}
+		};
+		
+		mask.countUpdate = function () {
+			var array = mask.container.getElementsByClassName('new-popup-registration__mask-item__added-photo__wrapper');
+			
+			return array.length;
+		};
+		
+		mask.showNotice = function (bl) {
+			bl.closest('.new-popup-registration__step-container').addClass('show-mask-notice');
+		};
+		
+		mask.hideNotice = function (bl) {
+			bl.closest('.new-popup-registration__step-container').removeClass('show-mask-notice');
+		};
+		
+		$doc.on('click', '.new-popup-registration__mask-container-units .icon-photo-mask-moderation', function () {
+			mask.showNotice($(this));
+		});
+		
+		$doc.on('click', '.js-close-notice', function () {
+			mask.hideNotice($(this));
+		});
+		
+		mask.input.on('change', function () {
+			if (mask.container)
+				mask.container.classList.remove('dragfile-drag');
+			
+			if (this.files && this.files[0] && window.FileReader) {
+				// console.log(this.files);
+				_this = this;
+				var the_files = _this.files;
+				Object.keys(the_files).map(function (objectKey, index) {
+					var value = the_files[objectKey];
+					var input = _this;
+					var reader = new FileReader();
+					var template = function (ev) {
+						return '' +
+								'<div data-key="' + objectKey + '" class="new-popup-registration__mask-item__added-photo" style="width: 0;">' +
+								'<div class="new-popup-registration__mask-item__added-photo__wrapper">' +
+								'<img alt="" src="' + ev.target.result + '"/>' +
+								'</div>' +
+								'<i class="icon-mask-delete"></i>' +
+								'<i class="icon-mask-crop"></i>' +
+								'<i class="icon-photo-mask-moderation"></i>' +
+								'</div>';
+					};
+					
+					reader.onload = function (e) {
+						$('.new-popup-registration__mask-container-units')
+								.append(template(e));
+						setTimeout(function () {
+							$('.new-popup-registration__mask-item__added-photo').removeAttr('style');
+							input.removeAttribute("value");
+							
+							mask.conditionUpdate();
+						}, 20);
+					};
+					reader.readAsDataURL(value);
+				});
+			}
+		});
+	});
 };
 
 App.scrollTo = function (el) {
-    $(el).each(function () {
-        var $this = $(this);
-
-        $this.on('click', function () {
-            var pos = $($this.attr('data-scrollto')).offset().top;
-            $this.closest('.overlay').animate({scrollTop: pos}, 500);
-        });
-    });
+	$(el).each(function () {
+		var $this = $(this);
+		
+		$this.on('click', function () {
+			var pos = $($this.attr('data-scrollto')).offset().top;
+			$this.closest('.overlay').animate({scrollTop: pos}, 500);
+		});
+	});
 };
 
-App.multiselect = function (el) {
-    var multiselect = {};
-
-    multiselect.init = function () {
-        multiselect.bindings();
-    };
-
-    multiselect.bindings = function () {
-
-    };
-
-    multiselect.init();
-    return multiselect;
+App.multiselect = function (className) {
+	var multiselect = {};
+	multiselect.elements = document.querySelectorAll(className);
+	multiselect.dropdowns = document.querySelectorAll('.js-multiselect__dropdown');
+	
+	multiselect.init = function () {
+		multiselect.bindings();
+	};
+	
+	multiselect.bindings = function () {
+		for (i = 0; i < multiselect.elements.length; i++) {
+			var select = multiselect.elements[i];
+			
+			select.querySelector('.js-multiselect__current').addEventListener('click', function (e) {
+				e.preventDefault();
+				
+				// console.log('hi');
+			});
+		}
+		
+		document.onclick = function (e) {
+			console.log('document click');
+			if (e.target.classList.contains('js-multiselect__current') || !e.target.closest('.js-multiselect')) {
+				multiselect.hideDropdown(multiselect.elements);
+			}
+		};
+	};
+	
+	multiselect.showDropdown = function () {
+		
+	};
+	
+	multiselect.hideDropdown = function (select) {
+		// console.log(Object.prototype.toString.call(select))
+		if (Object.prototype.toString.call(select) == '[object NodeList]') {
+			console.log('close node list')
+			for (i = 0; i < select.length; i++) {
+				select[i].querySelector('.js-multiselect__dropdown').style.display = 'none';
+			}
+		} else {
+			console.log('not array')
+		}
+	};
+	
+	multiselect.init();
+	return multiselect;
 };
 
-App.multiselect('.reg-multiselect');
+App.multiselect('.js-multiselect');
 
 App.scrollTo('.js-scrollto-button');
 
