@@ -1655,3 +1655,101 @@ input:checked + .new-popup-reg__radio-detect {
 .new-popup-registration__crop-cross {
   color: #df6365;
 }
+
+.js-multiselect {
+  position: relative;
+}
+.js-multiselect.dropdown-open .js-multiselect__dropdown {
+  display: block;
+}
+
+.js-multiselect__current {
+  line-height: 36px;
+  height: 38px;
+  border: 1px solid #9e9e9e;
+  border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 35px 0 15px;
+}
+.js-multiselect__current:after {
+  content: "";
+  display: block;
+  border: 4px solid transparent;
+  border-top: 6px solid #a7a7a7;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -3px;
+}
+
+.js-multiselect__dropdown {
+  padding-top: 10px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.js-multiselect__dropdown:after, .js-multiselect__dropdown:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  border: 5px solid transparent;
+  border-bottom: 5px solid #9e9e9e;
+}
+.js-multiselect__dropdown:after {
+  border-bottom: 5px solid #fff;
+  margin-top: 1px;
+}
+
+.js-multiselect__lising {
+  border: 1px solid #a7a7a7;
+  background: #fff;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.js-multiselect__item {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  line-height: 38px;
+}
+.js-multiselect__item:hover {
+  background: #DADADA;
+}
+.js-multiselect__item:not(:last-child) {
+  border-bottom: 1px solid #a7a7a7;
+}
+
+.js-multiselect__label {
+  display: block;
+  padding: 0 35px 0 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input:checked + .js-multiselect__detector:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  -webkit-transform: rotate(-45deg) translateY(-50%);
+  -moz-transform: rotate(-45deg) translateY(-50%);
+  -ms-transform: rotate(-45deg) translateY(-50%);
+  -o-transform: rotate(-45deg) translateY(-50%);
+  transform: rotate(-45deg) translateY(-50%);
+  width: 14px;
+  height: 6px;
+  border-bottom: 2px solid #000;
+  border-left: 2px solid #000;
+}
