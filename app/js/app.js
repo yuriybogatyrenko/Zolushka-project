@@ -165,42 +165,51 @@ App.multiselect = function (className) {
     };
 
     multiselect.bindings = function () {
-        for (i = 0; i < multiselect.elements.length; i++) {
+        for (var i = 0; i < multiselect.elements.length; i++) {
             var select = multiselect.elements[i];
 
             multiselect.updateLabels(select);
 
+            console.log(select);
+
             select.querySelector('.js-multiselect__current').addEventListener('click', function (e) {
                 e.preventDefault();
 
-                if (select.classList.contains('dropdown-open'))
-                    multiselect.hideDropdown(select);
-                else
-                    multiselect.showDropdown(select);
+                var selectEl = this.closest('.js-multiselect');
+
+                if (selectEl.classList.contains('dropdown-open')) {
+                    multiselect.hideDropdown(selectEl);
+                } else {
+                    multiselect.hideDropdown(multiselect.elements);
+                    multiselect.showDropdown(selectEl);
+                }
+
             });
 
             var inputs = select.querySelectorAll('input');
 
-            for (i = 0; i < inputs.length; i++) {
-                inputs[i].addEventListener('change', function () {
-                    multiselect.updateLabels(select);
+            for (var z = 0; z < inputs.length; z++) {
+                inputs[z].addEventListener('change', function () {
+                    var parentSelect = this.closest('.js-multiselect');
+                    multiselect.updateLabels(parentSelect);
                 });
             }
         }
 
         document.addEventListener('click', function (e) {
+            console.log(e.target)
             if (!e.target.closest('.js-multiselect')) {
                 multiselect.hideDropdown(multiselect.elements);
             }
         });
     };
 
-    multiselect.updateLabels = function (select) {
-        var inputs = select.querySelectorAll('input');
+    multiselect.updateLabels = function (selectBlock) {
+        var inputs = selectBlock.querySelectorAll('input');
         var inputsText = [];
-        var currentEl = select.querySelector('.js-multiselect__current');
+        var currentEl = selectBlock.querySelector('.js-multiselect__current');
 
-        for (i = 0; i < inputs.length; i++) {
+        for (var i = 0; i < inputs.length; i++) {
             var input = inputs[i];
             if (input.checked) {
                 inputsText.push(input.closest('.js-multiselect__label').innerText);
@@ -216,7 +225,7 @@ App.multiselect = function (className) {
 
     multiselect.hideDropdown = function (select) {
         if (Object.prototype.toString.call(select) == '[object NodeList]') {
-            for (i = 0; i < select.length; i++) {
+            for (var i = 0; i < select.length; i++) {
                 select[i].classList.remove('dropdown-open');
             }
         } else {

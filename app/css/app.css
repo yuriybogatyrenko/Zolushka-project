@@ -871,12 +871,16 @@
   opacity: 0;
   z-index: 10;
   display: block;
+  cursor: pointer;
 }
 
 .new-popup-registration__mask-container-units {
   margin-bottom: -20px;
 }
 
+.new-popup-registration__mask-container {
+  cursor: pointer;
+}
 .new-popup-registration__mask-container.dragfile-drag .new-popup-registration__mask-item__added-photo {
   z-index: 1;
 }
@@ -1693,6 +1697,7 @@ input:checked + .new-popup-reg__radio-detect {
   top: 100%;
   left: 0;
   right: 0;
+  z-index: 10;
 }
 .js-multiselect__dropdown:after, .js-multiselect__dropdown:before {
   content: "";
