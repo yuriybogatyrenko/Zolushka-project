@@ -1,0 +1,41 @@
+.wallet-menu__premium-present {
+  border: 1px solid #ea515b;
+  padding: 10px 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-left: -10px;
+  margin-right: -10px;
+  line-height: 1.4;
+  color: #242424;
+}
+
+.icon-premium-present {
+  margin-right: 10px;
+  background-image: url('../images/icons-s41018790f8.png');
+  background-position: 0 -776px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  height: 42px;
+  width: 49px;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-resolution: 1.5dppx) {
+  .icon-premium-present {
+    background-image: url('../images/icons-2x-sc3956d4da9.png');
+    background-size: 217px auto;
+    background-position: 0 -721px;
+    height: 42px;
+    width: 49px;
+  }
+}
+
+.ffm {
+  font-family: TruthCYR-M;
+}
+
+.wallet-menu__red-text {
+  color: #ff0418;
+}

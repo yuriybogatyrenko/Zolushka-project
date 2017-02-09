@@ -7,8 +7,6 @@ $(function () {
 
         bl.slideToggle(300);
         $(this).toggleClass('active');
-        console.log(target);
-        console.log(bl);
     });
 });
 
@@ -170,8 +168,6 @@ App.multiselect = function (className) {
 
             multiselect.updateLabels(select);
 
-            console.log(select);
-
             select.querySelector('.js-multiselect__current').addEventListener('click', function (e) {
                 e.preventDefault();
 
@@ -197,7 +193,6 @@ App.multiselect = function (className) {
         }
 
         document.addEventListener('click', function (e) {
-            console.log(e.target)
             if (!e.target.closest('.js-multiselect')) {
                 multiselect.hideDropdown(multiselect.elements);
             }
