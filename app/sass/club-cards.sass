@@ -1,0 +1,80 @@
+@import "mixins/mixins"
+
+.club-cards
+    &__title
+        font-size: 24px
+        color: #0c0c0c
+        margin-bottom: 20px
+
+    &__list_card_preview
+        width: calc(100% - 320px)
+        padding-top: 20px
+
+    &__list
+        padding-left: 20px
+
+    &__list-item
+        list-style: none
+        position: relative
+        padding-left: 25px
+
+        &:not(:last-child)
+            margin-bottom: 15px
+            line-height: 1.3
+
+        &:after
+            display: block
+            content: ''
+            position: absolute
+            left: 0
+            top: 5px
+            width: 10px
+            height: 6px
+            border-bottom: 2px solid #3fd0a5
+            border-left: 2px solid #3fd0a5
+            +transform(rotate(-45deg))
+
+    &__card-preview
+        width: 286px
+
+        img
+            max-width: 100%
+            
+            
+.cards-lifetime
+    &__title
+        font-size: 18px
+        color: #0c0c0c
+        line-height: 1.4
+
+    &__sub-title
+        color: #585858
+        line-height: 1.15
+        margin-bottom: 25px
+
+        .red-text
+            color: #e9535d
+    
+    &__item
+        background: rgba(#9b64a0, 0.1)
+        border-radius: 5px
+        width: 30%
+        padding: 25px 15px 10px
+        color: #585858
+
+        &-title
+            color: #333333
+            font-size: 16px
+            margin-bottom: 20px
+
+        &-icon
+            margin-bottom: 15px
+
+        &-descr
+            margin-bottom: 15px
+
+        &-price
+            margin-bottom: 15px
+
+        &-button
+            opacity: 0
