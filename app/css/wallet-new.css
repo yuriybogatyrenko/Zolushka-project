@@ -98,6 +98,7 @@
   font-family: TruthCYR-R;
   white-space: nowrap;
   margin-left: 10px;
+  min-width: 140px;
 }
 .buy-form__suggestion-sell-text.sell-text__minimal {
   color: #3fd0a5;
