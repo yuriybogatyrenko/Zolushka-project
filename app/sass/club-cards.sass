@@ -54,6 +54,12 @@
             &:not(:last-child)
                 margin-bottom: 20px
 
+    &__activated-list
+        line-height: 1.4
+        
+    .new-purple-link
+        color: #b05fbc
+
 .icon-present-empty
     +sprite(icon-present-empty)
 
@@ -140,3 +146,23 @@
         font-size: 14px
         background: #ffffff
         font-family: TruthCYR-R
+
+.activated-card
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    height: 130px
+    width: 205px
+    border-radius: 10px
+    color: #fff
+    box-shadow: 0 0 45px rgba(#000, 0.3)
+    background-image: linear-gradient(-60deg, #e2adea, #d663c6)
+    background-image: -webkit-linear-gradient(-60deg, #e2adea, #d663c6)
+    background-image: -moz-linear-gradient(-60deg, #e2adea, #d663c6)
+    background-image: -ms-linear-gradient(-60deg, #e2adea, #d663c6)
+    background-image: -o-linear-gradient(-60deg, #e2adea, #d663c6)
+
+    &__duration
+        font-size: 29px
+        line-height: 1
