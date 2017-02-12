@@ -1,0 +1,1247 @@
+{% extends "layouts/app.twig" %}
+
+{% block pageTitle %}Регистрация мужчин{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div class="overlay">
+            <div class="table_wrap">
+                <div class="td_wrap">
+                    <div class="main_popup who_online" data-popup-block="insufficient_funds" style="display: none;">
+                        <div class="close_popup" data-popup-close="insufficient_funds"></div>
+                        <p class="title_pop">Недостаточно средств</p>
+                        <div class="descr_txt">На Вашем счете недостаточно средств. Предлагаем <a
+                                    href="/payment">пополнить</a> баланс.
+                        </div>
+                        <div class="dib vam"><a href="/payment"
+                                                class="violet_btn dib vam light insufficient-funds-button">Пополнить</a>
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="insufficient_funds">Закрыть</a></p>
+                    </div>
+                    <div class="message_send_popup main_popup sms_pop" data-popup-block="message_send_popup">
+                        <div class="close_popup" data-popup-close="message_send_popup"></div>
+                        <p class="title_pop">Ваше сообщение отправлено</p></div>
+                    <div class="main_popup swap_popup tac" data-popup-block="confirm-photo">
+                        <div class="close_popup" data-popup-close="confirm-photo"></div>
+                        <div class="select_folder"><img src="/images/confirmed-example.jpg"/></div>
+                    </div>
+                    <div class="main_popup who_online" data-popup-block="send_message">
+                        <div class="close_popup" data-popup-close="send_message"></div>
+                        <p class="title_pop">Отправить сообщение </p>
+                        <div class="descr_txt">Вы можете отправить пользователю сообщение. <br/><span
+                                    id="first-message">Обратите внимание,
+                                что за первое
+                                сообщение взымается 1 контакт.</span></div>
+                        <form class="buy_form" id="profile-send-message" action="#" data-id="0"><textarea name="message"
+                                                                                                          style="width: 100%;"
+                                                                                                          placeholder="Введите сообщение"
+                                                                                                          id="profile-message"></textarea>
+                            <div class="dib vam" style="float: right;">
+                                <button type="submit" class="violet_btn dib vam light">Отправить</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="main_popup who_online" data-popup-block="minutes_count">
+                        <div class="close_popup" data-popup-close="minutes_count"></div>
+                        <p class="title_pop">Недостаточно минут</p>
+                        <div class="descr_txt">На Вашем счете недостаточно минут. Предлагаем <a
+                                    class="red_link" href="/calls">купить</a> минуты.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="minutes_count">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="contacts_count">
+                        <div class="close_popup" data-popup-close="contacts_count"></div>
+                        <p class="title_pop">Недостаточно контактов</p>
+                        <div class="descr_txt">На Вашем счете недостаточно контактов. Предлагаем <a
+                                    class="red_link" href="/payment/contacts">купить</a>
+                            контакты.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="contacts_count">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="in_blacklist">
+                        <div class="close_popup" data-popup-close="in_blacklist"></div>
+                        <p class="title_pop">Не удалось отправить сообщение</p>
+                        <div class="descr_txt">Пользователь находится в черном списке.</div>
+                        <p><a class="red_link size18" href="#" data-popup-close="in_blacklist">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="empty_message">
+                        <div class="close_popup" data-popup-close="empty_message"></div>
+                        <p class="title_pop">Не удалось отправить сообщение</p>
+                        <div class="descr_txt">Необходимо указать сообщение.</div>
+                        <p><a class="red_link size18" href="#" data-popup-close="empty_message">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="not_premium">
+                        <div class="close_popup" data-popup-close="not_premium"></div>
+                        <p class="title_pop">Необходим премиум-аккаунт</p>
+                        <div class="descr_txt">Для возможности писать или звонить содержанкам необходимо <br>приобрести
+                            <a class="red_link" href="/payment/premium">премиум-аккаунт</a>.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="not_premium">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="message_not_active">
+                        <div class="close_popup" data-popup-close="message_not_active"></div>
+                        <p class="title_pop">Необходимо активировать аккаунт</p>
+                        <div class="descr_txt">Для возможности писать сообщения необходимо активировать аккаунт.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="message_not_active">Закрыть</a></p>
+                    </div>
+                    <div class="main_popup who_online" data-popup-block="service_not_active">
+                        <div class="close_popup" data-popup-close="service_not_active"></div>
+                        <p class="title_pop">Необходимо активировать аккаунт</p>
+                        <div class="descr_txt">Для возможности покупать услуги необходимо активировать аккаунт.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="service_not_active">Закрыть</a></p>
+                    </div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="call">
+                        <div class="close_popup" data-popup-close="call"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="pop_bold_text">Звоним <a href="#" class="name viol_txt"></a></div>
+                        <br/>
+                        <div class="photo_wrap"><a href="#" class="img_wrap in_bl"><img
+                                        src="/images/default-user-avatar.png"
+                                        alt=""></a></div>
+                        <p id="calling-someone"><a class="red_link size18" href="#"
+                                                   data-popup-close="call">Закрыть</a></p></div>
+                    <div class="add_phone main_popup user_call_pop" data-popup-block="call_allowed">
+                        <div class="close_popup phone-added-redirect" data-popup-close="call_allowed"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <p class="pop_bold_text">Вы можете позвонить <span class="viol_txt name-span"></span></p>
+                        <div class="photo_wrap"><a href="#" class="img_wrap in_bl"><img
+                                        src="/images/default-user-avatar.png"
+                                        alt=""></a></div>
+                        <p><a href="#" class="main_big_btn phone_bg in_bl" id="call-kept">Позвонить</a></p>
+                        <p><a class="red_link size18" href="#" data-popup-close="call_allowed">Отменить</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="not_allowed">
+                        <div class="close_popup" data-popup-close="not_allowed"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="pop_bold_text">Пользователь <a href="#" class="name viol_txt"></a> запретила
+                            входящие вызовы.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="not_allowed">Закрыть</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="already_call">
+                        <div class="close_popup" data-popup-close="already_call"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="pop_bold_text">Пожалуйста, завершите голосовой вызов прежде чем звонить
+                            кому-нибудь еще,
+                            покупать минуты или менять телефон.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="already_call">Закрыть</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="call_failed">
+                        <div class="close_popup" data-popup-close="call_failed"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="photo_wrap"><a href="#" class="img_wrap call-url in_bl"><img
+                                        src="/images/default-user-avatar.png" alt=""><span
+                                        class="photo_verified icon"></span></a></div>
+                        <div class="pop_bold_text  call-notify-text">Не удалость установить соединение
+                            с пользователем <a href="#" class="name call-url viol_txt"></a></div>
+                        <p><a class="red_link size18" href="#" data-popup-close="call_failed">Закрыть</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="call_success">
+                        <div class="close_popup" data-popup-close="call_success"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="photo_wrap"><a href="#" class="img_wrap call-url in_bl"><img
+                                        src="/images/default-user-avatar.png" alt=""><span
+                                        class="photo_verified icon"></span></a></div>
+                        <div class="pop_bold_text call-notify-text">Разговор с пользователем <a href="#"
+                                                                                                class="name call-url viol_txt"></a>
+                            завершен
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="call_failed">Закрыть</a></p></div>
+                    <div class="add_phone main_popup sms_pop" data-popup-block="sms_pop">
+                        <div class="close_popup" data-popup-close="sms_pop"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="sms_bl">
+                            <div class="pop_bold_text">
+                                На ваш номер <span class="you_number"></span> было отправлено <br> SMS c кодом
+                                подтверждения
+                            </div>
+                            <div class="pop_bold_text" id="confirm-second-string" style="display: none;">
+                                SMS с кодом было повторно отправлено. <br/>Получить код повторно можно будет через
+                                <span
+                                        id="repeat-code-left"></span></div>
+                            <form class="leave_phone in_bl" id="confirm-code">
+                                <div class="top_line"><input class="main_input" id="confirm-code-value" name="code"
+                                                             type="text"
+                                                             placeholder="введите код из СМС">
+                                    <button class="violet_btn light">Подтвердить</button>
+                                    <p class="error_text" style="display: none;"></p></div>
+                            </form>
+                            <div class="btn_wrap"><p><a class="red_link" href="#" id="popup-repeat-code">Получить код
+                                        повторно</a></p>
+                                <p><a class="red_link" href="#" id="popup-change-number">Изменить номер</a></p></div>
+                        </div>
+                    </div>
+                    <div class="main_popup  time_to_call" data-popup-block="time_to_call">
+                        <div class="close_popup" data-popup-close="time_to_call"></div>
+                        <p class="title_pop">Голосовой вызов</p><span class="in_bl time_icon"></span>
+                        <p class="pop_bold_text">В это время <span class="name"></span> не принимает звонки</p>
+                        <p><a class="red_link size18" href="#" data-popup-close="time_to_call">Закрыть</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="call_not_connected">
+                        <div class="close_popup" data-popup-close="call_not_connected"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="pop_bold_text">
+                            Пользователь <a href="#"
+                                            class="name viol_txt"></a>
+                            еще не подключила <br> услуги голосового вызова.
+                        </div>
+                        <span class="in_bl not_connected_icon"></span>
+                        <div class="descr">Как только пользователь подключит голосовой вызов мы пришлем вам
+                            уведомление<br>
+                            о возможности позвонить. О вашем намерении позвонить ей мы направили <br> сообщение.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="call_not_connected">Закрыть</a></p>
+                    </div>
+                    <div class="main_popup" data-popup-block="image_min_size">
+                        <div class="close_popup" data-popup-close="image_min_size"></div>
+                        <div class="pop_bold_text">Загрузите пожалуйста фотографию большего размера (минимальный
+                            размер 300 на 300 пикселей).
+                            <br>Спасибо!<br></div>
+                        <p><a class="red_link size18" href="#" data-popup-close="image_min_size">Закрыть</a></p></div>
+                    <div class="main_popup" data-popup-block="multi_image_min_size">
+                        <div class="close_popup" data-popup-close="multi_image_min_size"></div>
+                        <div class="pop_bold_text">Одна или несколько загружаемых картинок слишком маленького
+                            размера и мы не смогли её загрузить.
+                        </div>
+                        <p><a class="red_link size18" href="#"
+                              data-popup-close="multi_image_min_size">Закрыть</a></p></div>
+                    <div class="main_popup" data-popup-block="cant_delete_last_image">
+                        <div class="close_popup" data-popup-close="cant_delete_last_image"></div>
+                        <div class="pop_bold_text">Невозможно удалить последнюю фотографию. Загрузите больше
+                            фотографий сначала для удаления этой.
+                        </div>
+                        <p><a class="red_link size18" href="#"
+                              data-popup-close="cant_delete_last_image">Закрыть</a></p></div>
+                    <div class="add_phone main_popup user_call_pop" data-popup-block="user_call_pop">
+                        <div class="close_popup phone-added-redirect" data-popup-close="user_call_pop"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <p class="pop_bold_text">Ваш номер
+                            добавлен.</p>
+                        <p><a class="red_link size18 phone-added-redirect" href="#"
+                              data-popup-close="user_call_pop">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="mobile_app" style="display: none;">
+                        <div class="close_popup" data-popup-close="mobile_app"></div>
+                        <p class="title_pop">Мобильное приложение</p>
+                        <div class="descr_txt app-mobile-text">Станет доступно через несколько дней</div>
+                        <p><a class="red_link size18" href="#" data-popup-close="mobile_app">Закрыть</a></p></div>
+                    <div class="add_phone main_popup voice_call" data-popup-block="voice_call">
+                        <div class="close_popup" data-popup-close="voice_call"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <p class="pop_bold_text">Подключите телефон и принимайте звонки от спонсоров.</p>
+                        <div class="descr">Ваш номер не будет виден никому, Ваша конфиденциальность превыше всего. <br>
+                            Звонки будут
+                            осуществляться внутри сайта и только с Вашего согласия.
+                        </div>
+                        <form class="leave_phone in_bl" id="add-phone"><p class="pact">Продолжая вы соглашаетесь с
+                                условиями
+                                <a target="_blank" class="red_txt" href="/terms-of-use">Соглашения</a></p>
+                            <div class="wrap_line">
+                                <div class="top_line"><input class="main_input no-js-ph" name="phone"
+                                                             id="add-phone-number"
+                                                             data-inputmask="'mask':'+7 (999) 999-99-99'" type="text"
+                                                             placeholder="Укажите номер телефона">
+                                    <button class="violet_btn light">Подтвердить</button>
+                                    <p class="error_text" style="display: none;"></p></div>
+                                <div class="descr kept-call-desc">Укажите время, в которое Вы сможете отвечать на
+                                    звонки.
+                                    <br>
+                                    (Время можно будет изменить позднее)
+                                </div>
+                                <div class="top_line2"><label class="in_bl "><input class="icon-ok set-weekdays"
+                                                                                    type="checkbox" checked>
+                                        Будние дни по одному графику
+                                    </label></div>
+                                <div class="line weekdays"><label class="in_bl left_txt"><input class="icon-ok"
+                                                                                                type="checkbox" checked>
+                                        Будни
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select id="weekdays-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select id="weekdays-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="1" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Понедельник
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="2" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Вторник
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="3" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Среда
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="4" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Четверг
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="5" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Пятница
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line" data-day="6"><label class="in_bl left_txt"><input class="icon-ok"
+                                                                                                    type="checkbox"
+                                                                                                    checked>
+                                        Суббота
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line" data-day="7"><label class="in_bl left_txt"><input class="icon-ok"
+                                                                                                    type="checkbox"
+                                                                                                    checked>
+                                        Воскресенье
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="main_popup who_online" data-popup-block="buy_service">
+                        <div class="close_popup" data-popup-close="buy_service"></div>
+                        <p class="title_pop">Подтверждение</p>
+                        <div class="descr_txt">Вы уверены, что хотите приобрести поднятие анкеты в ТОП?
+                        </div>
+                        <div class="dib vam"><a href="#" class="violet_btn dib vam light submit-button"
+                                                id="confirm-buy-top-elevated" data-id="0">Подтвердить</a></div>
+                        <p><a class="red_link size18" href="#" data-popup-close="buy_service">Отменить</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="top_elevated_success" style="display: none;">
+                        <div class="close_popup" data-popup-close="top_elevated_success"></div>
+                        <p class="title_pop">Услуга оплачена</p>
+                        <div class="descr_txt">Вы успешно оплатили поднятие анкеты в ТОП.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="top_elevated_success">Закрыть</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slides_popup anim_ready">
+            <div class="table">
+                <div class="td">
+                    <div class="img_wrap"></div>
+                    <div class="slides_popup_bg"></div>
+                    <div class="prev trans_all dur500_all  event_btn click_area"><span class="icon-angle-left"></span>
+                        <div class="prev_bg"></div>
+                    </div>
+                    <div class="close trans_all dur500_all click_area">
+                        <div class="prev_bg"></div>
+                    </div>
+                    <span class="close icon-cancel"></span>
+                    <div class="checkbox-round checked-avatar" style="display:none; cursor:pointer;"><input
+                                type="checkbox"
+                                class="no-style"
+                                id="check1"/><label
+                                for="check1">
+                            <div><i class="fa fa-check"></i></div>
+                            Сделать основной
+                        </label></div>
+                </div>
+            </div>
+        </div>
+        <header id="main_header">
+            <div class="top_header">
+                <div class="cont_wrap clearfix tac"><a href="/" class="logo_bl clearfix l_bl">
+                        <div class="icon_logo l_bl"><img src="/images/logo.png" alt="#"></div>
+                        <div class="txt_logo l_bl"><p class="bot">Золушка</p>
+                            <p class="top">project</p></div>
+                    </a>
+                    <div class="header_prof_info r_bl clearfix">
+                        <div class="item l_bl" id="header-search-place"
+                        >
+                            <div class="top_line"><p class="in_bl">Место в поиске</p><span
+                                        class="num_text in_bl search-place">9376</span><span
+                                        class="top_icon in_bl people_icon"><img src='/images/icon3.png'
+                                                                                alt="#"/></span>
+                            </div>
+                            <div class="bot_line"><a class="add_btn" href="/payment/top-elevated"><span
+                                            class="in_bl arrow_icon"><img src='/images/arr_icon.png'
+                                                                          alt="#"/></span><span
+                                            class="txt in_bl">Поднять анкету</span></a></div>
+                        </div>
+                    </div>
+                    <div class="header__apps-icons in_bl">
+                        <div class="header__apps-icon in_bl hover-tooltip__show"><a href="/promo-mobile"
+                                                                                    target="_blank"><i
+                                        class="icon-new__appstore"></i></a>
+                            <div class="-new-tooltip right">
+                                Скачать бесплатное мобильное <br>приложение для iPhone
+                            </div>
+                        </div>
+                        <div class="header__apps-icon in_bl hover-tooltip__show"><a href="/promo-mobile"
+                                                                                    target="_blank"><i
+                                        class="icon-new__google-play"></i></a>
+                            <div class="-new-tooltip left">
+                                Скачать бесплатное мобильное <br>приложение для Android
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sep_header"></div>
+            <div class="bot_header">
+                <div class="cont_wrap clearfix">
+                    <ul class="prof_nav l_bl">
+                        <li class=""><a href="/search">Поиск</a></li>
+                        <li class=""><a href="/profile-views">
+                                Кто смотрел
+                                <span class="num_icon" style="display: none;"
+                                      id="profile-views-count">                                            0</span></a>
+                        </li>
+                        <li class=""><a href="/adv-messages">
+                                Рассылка
+
+                                <span
+                                        class="num_icon" style="display: none;" id="adv-count">                                                0</span></a>
+                        </li>
+                        <li class=""><a data-popup-open="voice_call" href="#">
+                                Звонки
+                                <span class="num_icon"
+                                      style="display: none;">                                            0</span></a>
+                        </li>
+                        <li class=""><a href="#" class="in_bl messagePopupOpen" ng-click="dialogsCtrl.getStartDialogs()"
+                                        message-popup-open>
+                                Сообщения
+                                <span global-messages-counter="{{ appCtrl.globalMessagesCounter }}"></span></a></li>
+                        <li><a href="/blog">
+                                Блог
+                                <span class="num_icon">1</span></a></li>
+                    </ul>
+                    <div class="prof_setting_header r_bl"><a href="/payment" class="in_bl score"><span
+                                    class='wallet_icon in_bl'><img src='/images/icon4.png' alt="#"/></span><span
+                                    class="num_txt in_bl">Счет: <span
+                                        id="current-balance">930.00</span> руб. </span></a>
+                        <div class="in_bl">
+                            <div class="prof_link in_bl">
+                                <div class="type_prof in_bl">
+                                    <div class='type_prof_icon in_bl'><img class="kept-non-active"
+                                                                           style="display: none;"
+                                                                           src='/images/inactive.png'
+                                                                           alt="#"/></div>
+                                    <a class="in_bl txt_bl"
+                                       href="/profile/she/100152"><p class="name_txt">Виктория</p>
+                                        <p class='type_txt kept-non-active' style="display: none;">
+                                            Не активна</p></a></div>
+                                <div class="in_bl photo_bl"><a href="/profile/she/100152"><img
+                                                src="https://master.img.soderzhanki-online.ru/img/50_50/38ba712a7c9937568ae34aa43cf36cdfc2e87629.jpeg"
+                                                alt=""></a></div>
+                                <div class="prof_link_popup not-premium-dropblock" id="kept-not-active"
+                                     style="display: none;">
+                                    <div class="drop_block txt_center">
+                                        <div class="big_descr">
+                                            Для активации анкеты необходимо <b>загрузить фотографию</b></div>
+                                        <p><a href="/profile/she/100152"
+                                              class="main_red_btn">
+                                                Заполнить профиль
+                                            </a></p></div>
+                                </div>
+                            </div>
+                            <a class="drop-click in_bl gift-button"
+                               data-drop-target="#drop-gift-list"
+                               data-drop-position="bottom right"
+                            ><span class="gift-icon"></span><span class="num">15</span></a>
+                            <div id="drop-gift-list">
+                                <div class="drop-content-list-gift wrapper gifts_units">
+                                    <div class="nano nano-custom">
+                                        <div class="nano-content">
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/04.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/07.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/32.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/52.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/52.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/48.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="in_bl settings-button" id="menu-main" menu-settings><span
+                                        class="settings-icon cogwheel"></span></a><!-- Old settings menu
+                                <div class="settings in_bl"><a href="#" class="cogwheel"></a><div class="drop_menu"><ul><li><a href="/profile/she/100152">Профиль</a></li><li><a href="/payment">Кошелек</a></li><li><a href="/settings">Настройки</a></li></ul><p class="close_wrap"><a href="/logout" class="close">Выход</a></p></div></div>
+                                --></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id='main_cont'>
+            <div class="content_wrap_shadow">
+                <div class="page_inside_content">
+                    <div class="clearfix">
+                        <div class="l_bl wallet_menu trans_all">
+                            <a href="#" class="wallet-menu__premium-present">
+                                <i class="icon-premium-present"></i>
+                                <div class="wallet-menu__premium-text ffr">
+                                    <p class="ffm">
+                                        Получить скидку до <span class="wallet-menu__red-text">15%</span>
+                                    </p>
+                                    <p>и стать членом VIP клуба</p>
+                                </div>
+                            </a>
+                            <ul>
+                                <li class="fill_balance_li ffr"><a href="/payment">Пополнить счёт</a></li>
+                                <li><a href="/payment/promo-code">Промокоды</a></li>
+                                <li><a href="/payment/top-fixed">Закрепление анкеты в ТОП</a></li>
+                                <li><a href="/payment/photo-place">Место в фотоленте</a></li>
+                                <li class="active ffr"><a href="/payment/top-elevated">Поднятие анкеты в ТОП</a></li>
+                                <li><a href="/payment/online">Кто онлайн</a></li>
+                                <li class="inactive "><a href="/payment/unblock">Разблокировать анкету</a></li>
+                            </ul>
+                        </div>
+                        <div class="wallet_content hide-status">
+                            <h2 class="hide-status__title">Скрыть статус онлайн</h2>
+                            <div class="hide-status__content fz12 text-light mb20">
+                                <p class="mb20">Если Вы по каким-то причинам хотите скрыть свое пребывание на сайте,<br>
+                                    то услуга "Инкогнито" позволит это сделать.</p>
+
+                                <p>Открывайте и скрывайте присутствие на сайте по желанию.</p>
+                            </div>
+                            <div class="hide-status__info mb20">
+                                <i class="icon-small-present"></i>
+                                <span class="dib vam ffr">У вас есть 2 месяца бесплатного статуса инвизибл</span>
+                            </div>
+
+                            <form class="buy_form" id="buy-top-elevated" method="POST" action="#">
+                                <div class="buy-form__suggestions mb30">
+                                    <label class="buy-form__suggestions-item usual-style">
+                                        <span class="input-wrapper premium-page__checkbox">
+                                            <input type="checkbox" name="1" class="icon-ok">
+                                        </span>
+                                        <span class="buy-form__suggestions-content db">
+                                            <span class="ffr db mb5">Включить статус офлайн</span>
+                                            <span class="db fz12">Пользователи будут видеть Вашу анкету в статусе  офлайн, но будут видеть Ваши <br>просмотры у себя на странице.</span>
+                                        </span>
+                                    </label>
+                                    <label class="buy-form__suggestions-item usual-style">
+                                        <span class="input-wrapper premium-page__checkbox">
+                                            <input type="checkbox" name="1" class="icon-ok">
+                                        </span>
+                                        <span class="buy-form__suggestions-content db">
+                                            <span class="ffr db mb5">Анонимные просмотры</span>
+                                            <span class="db fz12">Пользователи <span class="ffr">не</span> будут видеть Ваши просмотры у себя на странице.</span>
+                                        </span>
+                                    </label>
+                                    <label class="buy-form__suggestions-item usual-style">
+                                        <span class="input-wrapper premium-page__checkbox">
+                                            <input type="checkbox" name="1" class="icon-ok">
+                                        </span>
+                                        <span class="buy-form__suggestions-content db">
+                                            <span class="ffr db mb5">Скрыть анкету из поиска</span>
+                                            <span class="db fz12">Это дополнение скрывает Вашу анкету из поиска. Вы будете доступны только тем <br>пользователям, с которым Вы сами начали диалог.</span>
+                                        </span>
+                                    </label>
+                                </div>
+
+                                <div class="mb20">
+                                    <div class="select_wrap_ dib vam">
+                                        <select name="top-elevated-service" id="top-elevated-service">
+                                            <option value="14"
+                                                    data-price="75">Купить за 75.00 руб
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="dib vam">
+                                        <button type="submit" class="violet_btn dib vam light">Купить</button>
+                                    </div>
+                                </div>
+
+                                <p class="dib vam total_cost new-type ffr">Итого <span id="top-elevated-total">75</span>
+                                    руб.</p>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gallery_bl">
+            <div class="cont_wrap clearfix"><a href="/profile/he/113873"
+                                               class="gallery_it drop_hover allways_hover hover_out no_blackout "><img
+                            src="https://master.img.soderzhanki-online.ru/img/150_150/915ecf63d6c36b1d52458845cdee4648d2200a3b.jpeg"
+                            alt=""/>
+                    <div class="add_inform">
+                        <div class="photos"><span class="icon-camera"></span> 66
+                        </div>
+                        <div class="name">
+                            Новосибирск, Россия 39
+                        </div>
+                        <div class="dark_overlay drop_btn"></div>
+                    </div>
+                </a></div>
+        </div>
+        <footer id="main_footer">
+            <div class="bg_wrap"></div>
+            <div class="bottom_footer">
+                <div class="cont_wrap clearfix">
+                    <div class="l_bl">
+                        <ul class="nav">
+                            <li><a href="/zolushka-project">О проекте</a></li>
+                            <li><a href="/blog">Блог</a></li>
+                            <li><a href="#">Города</a>
+                                <ul id="footer-city-select" class="dropdown">
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/saint-petersburg">Санкт-Петербург</a></span></label>
+                                    </li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/ekaterinburg">Екатеринбург</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/krasnoyarsk">Красноярск</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"><a
+                                                        href="/city/novosibirsk">Новосибирск</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/perm">Пермь</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/samara">Самара</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/ufa">Уфа</a></span></label></li>
+                                </ul>
+                            </li>
+                            <li><a href="/terms-of-use" target="blank">Пользовательское
+                                    соглашение</a></li>
+                            <li><a href="/confidential">Конфиденциальность</a></li>
+                            <li><a href="/rules">Правила</a></li>
+                        </ul>
+                        <div class='soc_txt'>
+                            <div class="soc_text">
+                                Оставайтся в курсе <br>
+                                Содержанки в социальных сетях
+                            </div>
+                            <div class="soc_icons"><a href="https://vk.com/zolushka_project" target="_blank">
+                                    <div class="icon socicon-vkontakte"></div>
+                                </a><a href="https://www.facebook.com/zolushka.project" target="_blank">
+                                    <div class="icon socicon-facebook"></div>
+                                </a><a href="https://www.instagram.com/zolushka.promo/" target="_blank">
+                                    <div class="icon socicon-instagram"></div>
+                                </a><a href="https://twitter.com/zolushkaproject" target="_blank">
+                                    <div class="icon socicon-twitter"></div>
+                                </a><a href="https://google.com/+SoderzhankionlineRuOfficial" target="_blank">
+                                    <div class="icon socicon-googleplus"></div>
+                                </a><a href="https://youtube.com/c/SoderzhankionlineRuOfficial" target="_blank">
+                                    <div class="icon socicon-youtube"></div>
+                                </a></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="copy">
+                            &copy; «Золушка project». Лучший on-line сервис по поиску спонсоров и содержанок,
+                            2015-2017<br/>
+                            Администрация не несёт ответственности за размещённые анкеты - Вся информация на сайте
+                            предоставлена посетителями.
+                        </div>
+                    </div>
+                    <div class="r_bl">
+                        <ul class="pink_nav">
+                            <li><a href="/to-mobile-version">Мобильный сайт</a></li>
+                            <li><a href="/feedback">Обратная связь</a></li>
+                        </ul>
+                        <div class="footer__application tar clearfix"><a href="/promo-mobile" target="_blank"
+                                                                         class="footer__application-icon"><i
+                                        class="icon-new__appstore"></i></a><a href="/promo-mobile" target="_blank"
+                                                                              class="footer__application-icon"><i
+                                        class="icon-new__google-play"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+{% endblock %}

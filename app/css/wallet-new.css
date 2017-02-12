@@ -13,23 +13,6 @@
 
 .icon-premium-present {
   margin-right: 10px;
-  background-image: url('../images/icons-s41018790f8.png');
-  background-position: 0 -776px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: middle;
-  height: 42px;
-  width: 49px;
-}
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-resolution: 1.5dppx) {
-  .icon-premium-present {
-    background-image: url('../images/icons-2x-sc3956d4da9.png');
-    background-size: 217px auto;
-    background-position: 0 -721px;
-    height: 42px;
-    width: 49px;
-  }
 }
 
 .ffm {
@@ -42,6 +25,8 @@
 
 .buy-form__suggestions-item {
   display: flex;
+}
+.buy-form__suggestions-item:not(.usual-style) {
   align-items: center;
   cursor: pointer;
   background: rgba(189, 189, 189, 0.1);
@@ -56,10 +41,13 @@
   overflow: hidden;
   min-height: 54px;
 }
-.buy-form__suggestions-item:hover {
+.buy-form__suggestions-item:not(.usual-style):hover {
   background-color: rgba(172, 111, 177, 0.1);
   box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.1);
   border: solid 1px rgba(155, 100, 160, 0.1);
+}
+.buy-form__suggestions-item .checkbox {
+  top: 0;
 }
 .buy-form__suggestions-item:not(:last-child) {
   margin-bottom: 15px;

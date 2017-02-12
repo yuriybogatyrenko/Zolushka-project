@@ -61,26 +61,6 @@
   color: #b05fbc;
 }
 
-.icon-present-empty {
-  background-image: url('../images/icons-s74ee409813.png');
-  background-position: 0 -1343px;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: middle;
-  height: 53px;
-  width: 53px;
-}
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-resolution: 1.5dppx) {
-  .icon-present-empty {
-    background-image: url('../images/icons-2x-sa4fe452dd0.png');
-    background-size: 217px auto;
-    background-position: 0 -1266px;
-    height: 53px;
-    width: 53px;
-  }
-}
-
 .cards-lifetime__title {
   font-size: 18px;
   color: #0c0c0c;
@@ -188,4 +168,9 @@
 .activated-card__duration {
   font-size: 29px;
   line-height: 1;
+}
+
+.hide-status__title {
+  color: #0c0c0c;
+  margin-bottom: 20px;
 }
