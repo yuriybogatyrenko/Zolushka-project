@@ -1,0 +1,1633 @@
+{% extends "layouts/app.twig" %}
+
+{% block pageTitle %}Регистрация мужчин{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div class="overlay">
+            <div class="table_wrap">
+                <div class="td_wrap">
+                    <div class="main_popup who_online" data-popup-block="insufficient_funds" style="display: none;">
+                        <div class="close_popup" data-popup-close="insufficient_funds"></div>
+                        <p class="title_pop">Недостаточно средств</p>
+                        <div class="descr_txt">На Вашем счете недостаточно средств. Предлагаем <a
+                                    href="/payment">пополнить</a> баланс.
+                        </div>
+                        <div class="dib vam"><a href="/payment"
+                                                class="violet_btn dib vam light insufficient-funds-button">Пополнить</a>
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="insufficient_funds">Закрыть</a></p>
+                    </div>
+                    <div class="message_send_popup main_popup sms_pop" data-popup-block="message_send_popup">
+                        <div class="close_popup" data-popup-close="message_send_popup"></div>
+                        <p class="title_pop">Ваше сообщение отправлено</p></div>
+                    <div class="main_popup swap_popup tac" data-popup-block="confirm-photo">
+                        <div class="close_popup" data-popup-close="confirm-photo"></div>
+                        <div class="select_folder"><img src="/images/confirmed-example.jpg"/></div>
+                    </div>
+                    <div class="main_popup who_online" data-popup-block="send_message">
+                        <div class="close_popup" data-popup-close="send_message"></div>
+                        <p class="title_pop">Отправить сообщение </p>
+                        <div class="descr_txt">Вы можете отправить пользователю сообщение. <br/><span
+                                    id="first-message">Обратите внимание,
+                                что за первое
+                                сообщение взымается 1 контакт.</span></div>
+                        <form class="buy_form" id="profile-send-message" action="#" data-id="0"><textarea name="message"
+                                                                                                          style="width: 100%;"
+                                                                                                          placeholder="Введите сообщение"
+                                                                                                          id="profile-message"></textarea>
+                            <div class="dib vam" style="float: right;">
+                                <button type="submit" class="violet_btn dib vam light">Отправить</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="main_popup who_online" data-popup-block="minutes_count">
+                        <div class="close_popup" data-popup-close="minutes_count"></div>
+                        <p class="title_pop">Недостаточно минут</p>
+                        <div class="descr_txt">На Вашем счете недостаточно минут. Предлагаем <a
+                                    class="red_link" href="/calls">купить</a> минуты.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="minutes_count">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="contacts_count">
+                        <div class="close_popup" data-popup-close="contacts_count"></div>
+                        <p class="title_pop">Недостаточно контактов</p>
+                        <div class="descr_txt">На Вашем счете недостаточно контактов. Предлагаем <a
+                                    class="red_link" href="/payment/contacts">купить</a>
+                            контакты.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="contacts_count">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="in_blacklist">
+                        <div class="close_popup" data-popup-close="in_blacklist"></div>
+                        <p class="title_pop">Не удалось отправить сообщение</p>
+                        <div class="descr_txt">Пользователь находится в черном списке.</div>
+                        <p><a class="red_link size18" href="#" data-popup-close="in_blacklist">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="empty_message">
+                        <div class="close_popup" data-popup-close="empty_message"></div>
+                        <p class="title_pop">Не удалось отправить сообщение</p>
+                        <div class="descr_txt">Необходимо указать сообщение.</div>
+                        <p><a class="red_link size18" href="#" data-popup-close="empty_message">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="not_premium">
+                        <div class="close_popup" data-popup-close="not_premium"></div>
+                        <p class="title_pop">Необходим премиум-аккаунт</p>
+                        <div class="descr_txt">Для возможности писать или звонить содержанкам необходимо <br>приобрести
+                            <a class="red_link" href="/payment/premium">премиум-аккаунт</a>.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="not_premium">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="message_not_active">
+                        <div class="close_popup" data-popup-close="message_not_active"></div>
+                        <p class="title_pop">Необходимо активировать аккаунт</p>
+                        <div class="descr_txt">Для возможности писать сообщения необходимо активировать аккаунт.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="message_not_active">Закрыть</a></p>
+                    </div>
+                    <div class="main_popup who_online" data-popup-block="service_not_active">
+                        <div class="close_popup" data-popup-close="service_not_active"></div>
+                        <p class="title_pop">Необходимо активировать аккаунт</p>
+                        <div class="descr_txt">Для возможности покупать услуги необходимо активировать аккаунт.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="service_not_active">Закрыть</a></p>
+                    </div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="call">
+                        <div class="close_popup" data-popup-close="call"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="pop_bold_text">Звоним <a href="#" class="name viol_txt"></a></div>
+                        <br/>
+                        <div class="photo_wrap"><a href="#" class="img_wrap in_bl"><img
+                                        src="/images/default-user-avatar.png"
+                                        alt=""></a></div>
+                        <p id="calling-someone"><a class="red_link size18" href="#"
+                                                   data-popup-close="call">Закрыть</a></p></div>
+                    <div class="add_phone main_popup user_call_pop" data-popup-block="call_allowed">
+                        <div class="close_popup phone-added-redirect" data-popup-close="call_allowed"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <p class="pop_bold_text">Вы можете позвонить <span class="viol_txt name-span"></span></p>
+                        <div class="photo_wrap"><a href="#" class="img_wrap in_bl"><img
+                                        src="/images/default-user-avatar.png"
+                                        alt=""></a></div>
+                        <p><a href="#" class="main_big_btn phone_bg in_bl" id="call-kept">Позвонить</a></p>
+                        <p><a class="red_link size18" href="#" data-popup-close="call_allowed">Отменить</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="not_allowed">
+                        <div class="close_popup" data-popup-close="not_allowed"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="pop_bold_text">Пользователь <a href="#" class="name viol_txt"></a> запретила
+                            входящие вызовы.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="not_allowed">Закрыть</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="already_call">
+                        <div class="close_popup" data-popup-close="already_call"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="pop_bold_text">Пожалуйста, завершите голосовой вызов прежде чем звонить
+                            кому-нибудь еще,
+                            покупать минуты или менять телефон.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="already_call">Закрыть</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="call_failed">
+                        <div class="close_popup" data-popup-close="call_failed"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="photo_wrap"><a href="#" class="img_wrap call-url in_bl"><img
+                                        src="/images/default-user-avatar.png" alt=""><span
+                                        class="photo_verified icon"></span></a></div>
+                        <div class="pop_bold_text  call-notify-text">Не удалость установить соединение
+                            с пользователем <a href="#" class="name call-url viol_txt"></a></div>
+                        <p><a class="red_link size18" href="#" data-popup-close="call_failed">Закрыть</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="call_success">
+                        <div class="close_popup" data-popup-close="call_success"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="photo_wrap"><a href="#" class="img_wrap call-url in_bl"><img
+                                        src="/images/default-user-avatar.png" alt=""><span
+                                        class="photo_verified icon"></span></a></div>
+                        <div class="pop_bold_text call-notify-text">Разговор с пользователем <a href="#"
+                                                                                                class="name call-url viol_txt"></a>
+                            завершен
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="call_failed">Закрыть</a></p></div>
+                    <div class="add_phone main_popup sms_pop" data-popup-block="sms_pop">
+                        <div class="close_popup" data-popup-close="sms_pop"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="sms_bl">
+                            <div class="pop_bold_text">
+                                На ваш номер <span class="you_number"></span> было отправлено <br> SMS c кодом
+                                подтверждения
+                            </div>
+                            <div class="pop_bold_text" id="confirm-second-string" style="display: none;">
+                                SMS с кодом было повторно отправлено. <br/>Получить код повторно можно будет через
+                                <span
+                                        id="repeat-code-left"></span></div>
+                            <form class="leave_phone in_bl" id="confirm-code">
+                                <div class="top_line"><input class="main_input" id="confirm-code-value" name="code"
+                                                             type="text"
+                                                             placeholder="введите код из СМС">
+                                    <button class="violet_btn light">Подтвердить</button>
+                                    <p class="error_text" style="display: none;"></p></div>
+                            </form>
+                            <div class="btn_wrap"><p><a class="red_link" href="#" id="popup-repeat-code">Получить код
+                                        повторно</a></p>
+                                <p><a class="red_link" href="#" id="popup-change-number">Изменить номер</a></p></div>
+                        </div>
+                    </div>
+                    <div class="main_popup  time_to_call" data-popup-block="time_to_call">
+                        <div class="close_popup" data-popup-close="time_to_call"></div>
+                        <p class="title_pop">Голосовой вызов</p><span class="in_bl time_icon"></span>
+                        <p class="pop_bold_text">В это время <span class="name"></span> не принимает звонки</p>
+                        <p><a class="red_link size18" href="#" data-popup-close="time_to_call">Закрыть</a></p></div>
+                    <div class="main_popup tac not_connected_pop" data-popup-block="call_not_connected">
+                        <div class="close_popup" data-popup-close="call_not_connected"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <div class="pop_bold_text">
+                            Пользователь <a href="#"
+                                            class="name viol_txt"></a>
+                            еще не подключила <br> услуги голосового вызова.
+                        </div>
+                        <span class="in_bl not_connected_icon"></span>
+                        <div class="descr">Как только пользователь подключит голосовой вызов мы пришлем вам
+                            уведомление<br>
+                            о возможности позвонить. О вашем намерении позвонить ей мы направили <br> сообщение.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="call_not_connected">Закрыть</a></p>
+                    </div>
+                    <div class="main_popup" data-popup-block="image_min_size">
+                        <div class="close_popup" data-popup-close="image_min_size"></div>
+                        <div class="pop_bold_text">Загрузите пожалуйста фотографию большего размера (минимальный
+                            размер 300 на 300 пикселей).
+                            <br>Спасибо!<br></div>
+                        <p><a class="red_link size18" href="#" data-popup-close="image_min_size">Закрыть</a></p></div>
+                    <div class="main_popup" data-popup-block="multi_image_min_size">
+                        <div class="close_popup" data-popup-close="multi_image_min_size"></div>
+                        <div class="pop_bold_text">Одна или несколько загружаемых картинок слишком маленького
+                            размера и мы не смогли её загрузить.
+                        </div>
+                        <p><a class="red_link size18" href="#"
+                              data-popup-close="multi_image_min_size">Закрыть</a></p></div>
+                    <div class="main_popup" data-popup-block="cant_delete_last_image">
+                        <div class="close_popup" data-popup-close="cant_delete_last_image"></div>
+                        <div class="pop_bold_text">Невозможно удалить последнюю фотографию. Загрузите больше
+                            фотографий сначала для удаления этой.
+                        </div>
+                        <p><a class="red_link size18" href="#"
+                              data-popup-close="cant_delete_last_image">Закрыть</a></p></div>
+                    <div class="add_phone main_popup user_call_pop" data-popup-block="user_call_pop">
+                        <div class="close_popup phone-added-redirect" data-popup-close="user_call_pop"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <p class="pop_bold_text">Ваш номер
+                            добавлен.</p>
+                        <p><a class="red_link size18 phone-added-redirect" href="#"
+                              data-popup-close="user_call_pop">Закрыть</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="mobile_app" style="display: none;">
+                        <div class="close_popup" data-popup-close="mobile_app"></div>
+                        <p class="title_pop">Мобильное приложение</p>
+                        <div class="descr_txt app-mobile-text">Станет доступно через несколько дней</div>
+                        <p><a class="red_link size18" href="#" data-popup-close="mobile_app">Закрыть</a></p></div>
+                    <div class="add_phone main_popup voice_call" data-popup-block="voice_call">
+                        <div class="close_popup" data-popup-close="voice_call"></div>
+                        <p class="title_pop">Голосовой вызов</p>
+                        <p class="pop_bold_text">Подключите телефон и принимайте звонки от спонсоров.</p>
+                        <div class="descr">Ваш номер не будет виден никому, Ваша конфиденциальность превыше всего. <br>
+                            Звонки будут
+                            осуществляться внутри сайта и только с Вашего согласия.
+                        </div>
+                        <form class="leave_phone in_bl" id="add-phone"><p class="pact">Продолжая вы соглашаетесь с
+                                условиями
+                                <a target="_blank" class="red_txt" href="/terms-of-use">Соглашения</a></p>
+                            <div class="wrap_line">
+                                <div class="top_line"><input class="main_input no-js-ph" name="phone"
+                                                             id="add-phone-number"
+                                                             data-inputmask="'mask':'+7 (999) 999-99-99'" type="text"
+                                                             placeholder="Укажите номер телефона">
+                                    <button class="violet_btn light">Подтвердить</button>
+                                    <p class="error_text" style="display: none;"></p></div>
+                                <div class="descr kept-call-desc">Укажите время, в которое Вы сможете отвечать на
+                                    звонки.
+                                    <br>
+                                    (Время можно будет изменить позднее)
+                                </div>
+                                <div class="top_line2"><label class="in_bl "><input class="icon-ok set-weekdays"
+                                                                                    type="checkbox" checked>
+                                        Будние дни по одному графику
+                                    </label></div>
+                                <div class="line weekdays"><label class="in_bl left_txt"><input class="icon-ok"
+                                                                                                type="checkbox" checked>
+                                        Будни
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select id="weekdays-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select id="weekdays-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="1" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Понедельник
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="2" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Вторник
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="3" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Среда
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="4" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Четверг
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line weekday" data-day="5" style="display: none;"><label
+                                            class="in_bl left_txt"><input
+                                                class="icon-ok" type="checkbox" checked>
+                                        Пятница
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-from schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="weekday-to schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line" data-day="6"><label class="in_bl left_txt"><input class="icon-ok"
+                                                                                                    type="checkbox"
+                                                                                                    checked>
+                                        Суббота
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line" data-day="7"><label class="in_bl left_txt"><input class="icon-ok"
+                                                                                                    type="checkbox"
+                                                                                                    checked>
+                                        Воскресенье
+                                    </label>
+                                    <div class="in_bl"><span class="in_bl m_r5">C</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="schedule-from">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10" selected>10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23">23:00</option>
+                                            </select>
+                                        </div>
+                                        <span class="in_bl m_r5">До</span>
+                                        <div class="main_select in_bl m_r12">
+                                            <select class="schedule-to">
+                                                <option value="0">0:00</option>
+                                                <option value="1">1:00</option>
+                                                <option value="2">2:00</option>
+                                                <option value="3">3:00</option>
+                                                <option value="4">4:00</option>
+                                                <option value="5">5:00</option>
+                                                <option value="6">6:00</option>
+                                                <option value="7">7:00</option>
+                                                <option value="8">8:00</option>
+                                                <option value="9">9:00</option>
+                                                <option value="10">10:00</option>
+                                                <option value="11">11:00</option>
+                                                <option value="12">12:00</option>
+                                                <option value="13">13:00</option>
+                                                <option value="14">14:00</option>
+                                                <option value="15">15:00</option>
+                                                <option value="16">16:00</option>
+                                                <option value="17">17:00</option>
+                                                <option value="18">18:00</option>
+                                                <option value="19">19:00</option>
+                                                <option value="20">20:00</option>
+                                                <option value="21">21:00</option>
+                                                <option value="22">22:00</option>
+                                                <option value="23" selected>23:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="main_popup who_online" data-popup-block="buy_service">
+                        <div class="close_popup" data-popup-close="buy_service"></div>
+                        <p class="title_pop">Подтверждение</p>
+                        <div class="descr_txt">Вы уверены, что хотите приобрести поднятие анкеты в ТОП?
+                        </div>
+                        <div class="dib vam"><a href="#" class="violet_btn dib vam light submit-button"
+                                                id="confirm-buy-top-elevated" data-id="0">Подтвердить</a></div>
+                        <p><a class="red_link size18" href="#" data-popup-close="buy_service">Отменить</a></p></div>
+                    <div class="main_popup who_online" data-popup-block="top_elevated_success" style="display: none;">
+                        <div class="close_popup" data-popup-close="top_elevated_success"></div>
+                        <p class="title_pop">Услуга оплачена</p>
+                        <div class="descr_txt">Вы успешно оплатили поднятие анкеты в ТОП.
+                        </div>
+                        <p><a class="red_link size18" href="#" data-popup-close="top_elevated_success">Закрыть</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slides_popup anim_ready">
+            <div class="table">
+                <div class="td">
+                    <div class="img_wrap"></div>
+                    <div class="slides_popup_bg"></div>
+                    <div class="prev trans_all dur500_all  event_btn click_area"><span class="icon-angle-left"></span>
+                        <div class="prev_bg"></div>
+                    </div>
+                    <div class="close trans_all dur500_all click_area">
+                        <div class="prev_bg"></div>
+                    </div>
+                    <span class="close icon-cancel"></span>
+                    <div class="checkbox-round checked-avatar" style="display:none; cursor:pointer;"><input
+                                type="checkbox"
+                                class="no-style"
+                                id="check1"/><label
+                                for="check1">
+                            <div><i class="fa fa-check"></i></div>
+                            Сделать основной
+                        </label></div>
+                </div>
+            </div>
+        </div>
+        <header id="main_header">
+            <div class="top_header">
+                <div class="cont_wrap clearfix tac"><a href="/" class="logo_bl clearfix l_bl">
+                        <div class="icon_logo l_bl"><img src="/images/logo.png" alt="#"></div>
+                        <div class="txt_logo l_bl"><p class="bot">Золушка</p>
+                            <p class="top">project</p></div>
+                    </a>
+                    <div class="header_prof_info r_bl clearfix">
+                        <div class="item l_bl" id="header-search-place"
+                        >
+                            <div class="top_line"><p class="in_bl">Место в поиске</p><span
+                                        class="num_text in_bl search-place">9376</span><span
+                                        class="top_icon in_bl people_icon"><img src='/images/icon3.png'
+                                                                                alt="#"/></span>
+                            </div>
+                            <div class="bot_line"><a class="add_btn" href="/payment/top-elevated"><span
+                                            class="in_bl arrow_icon"><img src='/images/arr_icon.png'
+                                                                          alt="#"/></span><span
+                                            class="txt in_bl">Поднять анкету</span></a></div>
+                        </div>
+                    </div>
+                    <div class="header__apps-icons in_bl">
+                        <div class="header__apps-icon in_bl hover-tooltip__show"><a href="/promo-mobile"
+                                                                                    target="_blank"><i
+                                        class="icon-new__appstore"></i></a>
+                            <div class="-new-tooltip right">
+                                Скачать бесплатное мобильное <br>приложение для iPhone
+                            </div>
+                        </div>
+                        <div class="header__apps-icon in_bl hover-tooltip__show"><a href="/promo-mobile"
+                                                                                    target="_blank"><i
+                                        class="icon-new__google-play"></i></a>
+                            <div class="-new-tooltip left">
+                                Скачать бесплатное мобильное <br>приложение для Android
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sep_header"></div>
+            <div class="bot_header">
+                <div class="cont_wrap clearfix">
+                    <ul class="prof_nav l_bl">
+                        <li class=""><a href="/search">Поиск</a></li>
+                        <li class=""><a href="/profile-views">
+                                Кто смотрел
+                                <span class="num_icon" style="display: none;"
+                                      id="profile-views-count">                                            0</span></a>
+                        </li>
+                        <li class=""><a href="/adv-messages">
+                                Рассылка
+
+                                <span
+                                        class="num_icon" style="display: none;" id="adv-count">                                                0</span></a>
+                        </li>
+                        <li class=""><a data-popup-open="voice_call" href="#">
+                                Звонки
+                                <span class="num_icon"
+                                      style="display: none;">                                            0</span></a>
+                        </li>
+                        <li class=""><a href="#" class="in_bl messagePopupOpen" ng-click="dialogsCtrl.getStartDialogs()"
+                                        message-popup-open>
+                                Сообщения
+                                <span global-messages-counter="{{ appCtrl.globalMessagesCounter }}"></span></a></li>
+                        <li><a href="/blog">
+                                Блог
+                                <span class="num_icon">1</span></a></li>
+                    </ul>
+                    <div class="prof_setting_header r_bl"><a href="/payment" class="in_bl score"><span
+                                    class='wallet_icon in_bl'><img src='/images/icon4.png' alt="#"/></span><span
+                                    class="num_txt in_bl">Счет: <span
+                                        id="current-balance">930.00</span> руб. </span></a>
+                        <div class="in_bl">
+                            <div class="prof_link in_bl">
+                                <div class="type_prof in_bl">
+                                    <div class='type_prof_icon in_bl'><img class="kept-non-active"
+                                                                           style="display: none;"
+                                                                           src='/images/inactive.png'
+                                                                           alt="#"/></div>
+                                    <a class="in_bl txt_bl"
+                                       href="/profile/she/100152"><p class="name_txt">Виктория</p>
+                                        <p class='type_txt kept-non-active' style="display: none;">
+                                            Не активна</p></a></div>
+                                <div class="in_bl photo_bl"><a href="/profile/she/100152"><img
+                                                src="https://master.img.soderzhanki-online.ru/img/50_50/38ba712a7c9937568ae34aa43cf36cdfc2e87629.jpeg"
+                                                alt=""></a></div>
+                                <div class="prof_link_popup not-premium-dropblock" id="kept-not-active"
+                                     style="display: none;">
+                                    <div class="drop_block txt_center">
+                                        <div class="big_descr">
+                                            Для активации анкеты необходимо <b>загрузить фотографию</b></div>
+                                        <p><a href="/profile/she/100152"
+                                              class="main_red_btn">
+                                                Заполнить профиль
+                                            </a></p></div>
+                                </div>
+                            </div>
+                            <a class="drop-click in_bl gift-button"
+                               data-drop-target="#drop-gift-list"
+                               data-drop-position="bottom right"
+                            ><span class="gift-icon"></span><span class="num">15</span></a>
+                            <div id="drop-gift-list">
+                                <div class="drop-content-list-gift wrapper gifts_units">
+                                    <div class="nano nano-custom">
+                                        <div class="nano-content">
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/04.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/07.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/32.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/42.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/52.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/52.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                            <div class="gift_it in_bl">
+                                                <div class="icon in_bl"><img src="/images/gifts/256/48.png"/></div>
+                                                <p class="name_age">
+                                                <p class="name text-center"><a
+                                                            href="/profile/he/140"
+                                                    >Виктор</a></p>
+                                                <p class="age text-center"><a
+                                                            href="/profile/he/140"
+                                                    >22</a></p></p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="in_bl settings-button" id="menu-main" menu-settings><span
+                                        class="settings-icon cogwheel"></span></a><!-- Old settings menu
+                                <div class="settings in_bl"><a href="#" class="cogwheel"></a><div class="drop_menu"><ul><li><a href="/profile/she/100152">Профиль</a></li><li><a href="/payment">Кошелек</a></li><li><a href="/settings">Настройки</a></li></ul><p class="close_wrap"><a href="/logout" class="close">Выход</a></p></div></div>
+                                --></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="main_cont">
+            <div class="content_wrap_shadow in_top_page send_messages_page expressed_interest" id="adv-add">
+                <div class="clearfix">
+                    <h1 class="page_title mb20">Рассылка - найди себе девушку за 37 минут!</h1>
+                </div>
+                <div class="hide-status__info mb20">
+                    <i class="icon-small-present"></i>
+                    <span class="dib vam ffr">У вас есть 3-и бесплатные рассылки</span>
+                </div>
+                <div class="selected-block"><p>
+                        Мы понимаем, что многие пользуются сайтом не только по месту проживания: кто-то живет на два
+                        города, кто-то бывает в разъездах.<br>
+                        С 24.05.16 в тестовом режиме введено таргетирование рассылок по девушкам из конкретного
+                        города.<br>
+                        Уверены, что это сэкономит Ваше время, и повысит качество отклика на Ваше рассылки.
+                    </p></div>
+                <br>
+                <div class="page_inside_content "><p>Просто напиши что ты хочешь от девушки сегодня и сейчас, и нажми
+                        кнопку
+                        отправить. Твое сообщение увидят сразу все девушки на сайте, так что прояви фантазию!
+                    </p>
+                    <form class="get_in_top ng-pristine ng-valid" action="#" id="buy-adv" _lpchecked="1"><br>
+                        <div class="select_wrap_ dib vam"><span class="selectbox"
+                                                                style="display: inline-block; position: relative; z-index: 2;"><div
+                                        class="select" style="float:left;position:relative;z-index:5"><div class="text">Бесплатная рассылка на 9 часов</div><b
+                                            class="trigger"><i class="arrow"></i></b></div><div class="dropdown"
+                                                                                                style="position: absolute; z-index: 9999; overflow-y: auto; overflow-x: hidden; list-style: none; display: none; height: auto; bottom: auto; top: 40px;"><ul><li
+                                                class="sel selected">Бесплатная рассылка на 9 часов</li><li>Бесплатная рассылка на 9 часов</li><li>Бесплатная рассылка на 9 часов</li><li>Бесплатная рассылка на 9 часов</li><li>Бесплатная рассылка на 9 часов</li><li>Бесплатная рассылка на 9 часов</li><li>Бесплатная рассылка на 9 часов</li><li>Бесплатная рассылка на 9 часов</li><li>Купить на 9 часов за 200.00 руб.</li></ul></div></span><select
+                                    name="adv-service" id="adv-service" style="position: absolute; top: -9999px;">
+                                <option value="3" data-price="0">Бесплатная рассылка на 9 часов</option>
+                                <option value="12" data-price="0">Бесплатная рассылка на 9 часов</option>
+                                <option value="13" data-price="0">Бесплатная рассылка на 9 часов</option>
+                                <option value="15" data-price="0">Бесплатная рассылка на 9 часов</option>
+                                <option value="16" data-price="0">Бесплатная рассылка на 9 часов</option>
+                                <option value="18" data-price="0">Бесплатная рассылка на 9 часов</option>
+                                <option value="20" data-price="0">Бесплатная рассылка на 9 часов</option>
+                                <option value="21" data-price="0">Бесплатная рассылка на 9 часов</option>
+                                <option value="16" data-price="200">Купить на 9 часов за 200.00 руб.</option>
+                            </select></div>
+                        <div class="select_wrap dib select_wrap_ vam tal">
+                            <div class="citysearch__new-select__wrapper">
+                                <div class="easy-autocomplete" style="width: 300px;"><input type="text"
+                                                                                            class="citysearch__new-select city-search"
+                                                                                            id="adv-message-city-title"
+                                                                                            style="width: 300px;"
+                                                                                            placeholder="Введите город"
+                                                                                            value="Москва, Московская область, Россия"
+                                                                                            autocomplete="off">
+                                    <div class="easy-autocomplete-container" id="eac-container-adv-message-city-title">
+                                        <ul style="display: none;"></ul>
+                                    </div>
+                                </div>
+                                <input class="hidden-city-search" name="city" id="adv-message-city" type="hidden"
+                                       value="10"><i class="icon--new-select__clean"></i>
+                                <div class="citysearch__new-select__tooltip-error top-side">Неизвестный город</div>
+                            </div>
+                        </div>
+                        <div class="textarea_wrap"><textarea class="bordered_textarea" id="adv-message-text"
+                                                             placeholder="Пример: Москва, 18-25 лет, Брюнетки. Встречусь сегодня с очаровашкой модельной внешности, с Вас ласка, с меня подарок!"></textarea>
+                        </div>
+                        <h2 class="mrg-15">Добавить исключения</h2>
+                        <p>Если по каким-то причинам (Мы то с Вами догадываемся по каким) Вы не хотите чтобы
+                            какая-либо
+                            из девушек, с которой Вы уже общались (или встречались) не должна увидеть Ваше сообщение
+                            -
+                            просто добавьте ее в список исключения.</p><br><br>
+                        <adv-message-list-component class="ng-isolate-scope">
+                            <div class="ex-contact-list round-10">
+                                <div class="drap-and-drop-block">
+
+                                    <div class="pull-left w50">
+
+                                        <div class="header">
+                                            <h3 class="text-center">Контакты</h3>
+
+                                            <div class="mrg-15">
+                                                <!-- ngIf: !advMessageListCtrl.contacts.isLoading && !advMessageListCtrl.blacklist.isLoading --><a
+                                                        href="" class="btn-round btn-violet ng-scope"
+                                                        ng-if="!advMessageListCtrl.contacts.isLoading &amp;&amp; !advMessageListCtrl.blacklist.isLoading"
+                                                        ng-click="advMessageListCtrl.moveAllToBlacklist()">Выбрать
+                                                    всех</a>
+                                                <!-- end ngIf: !advMessageListCtrl.contacts.isLoading && !advMessageListCtrl.blacklist.isLoading -->
+                                            </div>
+                                        </div>
+
+                                        <div class="body">
+
+                                            <input class="search ng-pristine ng-untouched ng-valid"
+                                                   ng-model="contactsSearch" ng-change="applyContactsFilter()"
+                                                   placeholder="Поиск">
+
+                                            <div class="nano-custom nano has-scrollbar">
+                                                <div class="nano-content" ng-transclude="" tabindex="0"
+                                                     style="right: -17px;">
+
+                                                    <!-- ngIf: advMessageListCtrl.blacklist.items.length && advMessageListCtrl.isLoadingWidget && !advMessageListCtrl.contacts.isLoading && !advMessageListCtrl.contacts.items.length -->
+                                                    <!-- ngIf: !advMessageListCtrl.blacklist.items.length && !advMessageListCtrl.contacts.items.length -->
+
+                                                    <!-- ngIf: !advMessageListCtrl.contacts.isLoading -->
+                                                    <ul class="items round-6 ng-scope ng-isolate-scope"
+                                                        ng-if="!advMessageListCtrl.contacts.isLoading"
+                                                        ng-sortable="sortableConfig">
+                                                        <!-- ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/c09fc2e01c49ff1d104ed81b0cb152a1cf2d8ca2.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/c09fc2e01c49ff1d104ed81b0cb152a1cf2d8ca2.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Top-Model🔝, 23
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/crop/50_50/3e2c350eda97fcdb10e3157e4d15f92ecc3f046b.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/crop/50_50/3e2c350eda97fcdb10e3157e4d15f92ecc3f046b.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Julia, 24
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/crop/50_50/e4e74e315ff56e15f1e51b393696f95d29612af0.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/crop/50_50/e4e74e315ff56e15f1e51b393696f95d29612af0.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Виктория, 30
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/b4d110e6f7846f9bc62dca9d03e8223cfb80ae44.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/b4d110e6f7846f9bc62dca9d03e8223cfb80ae44.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Александр, 21
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/f21b61f1b05c8e35f325ca9538b382ea7d39807d.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/f21b61f1b05c8e35f325ca9538b382ea7d39807d.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                natali, 27
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/2c8e3ff0d0bd9bb7efa84f9f3e71a70b5dee32d8.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/2c8e3ff0d0bd9bb7efa84f9f3e71a70b5dee32d8.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Амелия, 21
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/848911b47f2b192a7e02125ac739ba5c94dc324f.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/848911b47f2b192a7e02125ac739ba5c94dc324f.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Анжелика, 27
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/10fded4960be0f74e64f2abdeee3537e87d1b283.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/10fded4960be0f74e64f2abdeee3537e87d1b283.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Alisochka, 20
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/3f7774e94c92085d6a6d4da44137858990df70f8.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/3f7774e94c92085d6a6d4da44137858990df70f8.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Мария, 24
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="/images/default-user-avatar.png" alt=""
+                                                                     src="/images/default-user-avatar.png">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Ольга, 20
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/crop/50_50/5a69a9a23cddda9defe471dbb9d171b141e7cb41.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/crop/50_50/5a69a9a23cddda9defe471dbb9d171b141e7cb41.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Екатерина, 23
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/crop/50_50/3fc5f4b7a92948db4d300dad9f3943ce0fc60f7a.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/crop/50_50/3fc5f4b7a92948db4d300dad9f3943ce0fc60f7a.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Рената, 19
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/579f2e7e51368674414b1efb694e88a30044da4f.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/579f2e7e51368674414b1efb694e88a30044da4f.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Daria, 28
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/9a5d5a9309e49bbddfbc926d0ab9464d88b36334.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/9a5d5a9309e49bbddfbc926d0ab9464d88b36334.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Дарья, 18
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/510f57c2e614e35b3696e130733b127dfbc6ad2d.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/510f57c2e614e35b3696e130733b127dfbc6ad2d.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Varvara, 22
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/crop/50_50/316498a64226b8d243be494288de370f7a9c979a.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/crop/50_50/316498a64226b8d243be494288de370f7a9c979a.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Sunny, 20
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                        <li class="item pointer ng-scope"
+                                                            ng-repeat="item in contacts.filteredItems"
+                                                            ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                                            <div class="avatar-34 round-6 pull-left">
+                                                                <img ng-src="https://img1.zolushka-project.ru/img/50_50/df1e3a768a065ec36f2625e063e893b1515143e7.jpeg"
+                                                                     alt=""
+                                                                     src="https://img1.zolushka-project.ru/img/50_50/df1e3a768a065ec36f2625e063e893b1515143e7.jpeg">
+                                                            </div>
+
+                                                            <div class="text-34 pull-left ng-binding">
+                                                                Елена, 27
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                        </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                                    </ul><!-- end ngIf: !advMessageListCtrl.contacts.isLoading -->
+
+                                                    <!-- ngIf: advMessageListCtrl.contacts.isLoading -->
+
+                                                </div>
+                                                <div class="nano-pane" style="display: block;">
+                                                    <div class="nano-slider"
+                                                         style="height: 155px; transform: translate(0px, 0px);"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="pull-right w50">
+
+                                        <div class="header">
+                                            <h3 class="text-center">Заблокировать</h3>
+
+                                            <div class="mrg-15">
+                                                <!-- ngIf: !advMessageListCtrl.contacts.isLoading && !advMessageListCtrl.blacklist.isLoading --><a
+                                                        href="" class="btn-round btn-violet ng-scope"
+                                                        ng-if="!advMessageListCtrl.contacts.isLoading &amp;&amp; !advMessageListCtrl.blacklist.isLoading"
+                                                        ng-click="advMessageListCtrl.removeAllBlacklist()">Убрать
+                                                    всех</a>
+                                                <!-- end ngIf: !advMessageListCtrl.contacts.isLoading && !advMessageListCtrl.blacklist.isLoading -->
+                                            </div>
+                                        </div>
+
+                                        <div class="body">
+
+                                            <input class="search ng-pristine ng-untouched ng-valid"
+                                                   ng-model="blacklistSearch" ng-change="applyBlacklistFilter()"
+                                                   placeholder="Поиск">
+
+                                            <div class="nano-custom round-6 nano has-scrollbar">
+                                                <div class="nano-content" ng-transclude="" tabindex="0"
+                                                     style="right: -17px;">
+
+                                                    <!-- ngIf: advMessageListCtrl.isLoadingWidget && !advMessageListCtrl.blacklist.isLoading && !advMessageListCtrl.blacklist.items.length -->
+                                                    <p class="text-center mrg-15 ng-scope"
+                                                       ng-if="advMessageListCtrl.isLoadingWidget &amp;&amp; !advMessageListCtrl.blacklist.isLoading &amp;&amp; !advMessageListCtrl.blacklist.items.length">
+                                                        Выберете контакты для блокирования показа вашего объявления или
+                                                        перетащите его в данную область
+                                                    </p>
+                                                    <!-- end ngIf: advMessageListCtrl.isLoadingWidget && !advMessageListCtrl.blacklist.isLoading && !advMessageListCtrl.blacklist.items.length -->
+
+                                                    <ul class="items round-6 ng-scope ng-isolate-scope"
+                                                        ng-sortable="sortableConfig">
+                                                        <!-- ngRepeat: item in blacklist.filteredItems -->
+
+                                                        <!-- ngIf: advMessageListCtrl.blacklist.isLoading -->
+
+                                                    </ul>
+                                                    <!-- ngRepeat: item in blacklist.items -->
+                                                </div>
+                                                <div class="nano-pane" style="display: block;">
+                                                    <div class="nano-slider"
+                                                         style="height: 312px; transform: translate(0px, 0px);"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </adv-message-list-component>
+                        <div class="pull-left w80 mrg-15">
+                            <blockquote class="pull-right m_r12"><i>Надоело тратить время на переписку? - просто
+                                    сделай
+                                    рассылку!©<br>
+                                    Роман Алексеев - руководитель отдела разработки Золушка Project
+                                </i></blockquote>
+                            <div class="clearfix"></div>
+                        </div>
+                        <button class="w20 btn btn-round btn-danger cursor-pointer mrg-15 pull-right">
+                            Опубликовать
+                        </button>
+                        <div class="row clearfix"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="content_wrap_shadow in_top_page send_messages_page expressed_interest" id="adv-archive"
+                 style="display: none;">
+                <div class="clearfix"><h1 class="page_title l_bl">Архив моих рассылок</h1><a href="#"
+                                                                                             class="r_bl archive--show-hide"
+                                                                                             id="display-adv-add">Скрыть
+                        архив</a></div>
+                <div class="page_inside_content pos_r">
+                    <div class="delivery-archive__listing" id="advs-archive"></div>
+                    <div class="submit_search_wrap tac">
+                        <button class="violet_btn light auth-search" id="load-adv-archive">Показать больше</button>
+                    </div>
+                </div>
+            </div>
+            <div class="active_sends cont_wrap lhn exp_interest_bl">
+                <div class="no-dialogs-available"><p class="title_pop">Нет активных
+                        рассылок. Будьте первым!</p></div>
+            </div>
+        </div>
+        <div class="gallery_bl">
+            <div class="cont_wrap clearfix"><a href="/profile/he/113873"
+                                               class="gallery_it drop_hover allways_hover hover_out no_blackout "><img
+                            src="https://master.img.soderzhanki-online.ru/img/150_150/915ecf63d6c36b1d52458845cdee4648d2200a3b.jpeg"
+                            alt=""/>
+                    <div class="add_inform">
+                        <div class="photos"><span class="icon-camera"></span> 66
+                        </div>
+                        <div class="name">
+                            Новосибирск, Россия 39
+                        </div>
+                        <div class="dark_overlay drop_btn"></div>
+                    </div>
+                </a></div>
+        </div>
+        <footer id="main_footer">
+            <div class="bg_wrap"></div>
+            <div class="bottom_footer">
+                <div class="cont_wrap clearfix">
+                    <div class="l_bl">
+                        <ul class="nav">
+                            <li><a href="/zolushka-project">О проекте</a></li>
+                            <li><a href="/blog">Блог</a></li>
+                            <li><a href="#">Города</a>
+                                <ul id="footer-city-select" class="dropdown">
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/saint-petersburg">Санкт-Петербург</a></span></label>
+                                    </li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/ekaterinburg">Екатеринбург</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/krasnoyarsk">Красноярск</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"><a
+                                                        href="/city/novosibirsk">Новосибирск</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/perm">Пермь</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/samara">Самара</a></span></label></li>
+                                    <li class="clearfix"><label><span class="dib vam"></span><span class="dib vam"
+                                                                                                   data-get-value="text-label"><a
+                                                        href="/city/ufa">Уфа</a></span></label></li>
+                                </ul>
+                            </li>
+                            <li><a href="/terms-of-use" target="blank">Пользовательское
+                                    соглашение</a></li>
+                            <li><a href="/confidential">Конфиденциальность</a></li>
+                            <li><a href="/rules">Правила</a></li>
+                        </ul>
+                        <div class='soc_txt'>
+                            <div class="soc_text">
+                                Оставайтся в курсе <br>
+                                Содержанки в социальных сетях
+                            </div>
+                            <div class="soc_icons"><a href="https://vk.com/zolushka_project" target="_blank">
+                                    <div class="icon socicon-vkontakte"></div>
+                                </a><a href="https://www.facebook.com/zolushka.project" target="_blank">
+                                    <div class="icon socicon-facebook"></div>
+                                </a><a href="https://www.instagram.com/zolushka.promo/" target="_blank">
+                                    <div class="icon socicon-instagram"></div>
+                                </a><a href="https://twitter.com/zolushkaproject" target="_blank">
+                                    <div class="icon socicon-twitter"></div>
+                                </a><a href="https://google.com/+SoderzhankionlineRuOfficial" target="_blank">
+                                    <div class="icon socicon-googleplus"></div>
+                                </a><a href="https://youtube.com/c/SoderzhankionlineRuOfficial" target="_blank">
+                                    <div class="icon socicon-youtube"></div>
+                                </a></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="copy">
+                            &copy; «Золушка project». Лучший on-line сервис по поиску спонсоров и содержанок,
+                            2015-2017<br/>
+                            Администрация не несёт ответственности за размещённые анкеты - Вся информация на сайте
+                            предоставлена посетителями.
+                        </div>
+                    </div>
+                    <div class="r_bl">
+                        <ul class="pink_nav">
+                            <li><a href="/to-mobile-version">Мобильный сайт</a></li>
+                            <li><a href="/feedback">Обратная связь</a></li>
+                        </ul>
+                        <div class="footer__application tar clearfix"><a href="/promo-mobile" target="_blank"
+                                                                         class="footer__application-icon"><i
+                                        class="icon-new__appstore"></i></a><a href="/promo-mobile" target="_blank"
+                                                                              class="footer__application-icon"><i
+                                        class="icon-new__google-play"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+{% endblock %}
