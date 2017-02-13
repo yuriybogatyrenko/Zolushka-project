@@ -748,6 +748,26 @@
   }
 }
 
+.icon-wallet-menu-vip {
+  font-size: 10px;
+  color: #ea515b;
+  font-family: TruthCYR-M;
+  border-radius: 3px;
+  border: 1px solid #ea515b;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 1px 3px;
+}
+
+.premium-popup__form {
+  width: 630px;
+  margin: 0 auto;
+}
+.premium-popup__form .get_in_top {
+  width: 100% !important;
+  margin-bottom: 20px;
+}
+
 .new-popup-registration, .new-popup-registration__wrapper {
   width: 610px;
   margin: 0 auto;

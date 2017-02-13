@@ -31,7 +31,7 @@
   cursor: pointer;
   background: rgba(189, 189, 189, 0.1);
   border-radius: 3px;
-  padding: 10px 22px 10px 15px;
+  padding: 10px 15px 10px 15px;
   border: solid 1px rgba(140, 140, 140, 0.1);
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -86,7 +86,7 @@
   font-family: TruthCYR-R;
   white-space: nowrap;
   margin-left: 10px;
-  min-width: 140px;
+  min-width: 130px;
 }
 .buy-form__suggestion-sell-text.sell-text__minimal {
   color: #3fd0a5;
@@ -165,4 +165,13 @@
 
 .buy_form .violet_btn.auto-width {
   width: auto;
+}
+
+.wallet-vip-link {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+.wallet-vip-link .icon-wallet-menu-vip {
+  margin-right: 7px;
 }
