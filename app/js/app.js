@@ -278,6 +278,49 @@ App.walletSuggestions = function (className) {
     return suggestions;
 };
 
+App.cardLifetime = function (className) {
+    var cardLifetime = {};
+    cardLifetime.parent = document.querySelector(className);
+    cardLifetime.items = document.querySelectorAll('.cards-lifetime__item');
+
+    cardLifetime.init = function () {
+        cardLifetime.bindings();
+    };
+
+    cardLifetime.bindings = function () {
+        for (var i = 0; i < cardLifetime.items.length; i++) {
+            cardLifetime.items[i].addEventListener('mouseover', function () {
+                cardLifetime.changeActive(this.closest(className), this);
+            });
+        }
+
+        // setting default element active on mouse leave
+        cardLifetime.parent.addEventListener('mouseleave', function () {
+            cardLifetime.changeActive(this, this.querySelectorAll('.cards-lifetime__item')[1]);
+        });
+    };
+
+    cardLifetime.changeActive = function (block, element) {
+        var items = block.querySelectorAll('.cards-lifetime__item');
+
+        for (var i = 0; i < items.length; i++) {
+            if(!items[i].isSameNode(element)) {
+                items[i].classList.remove('active');
+                items[i].querySelector('.violet_btn').classList.add('disabled')
+            } else {
+                items[i].classList.add('active');
+                items[i].querySelector('.violet_btn').classList.remove('disabled')
+            }
+        }
+    };
+
+    cardLifetime.init();
+
+    return cardLifetime;
+};
+
+App.cardLifetime('.cards-lifetime__grid');
+
 App.walletSuggestions('.buy-form__suggestions');
 
 App.multiselect('.js-multiselect');
