@@ -232,6 +232,54 @@ App.multiselect = function (className) {
     return multiselect;
 };
 
+App.walletSuggestions = function (className) {
+    var suggestions = {};
+
+    suggestions.elements = document.querySelectorAll(className);
+
+    suggestions.init = function () {
+        for (var i = 0; i < suggestions.elements.length; i++) {
+            suggestions.update(suggestions.elements[i]);
+        }
+
+        suggestions.bindings();
+    };
+
+    suggestions.bindings = function () {
+        for (var i = 0; i < suggestions.elements.length; i++) {
+            suggestions.update(suggestions.elements[i]);
+
+            var inputs = suggestions.elements[i].querySelectorAll('input[type="radio"], input[type="checkbox"]');
+
+            for (var z = 0; z < inputs.length; z++) {
+                inputs[z].addEventListener('change', function () {
+                    suggestions.update(this.closest(className));
+                });
+            }
+        }
+    };
+
+    suggestions.update = function (block) {
+        var blockEl = block;
+
+        var inputs = blockEl.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].checked === true) {
+                inputs[i].closest('.buy-form__suggestions-item').classList.add('active');
+            } else {
+                inputs[i].closest('.buy-form__suggestions-item').classList.remove('active');
+            }
+        }
+    };
+
+    suggestions.init();
+
+    return suggestions;
+};
+
+App.walletSuggestions('.buy-form__suggestions');
+
 App.multiselect('.js-multiselect');
 
 App.scrollTo('.js-scrollto-button');
