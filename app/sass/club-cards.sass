@@ -78,15 +78,24 @@
 		background: rgba(#bdbdbd, 0.1)
 		border-radius: 5px
 		width: 30%
-		padding: 25px 15px 10px
+		padding: 25px 15px 50px
 		color: #585858
 		+transition()
 		border: 1px solid rgba(#ac6fb1, 0.1)
+		position: relative
 		
 		&:hover, &.active
 			background: rgba(#ac6fb1, 0.1)
 			box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.1)
 			border: solid 1px rgba(#9b64a0, 0.1)
+
+
+		.violet_btn
+			padding: 0
+			line-height: 38px
+			&.semi-disabled
+				background: #fff
+				color: #A269A7
 			
 		&-duration
 			color: #333333
@@ -119,10 +128,11 @@
 			color: #000
 		
 		&-button
-			//opacity: 0
-			+transition()
-		
-		position: relative
+			position: absolute
+			bottom: 0
+			left: 0
+			right: 0
+			padding: 10px
 	
 	.icon-present-empty__text
 		position: absolute
@@ -163,3 +173,4 @@
 .hide-status__title
 	color: #0c0c0c
 	margin-bottom: 20px
+

@@ -78,7 +78,7 @@
   background: rgba(189, 189, 189, 0.1);
   border-radius: 5px;
   width: 30%;
-  padding: 25px 15px 10px;
+  padding: 25px 15px 50px;
   color: #585858;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -91,6 +91,14 @@
   background: rgba(172, 111, 177, 0.1);
   box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.1);
   border: solid 1px rgba(155, 100, 160, 0.1);
+}
+.cards-lifetime__item .violet_btn {
+  padding: 0;
+  line-height: 38px;
+}
+.cards-lifetime__item .violet_btn.semi-disabled {
+  background: #fff;
+  color: #A269A7;
 }
 .cards-lifetime__item-duration {
   color: #333333;
@@ -123,10 +131,11 @@
   color: #000;
 }
 .cards-lifetime__item-button {
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
 }
 .cards-lifetime .icon-present-empty__text {
   position: absolute;

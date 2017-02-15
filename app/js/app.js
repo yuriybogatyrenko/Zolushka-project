@@ -306,10 +306,10 @@ App.cardLifetime = function (className) {
         for (var i = 0; i < items.length; i++) {
             if(!items[i].isSameNode(element)) {
                 items[i].classList.remove('active');
-                items[i].querySelector('.violet_btn').classList.add('disabled')
+                items[i].querySelector('.violet_btn').classList.add('semi-disabled')
             } else {
                 items[i].classList.add('active');
-                items[i].querySelector('.violet_btn').classList.remove('disabled')
+                items[i].querySelector('.violet_btn').classList.remove('semi-disabled')
             }
         }
     };
