@@ -470,7 +470,7 @@
 }
 
 .icon-reg-video {
-  background-image: url('../images/reg-popup-vedeo-bg.jpg?1483053038');
+  background-image: url('../images/reg-popup-vedeo-bg.jpg?1486269198');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 253px 146px;
@@ -482,7 +482,7 @@
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .icon-reg-video {
-    background-image: url('../images/reg-popup-vedeo-bg@2x.jpg?1483053038');
+    background-image: url('../images/reg-popup-vedeo-bg@2x.jpg?1486269198');
   }
 }
 
@@ -1605,7 +1605,7 @@ input:checked + .new-popup-reg__radio-detect {
   margin-right: -20px;
   margin-left: -20px;
   border-radius: 10px 10px 0 0;
-  background-image: url('../images/premium-popup-bg.jpg?1483052876');
+  background-image: url('../images/premium-popup-bg.jpg?1486269198');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 900px 389px;
@@ -1614,7 +1614,7 @@ input:checked + .new-popup-reg__radio-detect {
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .new-reg-premium__header {
-    background-image: url('../images/premium-popup-bg@2x.jpg?1483052876');
+    background-image: url('../images/premium-popup-bg@2x.jpg?1486269198');
   }
 }
 .new-reg-premium__info-plate {
@@ -1649,7 +1649,7 @@ input:checked + .new-popup-reg__radio-detect {
   margin-right: -20px;
 }
 .new-reg-premium__feedbacks:before {
-  background-image: url('../images/many-photos-bg.png?1483052912');
+  background-image: url('../images/many-photos-bg.png?1486269198');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 303px 181px;
@@ -1663,7 +1663,7 @@ input:checked + .new-popup-reg__radio-detect {
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .new-reg-premium__feedbacks:before {
-    background-image: url('../images/many-photos-bg@2x.png?1483052912');
+    background-image: url('../images/many-photos-bg@2x.png?1486269198');
   }
 }
 .new-reg-premium__feedbacks-text {
@@ -1837,4 +1837,8 @@ input:checked + .js-multiselect__detector:after {
   height: 6px;
   border-bottom: 2px solid #000;
   border-left: 2px solid #000;
+}
+
+.new-popup-registration__crop-checkbox .checkbox {
+  background: #fff;
 }

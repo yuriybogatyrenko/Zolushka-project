@@ -279,6 +279,9 @@ App.walletSuggestions = function (className) {
 };
 
 App.cardLifetime = function (className) {
+    if(!document.querySelector(className))
+        return;
+    
     var cardLifetime = {};
     cardLifetime.parent = document.querySelector(className);
     cardLifetime.items = document.querySelectorAll('.cards-lifetime__item');
