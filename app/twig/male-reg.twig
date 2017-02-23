@@ -9,6 +9,10 @@
 			step 1
 		</a>
 
+		<a href="#" class="violet_btn" data-popup-open="2-1">
+			попап 2/1
+		</a>
+
 		<a href="#" class="violet_btn" data-popup-open="2">
 			попап 2
 		</a>
@@ -221,6 +225,75 @@
 						</div>
 					</div>
 					<!-- // END step 1 registration -->
+				</div>
+
+				<div class="new-popup-registration tac hidden" data-popup-block="2-1">
+					<!-- START step 2 registration -->
+					<div class="new-popup-registration__step-container new-popup-registration__step2 pos_r">
+						<div class="in_bl tal">
+							<p class="new-popup-registration__step-title tac">Шаг 2 из 3. Защита анкеты.</p>
+							<p class="new-popup-registration__title tac">Защитите Вашу анкету</p>
+							<p class="new-popup-registration__sub-title tac">Чтобы сделать доступ к учетной записи безопасным,
+								добавьте свой
+								номер мобильного телефона, на который мы вышлем бесплатное СМС с кодом подтверждения.</p>
+						</div>
+						<form action="#" class="new-popup-registration__step2__form mb20 pos_r">
+							<!-- START standard-form-content -->
+							<div class="new-popup-registration__step2__form-content">
+								<div class="mb20 pos_r" data-phone-code-container>
+									<div class="display-flex">
+										<div class="new-popup-registration__phone-country" data-phone-country-code-call>
+											<input type="text" name="phone-country" readonly data-phone-country-code-input>
+										</div>
+										<div class="new-popup-registration__phone-input">
+											<input type="text" class="phone-input" name="" placeholder="Номер телефона">
+										</div>
+									</div>
+									<div class="phone-countries__dropdown" data-counties-codes-dropdown>
+										<li class="phone-countries__item" data-phone-code="+9">Польша</li>
+										<li class="phone-countries__item" data-phone-code="+23">Арабика</li>
+										<li class="phone-countries__item" data-phone-code="+933">Кофе</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item" data-phone-code="+92">Шляпа</li>
+										<li class="phone-countries__item selected" data-phone-code="+7">Россия</li>
+									</div>
+									<span class="form--error-notification">Введите номер</span>
+								</div>
+								<p class="mb20">
+									<button class="violet_btn db">Отрпавить</button>
+								</p>
+								<p><a href="#" class="new-popup-registration__back-link--style">Выслать другой код</a></p>
+							</div>
+							<!-- // END standard-form-content -->
+
+                            {#{% include 'widgets/preloader.twig' with { "visible": "true" } %}#}
+
+							<!-- START new-popup-registration__step2__form--send -->
+							<div class="new-popup-registration__step2__form--send hidden">
+								<p class="mb20">Готово!</p>
+								<p><a href="#" class="violet_btn">Продолжить</a></p>
+							</div>
+							<!-- // END new-popup-registration__step2__form--send -->
+						</form>
+						<p class="light-text">Данная информация необходима для защиты учетной записи. Мы ни кому не разглашаем Ваши
+							данные, Ваш номер не будет доступен другим пользователям. Вся процедура бесплатна.</p>
+						<div class="tac bottom-skip-button">
+							<a href="#" class="new-popup-registration__skip-link">Подтвердить позднее</a>
+						</div>
+					</div>
+					<!-- // END step 2 registration -->
 				</div>
 
 				<div class="new-popup-registration tac hidden" data-popup-block="2">

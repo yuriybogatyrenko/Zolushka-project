@@ -949,3 +949,64 @@ input:checked
 .new-popup-registration__crop-checkbox
     .checkbox
         background: #fff
+
+.new-popup-registration__phone-country
+    width: 80px
+    position: relative
+
+    input
+        border-radius: 3px 0 0 3px !important
+        border-right: none !important
+        box-shadow: none !important
+
+    &:after
+        display: block
+        content: ''
+        position: absolute
+        border: 4px solid transparent
+        border-top: 6px solid #4a4a4a
+        right: 10px
+        top: 50%
+        +transform(translateY(-30%))
+        +transition()
+
+    &.active
+        &:after
+            +transform(translateY(-70%) rotate(-180deg))
+
+.new-popup-registration__phone-input
+    flex-grow: 1
+
+    input
+        border-radius: 0 3px 3px 0 !important
+        position: relative
+        z-index: 2
+
+.phone-countries__dropdown
+    position: absolute
+    top: 100%
+    left: 0
+    background: #fff
+    visibility: hidden
+    opacity: 0
+    margin-top: 20px
+    width: 100%
+    text-align: left
+    +transition()
+    box-shadow: 0 0 6px 0 rgba(154, 154, 154, 0.5)
+    padding: 0
+    max-height: 290px
+    overflow: auto
+
+    &.active
+        visibility: visible
+        opacity: 1
+        margin-top: 5px
+
+.phone-countries__item
+    padding: 5px 20px
+    list-style: none
+    cursor: pointer
+    
+    &:hover, &.selected
+        background: #f4f4f4
