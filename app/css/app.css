@@ -779,6 +779,27 @@
   }
 }
 
+.icon-wallet-lock {
+  width: 60px;
+  height: 40px;
+  position: relative;
+  background: #ccc;
+  display: inline-block;
+  border-radius: 3px;
+}
+.icon-wallet-lock:after {
+  display: block;
+  position: absolute;
+  border: 8px solid #ccc;
+  height: 60px;
+  width: 40px;
+  border-radius: 50px;
+  content: "";
+  top: -25px;
+  left: 50%;
+  margin-left: -20px;
+}
+
 .premium-popup__form {
   width: 630px;
   margin: 0 auto;

@@ -179,3 +179,13 @@
   color: #0c0c0c;
   margin-bottom: 20px;
 }
+
+.wallet-lock-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wallet-lock-page .icon-wallet-lock {
+  margin-left: 100px;
+  margin-right: 50px;
+}
