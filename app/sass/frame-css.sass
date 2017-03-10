@@ -13,10 +13,6 @@
 
 .frame-logo
     background: linear-gradient(144deg, #490a60, #862275)
-    //background: -webkit-linear-gradient(144deg, #490a60, #862275)
-    //background: -ms-linear-gradient(144deg, #490a60, #862275)
-    //background: -moz-linear-gradient(144deg, #490a60, #862275)
-    //background: -o-linear-gradient(144deg, #490a60, #862275)
     padding: 0 15px
     display: flex
     flex-direction: column
@@ -42,13 +38,17 @@
 
     &:hover
         .frame-listing__overlay
-            top: 0
+            opacity: 1
+
+        .frame-icon-comment
+            opacity: 1
+            +transform(scale(1))
 
 .frame-listing__overlay
     position: absolute
     width: 100%
     height: 100%
-    top: -100%
+    top: 0
     left: 0
     background: rgba(#000, 0.5)
     color: #fff
@@ -58,8 +58,8 @@
     flex-direction: column
     padding: 10px
     box-sizing: border-box
-    //+transition()
     transition: all 0.3s ease
+    opacity: 0
 
 .frame-listing__comment
     margin: auto
@@ -70,6 +70,8 @@
 .frame-icon-comment
     background: url(../frame-images/frame-icon-comment.svg)
     background-size: cover
+    +transform(scale(2))
+    opacity: 0
     width: 32px
     height: 32px
     +transition()
