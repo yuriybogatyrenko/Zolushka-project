@@ -20,9 +20,12 @@
   top: -2px;
   margin-right: 2px;
 }
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-resolution: 1.5dppx) {
+@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx) {
   .icon-plate-notice {
     background-image: url('../images/icons-2x-s331bd375d3.png');
+    -webkit-background-size: 70px auto;
+    -moz-background-size: 70px auto;
+    -o-background-size: 70px auto;
     background-size: 70px auto;
     background-position: 0 -283px;
     height: 16px;

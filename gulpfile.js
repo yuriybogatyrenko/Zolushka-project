@@ -94,21 +94,17 @@ gulp.task('twig', function () {
         .pipe(plumber({
             errorHandler: onError
         }))
-        .pipe(twig())
-        .pipe(gulp.dest(sources.twig.temp_dist))
-        .pipe(callback(function () {
-            gulp.src(sources.twig.temp_dist_html)
-                .pipe(htmlbeautify())
-                .pipe(gulp.dest(sources.twig.dist))
-                /*.pipe(callback(function () {
-                    setTimeout(function () {
-                        gulp.src(sources.twig.temp_dist, {read: false})
-                            .pipe(clean());
-                    }, 1000);
-                }))*/
-                .pipe(browserSync.reload({stream: true}));
-                // .pipe(notify('TWIG was compiled'));
-        }));
+        .pipe(twig({
+            data: {
+                benefits: [
+                    'Fast',
+                    'Flexible',
+                    'Secure'
+                ]
+            }
+        }))
+        .pipe(gulp.dest(sources.twig.dist))
+        .pipe(browserSync.reload({stream: true}));
 
     return null;
 });
@@ -121,7 +117,12 @@ gulp.task('compass', function () {
             sass: sources.sass.dist,
             css: sources.css.dist,
             js: sources.js.dist,
-            image: 'app/images'
+            image: 'app/images',
+            sourcemap: true
+        }))
+        .pipe(prefix({
+            browsers: ['> 0%', 'last 2 versions'],
+            cascade: false
         }))
         .pipe(gulp.dest(sources.css.dist))
         .pipe(browserSync.reload({stream: true}));
@@ -130,6 +131,7 @@ gulp.task('compass', function () {
 /* SASS --------------------------------------------------------------------- */
 gulp.task('sass', ["compass"], function() {
     return gulp.src(sources.sass.src)
+        .pipe(sourcemaps.init())
         .pipe(plumber({
             errorHandler: onError
         }))
@@ -138,7 +140,6 @@ gulp.task('sass', ["compass"], function() {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(sourcemaps.init())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(sources.css.dist))
         .pipe(browserSync.reload({stream: true}));

@@ -6,10 +6,33 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <link rel="stylesheet" href="css/frame-css.css">
 </head>
 <body>
     <div class="frame-wrapper">
-        frame
+        <div class="frame-logo">
+            <a href="#" class="frame-logo__img">
+                <img src="frame-images/logo.svg" alt="">
+            </a>
+            <a href="#" class="frame-logo__text">
+                Получить доступ к <br>премиум девушкам &rsaquo;
+            </a>
+        </div>
+        <div class="frame-listing">
+            {% for i in 1..8 %}
+                <a href="#" class="frame-listing__item">
+                    <img class="frame-listing__image" alt="" src="http://placehold.it/100x100" />
+                    <div class="frame-listing__overlay">
+                        <div class="frame-listing__name">Аня 27</div>
+                        <div class="frame-listing__comment">
+                            <i class="frame-icon-comment"></i>
+                        </div>
+                        <div class="frame-listing__views">172 55 4</div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>
