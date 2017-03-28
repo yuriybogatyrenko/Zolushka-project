@@ -1,0 +1,199 @@
+{% set page = 'true' %}
+
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+
+	<div class="content_wrap_shadow profile_views_page w100">
+		<h1 class="page_title tac">Текущая рассылка</h1>
+		<div class="mailing display-flex space-between">
+			<div class="mailing__left">
+				<div class="mailing__left-title fz18 ffr mb20">Проявили интерес</div>
+				<ul class="mailing__listing view_profile_table">
+					{% for i in 1..5 %}
+						<li class="mailing__item">
+							<div class="avatar">
+								<a href="/profile/she/101780">
+									<img src="https://img1.zolushka-project.ru/img/200_200/3eac39c5b855ec6fc7328faf5125daca4c57404d.jpeg"
+									     onerror="this.src='/images/default-user-avata-big.jpg'" alt="">
+								</a>
+							</div>
+
+							<div class="mailing__item-info">
+								<div class="time_viewed mb5">
+									<p><span class="in_bl">Сегодня, 22:57</span></p>
+								</div>
+								<div class="ffr mb5">
+									<a href="/profile/she/101780" class="name">
+										Alina
+									</a>, 27 лет Москва, Россия
+								</div>
+								<p class="last_was mb10"><i class="status_round in_bl offline"></i> <span class="in_bl">была 14 часов назад</span>
+								</p>
+								<div class="send_msg ffr">
+									<a href="#" data-popup-open="send_message"
+									   ng-controller="messageCtrl as messageCtrl"
+									   ng-click="messageCtrl.openDialogById(101780)"
+									   class="ng-scope">
+										<span class="icon-chat-empty icon"></span>
+										Отправить сообщение
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="mailing__item">
+							<div class="avatar">
+								<a href="/profile/she/101780">
+									<img src="https://img1.zolushka-project.ru/img/200_200/3eac39c5b855ec6fc7328faf5125daca4c57404d.jpeg"
+									     onerror="this.src='/images/default-user-avata-big.jpg'" alt="">
+								</a>
+							</div>
+
+							<div class="mailing__item-info">
+								<div class="time_viewed mb5">
+									<p><span class="in_bl">Сегодня, 22:57</span></p>
+								</div>
+								<div class="ffr mb5">
+									<a href="/profile/she/101780" class="name">
+										Alina
+									</a>, 27 лет Москва, Россия
+								</div>
+								<p class="last_was mb10"><i class="status_round in_bl online"></i> <span class="in_bl">была 14 часов назад</span>
+								</p>
+								<div class="send_msg ffr">
+									<a href="#" data-popup-open="send_message"
+									   ng-controller="messageCtrl as messageCtrl"
+									   ng-click="messageCtrl.openDialogById(101780)"
+									   class="ng-scope">
+										<span class="icon-chat-empty icon"></span>
+										Отправить сообщение
+									</a>
+								</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="mailing__right">
+				<div class="mailing__scope" data-block="mailing-scope">
+					<p class="mailing__time-left mb5">Осталось 8 часов 59 минут</p>
+					<p class="ffr mb10">21-25, Москва, провести вечер, показывается во всех городах</p>
+					<div class="mailing__message">
+						Привет! Предлагаю встретиться 04.11, вечером. Хочу познакомиться с пермским гостеприимством и
+						темпераментом. Жду ответа и надеюсь на продолжение общения. Юлиан
+					</div>
+					<div class="mailing__blacklisted ffr mb10">Исключенные пользователи:</div>
+					<div class="mailing__blacklisted-photos mb0 fz0">
+						<div class="mailing__blacklisted-item more-photos ffr">
+							<a href="#">и еще 23</a>
+						</div>
+						{% for i in 1..9 %}
+							<div class="mailing__blacklisted-item">
+								<img src="http://placehold.it/27x27" alt=""
+								     class="mailing__blacklisted-avatar">
+							</div>
+						{% endfor %}
+					</div>
+					<div class="mailing__right-edit">
+						<a href="#" class="purple_link ffr">
+							<i class="in_bl pen_icon"></i>
+							<span class="in_bl">Редактировать</span>
+						</a>
+					</div>
+				</div>
+				<div class="mailing__form">
+					<form action="#">
+						<div class="form-line display-flex space-between">
+							<div class="mailing__form-caption">Возраст</div>
+							<div class="mailing__form-field">
+								<input type="text" placeholder="от 18 &mdash; до 30">
+								<span class="mailing__form-field-label">Лет.</span>
+							</div>
+						</div>
+						<div class="form-line display-flex space-between">
+							<div class="mailing__form-caption">Город</div>
+							<div class="mailing__form-field">
+								<input type="text" class="standard_input mb10" placeholder="Город">
+								<label class="mailing__form-show-cities">
+									<input type="checkbox" class="icon-ok"> Показывать другим городам
+								</label>
+							</div>
+						</div>
+						<div class="form-line display-flex space-between">
+							<div class="mailing__form-caption">Цели знакомства</div>
+							<div class="mailing__form-field">
+								<div class="js-multiselect">
+									<div class="js-multiselect__current text-light"></div>
+									<div class="js-multiselect__dropdown">
+										<ul class="js-multiselect__lising text-light">
+											<li class="js-multiselect__item">
+												<label class="js-multiselect__label">
+													<input type="checkbox" class="hidden no-style">
+													<span class="js-multiselect__detector">Провести вечер</span>
+												</label>
+											</li>
+											<li class="js-multiselect__item">
+												<label class="js-multiselect__label">
+													<input type="checkbox" class="hidden no-style">
+													<span class="js-multiselect__detector">Провести выходные</span>
+												</label>
+											</li>
+											<li class="js-multiselect__item">
+												<label class="js-multiselect__label">
+													<input type="checkbox" class="hidden no-style">
+													<span class="js-multiselect__detector">Серьезные отношения</span>
+												</label>
+											</li>
+											<li class="js-multiselect__item">
+												<label class="js-multiselect__label">
+													<input type="checkbox" class="hidden no-style">
+													<span class="js-multiselect__detector">Свидание</span>
+												</label>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-line display-flex space-between">
+							<div class="mailing__form-caption lh30">Исключить пользователей</div>
+							<div class="mailing__form-field">
+								<div class="mailing__blacklisted-photos mb0 fz0">
+									<div class="mailing__blacklisted-item more-photos ffr">
+										<a href="#">и еще 23</a>
+									</div>
+									{% for i in 1..9 %}
+										<div class="mailing__blacklisted-item">
+											<img src="http://placehold.it/27x27" alt=""
+											     class="mailing__blacklisted-avatar">
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+						<div class="form-line display-flex space-between">
+							<div class="mailing__form-caption">Текст рассылки</div>
+							<div class="mailing__form-field">
+								<textarea rows="8"></textarea>
+							</div>
+						</div>
+
+						<div class="display-flex space-between flex-middle">
+							<a href="#" class="light-purple-link ffr">Остановить рассылку</a>
+							<button type="submit" class="violet_btn">Сохранить</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="css/mailing.css">
+{% endblock %}
+
+{% block scriptsBlock %}
+	<script src="js/app.js"></script>
+{% endblock %}

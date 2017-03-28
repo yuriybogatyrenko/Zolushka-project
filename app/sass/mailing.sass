@@ -1,0 +1,214 @@
+@import "mixins/mixins"
+
+body, html
+    height: 100%
+
+.main-wrapper
+    display: flex
+    min-height: 100%
+    flex-direction: column
+
+footer
+    margin-top: auto
+
+.mailing
+    align-items: flex-start
+    width: 100%
+
+.mailing__left,
+    width: 43%
+
+.mailing__right
+    width: 53%
+
+.mailing__left-title
+    font-size: 18px
+
+.mailing__item
+    list-style: none
+    display: flex
+    justify-content: flex-start
+    width: 100%
+
+    &:not(:last-child)
+        margin-bottom: 25px
+
+    .avatar
+        width: 130px
+        height: 130px
+        margin-right: 15px
+
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            border-radius: 15px
+
+    .send_msg
+        margin-top: auto
+        padding-bottom: 5px
+
+    .status_round
+        margin-left: 0
+        &.offline
+            background: #9b9b9b
+            
+            & + span
+                color: #9b9b9b
+
+        &.online
+            & + span
+                color: #6dc100
+
+.mailing__item-info
+    display: flex
+    flex-direction: column
+
+.mailing__scope
+    border: 1px solid #e7e7e7
+    padding: 30px
+
+.mailing__time-left
+    color: #838383
+
+.mailing__message
+    margin-bottom: 15px
+
+.mailing__blacklisted-photos
+    font-size: 0
+    line-height: 0
+    display: inline-flex
+    flex-direction: row-reverse
+    padding-left: 10px
+
+    &:not(.mb0)
+        margin-bottom: 40px
+
+.mailing__blacklisted-item
+    display: inline-block
+    vertical-align: middle
+    font-size: 0
+    line-height: 0
+    border-radius: 5px
+    overflow: hidden
+    border: 1px solid #fff
+    +transition()
+    z-index: 1
+    height: 30px
+    width: 30px
+
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+    & + .mailing__blacklisted-item:not(.more-photos)
+        margin-left: -10px
+
+    &:hover
+        &:not(.more-photos)
+            position: relative
+            margin-left: 0 !important
+            margin-right: 5px
+            z-index: 2
+            +transform(scale(1.2))
+
+        &:last-child
+            position: relative
+            margin-right: 5px
+            margin-left: -10px !important
+            z-index: 2
+            +transform(scale(1.2))
+
+    &.more-photos
+        font-size: 14px
+        color: #8e94be
+        line-height: normal
+        display: flex
+        margin-left: 10px
+        width: auto
+        height: auto
+        white-space: nowrap
+        justify-content: center
+        align-items: center
+
+        &:hover
+            +transform(scale(1))
+
+        &.alone
+            margin-left: -10px
+            line-height: 30px
+
+
+.mailing__right-edit
+    a
+        text-decoration: none
+        color: #8e94be
+        
+        &:hover
+            text-decoration: none
+            color: #8e94be*0.7
+
+.light-purple-link
+    text-decoration: none
+    color: #8e94be
+
+    &:hover
+        text-decoration: none
+        color: #8e94be*0.7
+
+.mailing__form
+    &.mailing__form
+        width: 540px
+        margin-left: auto
+        margin-right: auto
+    .form-line
+        position: relative
+
+        &:not(:last-child)
+            margin-bottom: 20px
+
+.mailing__form-field
+    width: 320px
+    margin-left: 15px
+
+    input[type="text"], textarea
+        width: 100%
+        display: block
+        border-radius: 1px
+        height: 40px
+        border: 1px solid #b3b3b3
+        line-height: 38px
+        padding: 0 10px
+        background: #fbfbfb
+        box-shadow: none
+        font-family: TruthCYR-r
+
+    textarea
+        height: 120px
+
+    .js-multiselect__current
+        border-radius: 1px
+
+    .mailing__form-field-label
+        position: absolute
+        top: 0
+        line-height: 40px
+        right: 10px
+        color: #666666
+        opacity: 0.5
+
+.mailing__form-show-cities
+    color: #808080
+
+.mailing__form-caption
+    flex-grow: 1
+    font-family: TruthCYR-r
+    flex-basis: 0
+    line-height: 40px
+
+    &.lh30
+        line-height: 30px
+
+.fz18
+    font-size: 18px

@@ -90,6 +90,7 @@ gulp.task('pug', function () {
 
 /* TWIG --------------------------------------------------------------------- */
 gulp.task('twig', function () {
+    var timeout;
     gulp.src(sources.twig.src)
         .pipe(plumber({
             errorHandler: onError
@@ -104,7 +105,13 @@ gulp.task('twig', function () {
             }
         }))
         .pipe(gulp.dest(sources.twig.dist))
-        .pipe(browserSync.reload({stream: true}));
+        .pipe(callback(function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                gulp.src(sources.html.src)
+                    .pipe(browserSync.reload({stream: true}));
+            }, 500);
+        }));
 
     return null;
 });
