@@ -1,0 +1,70 @@
+{% set page = 'true' %}
+
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+
+    <div class="content_wrap_shadow profile_views_page w100">
+        <h1 class="page_title tac">Текущая рассылка</h1>
+
+        <div class="delivery-archive__listing" id="advs-archive">
+            {% for i in 1..10 %}
+                <div class="delivery-archive__item clearfix" data-id="2126">
+                    <div class="delivery-archive__item-visible clearfix">
+                        <div class="delivery-archive__time l_bl">27.03.2017 13:28</div>
+                        <div class="delivery-archive__content ovh">Привет, Москва.
+                            Скоро лечу к вам в гости, хотелось бы погулять с какой-нибудь молоденькой нитакойкакфсе.
+                        </div>
+                    </div>
+                    <div class="delivery-archive__hidden hidden" style="display: none;">
+                        <p class="fz18 ffr mb20">Отклики</p>
+                        <div class="mailing display-flex space-between">
+                            <div class="mailing__left">
+                                <ul class="mailing__listing view_profile_table">
+                                    {% for i in 1..2 %}
+                                        {% include 'widgets/mailing-item.twig' %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="mailing__right">
+                                <div class="mailing__scope" data-block="mailing-scope">
+                                    <p class="mailing__time-left mb5">Осталось 8 часов 59 минут</p>
+                                    <p class="ffr mb10">21-25, Москва, провести вечер, показывается во всех городах</p>
+                                    <div class="mailing__message">
+                                        Привет! Предлагаю встретиться 04.11, вечером. Хочу познакомиться с пермским гостеприимством и
+                                        темпераментом. Жду ответа и надеюсь на продолжение общения. Юлиан
+                                    </div>
+                                    <div class="mailing__blacklisted ffr mb10">Исключенные пользователи:</div>
+                                    <div class="mailing__blacklisted-photos	mb20 fz0">
+                                        <div class="mailing__blacklisted-item more-photos ffr">
+                                            <a class="new-purple-link" href="#">и еще 23</a>
+                                        </div>
+                                        {% for i in 1..9 %}
+                                            <div class="mailing__blacklisted-item">
+                                                <img src="http://placehold.it/27x27" alt=""
+                                                     class="mailing__blacklisted-avatar">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="mailing__right-edit">
+                                        <a href="#" class="violet_btn fz12">Запустить еще раз</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="http://zolushka-project.ru/css/archive.css">
+    <link rel="stylesheet" href="css/mailing.css">
+{% endblock %}
+
+{% block scriptsBlock %}
+    <script src="js/app.js"></script>
+{% endblock %}

@@ -8,16 +8,19 @@
 		<h1 class="page_title tac">Текущая рассылка</h1>
 		<div class="mailing display-flex space-between">
 			<div class="mailing__left">
-				<div class="mailing__left-title fz18 ffr mb20">Проявили интерес</div>
-				<ul class="mailing__listing view_profile_table">
-					{% for i in 1..2 %}
-						{% include 'widgets/mailing-item.twig' %}
-					{% endfor %}
-				</ul>
+				<div class="mailing__blocked no-answers tac">
+					<div class="no-answers__icon">
+						<i class="icon-wallet-lock"></i>
+					</div>
+					<div class="no-answers__content">
+						Ваша рассылка заблокирована за нарушение <br>
+						<a href="#" class="new-purple-link">правил сайта</a>
+					</div>
+				</div>
 			</div>
 			<div class="mailing__right">
-				<div class="mailing__scope" data-block="mailing-scope">
-					<p class="mailing__time-left mb5">Осталось 8 часов 59 минут</p>
+				<div class="mailing__scope blocked" data-block="mailing-scope">
+					<p class="mailing__time-left blocked mb5">Заблокирована</p>
 					<p class="ffr mb10">21-25, Москва, провести вечер, показывается во всех городах</p>
 					<div class="mailing__message">
 						Привет! Предлагаю встретиться 04.11, вечером. Хочу познакомиться с пермским гостеприимством и

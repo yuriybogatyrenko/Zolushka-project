@@ -1,0 +1,50 @@
+{% set page = 'true' %}
+
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+
+    <div class="content_wrap_shadow profile_views_page w100">
+        <h1 class="page_title tac">Найти девушку за 30 минут</h1>
+        <div class="mailing-main-wrapper">
+            <div class="tac fz18 mb30 ffr">
+                Получайте десятки откликов, <br>не теряя время на изучение множества анкет и переписку.
+            </div>
+            <div class="tac mb30">
+                <img src="images/mailing-main.png" alt="">
+            </div>
+            <div class="mailing-carousel owl-carousel">
+                {% for i in 1..10 %}
+                    <div class="mailing__feedback-item display-flex flex-middle">
+                        <div class="mailing__feedback-avatar mr10">
+                            <img src="http://placehold.it/55x55" class="in_bl" alt="">
+                        </div>
+                        <div class="mailing__feedback-info">
+                            <p class="mailing__feedback-name ff-bold mb5">Maxim 35, Москва</p>
+                            <p class="mailing__feedback-comment">
+                                <i class="ffl">На все, про все ушло 15 минут, через час мы уже пили кофе в центре..</i>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <p class="main-main__no-premium ffr">Чтобы сделать рассылку необходимо приобрести <a href="#" class="new-purple-link">премиум аккаунт</a>.</p>
+        </div>
+        <div class="mailing__form w540 no-premium">
+            <p class="fz18 ffr mb20 tac">Укажите кому показывать</p>
+            {% include 'widgets/mailing-form.twig' %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/mailing.css">
+{% endblock %}
+
+{% block scriptsBlock %}
+    <script src="bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="js/mailing.js"></script>
+    <script src="js/app.js"></script>
+{% endblock %}

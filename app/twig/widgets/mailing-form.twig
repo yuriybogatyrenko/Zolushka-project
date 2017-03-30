@@ -1,0 +1,82 @@
+<form action="#">
+    <div class="form-line display-flex space-between">
+        <div class="mailing__form-caption">Возраст</div>
+        <div class="mailing__form-field">
+            <input type="text" placeholder="от 18 &mdash; до 30">
+            <span class="mailing__form-field-label">Лет.</span>
+        </div>
+    </div>
+    <div class="form-line display-flex space-between">
+        <div class="mailing__form-caption">Город</div>
+        <div class="mailing__form-field">
+            <input type="text" class="standard_input mb10" placeholder="Город">
+            <label class="mailing__form-show-cities">
+                <input type="checkbox" class="icon-ok"> Показывать другим городам
+            </label>
+        </div>
+    </div>
+    <div class="form-line display-flex space-between">
+        <div class="mailing__form-caption">Цели знакомства</div>
+        <div class="mailing__form-field">
+            <div class="js-multiselect">
+                <div class="js-multiselect__current text-light"></div>
+                <div class="js-multiselect__dropdown">
+                    <ul class="js-multiselect__lising text-light">
+                        <li class="js-multiselect__item">
+                            <label class="js-multiselect__label">
+                                <input type="checkbox" class="hidden no-style">
+                                <span class="js-multiselect__detector">Провести вечер</span>
+                            </label>
+                        </li>
+                        <li class="js-multiselect__item">
+                            <label class="js-multiselect__label">
+                                <input type="checkbox" class="hidden no-style">
+                                <span class="js-multiselect__detector">Провести выходные</span>
+                            </label>
+                        </li>
+                        <li class="js-multiselect__item">
+                            <label class="js-multiselect__label">
+                                <input type="checkbox" class="hidden no-style">
+                                <span class="js-multiselect__detector">Серьезные отношения</span>
+                            </label>
+                        </li>
+                        <li class="js-multiselect__item">
+                            <label class="js-multiselect__label">
+                                <input type="checkbox" class="hidden no-style">
+                                <span class="js-multiselect__detector">Свидание</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-line display-flex space-between">
+        <div class="mailing__form-caption lh30">Исключить пользователей</div>
+        <div class="mailing__form-field">
+            <div class="mailing__blacklisted-photos mb0 fz0">
+                <div class="mailing__blacklisted-item more-photos alone ffr">
+                    <a href="#" class="new-purple-link">Выбрать</a>
+                </div>
+                {#{% for i in 1..9 %}
+                    <div class="mailing__blacklisted-item">
+                        <img src="http://placehold.it/27x27" alt=""
+                             class="mailing__blacklisted-avatar">
+                    </div>
+                {% endfor %}#}
+            </div>
+        </div>
+    </div>
+    <div class="form-line display-flex space-between">
+        <div class="mailing__form-caption">Текст рассылки</div>
+        <div class="mailing__form-field">
+            <textarea rows="8"></textarea>
+        </div>
+    </div>
+    <div class="tac mb20">
+        <span class="light-purple-link ffr">Купить на 9 часов за 200.00 руб.</span>
+    </div>
+    <div>
+        <button type="submit" class="violet_btn w100">Создать рассылку</button>
+    </div>
+</form>

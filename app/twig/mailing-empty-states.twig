@@ -1,0 +1,84 @@
+{% set page = 'true' %}
+
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+    <div class="active_sends cont_wrap lhn exp_interest_bl w100">
+        <div class="bl_title ffr">Рассылки в вашем городе</div>
+
+        <p class="ffr">В вашем городе пока нет рассылок для Вас</p>
+    </div>
+
+    <div class="active_sends cont_wrap lhn exp_interest_bl">
+        <div class="bl_title ffr">Рассылки в других городах</div>
+        <ul class="active_sends_table" id="adv-messages-active-other-cities">
+            <li class="clearfix">
+                <div class="avatar"><img src="/images/default-user-avatar-big.jpg" alt=""></div>
+                <div class="name_td"><a href="/profile/he/302030" class="name">
+                        Паша
+                    </a>, 37 Москва, Россия <p class="now_online">Он-лайн</p></div>
+                <div class="descr"><p class="date">30.03.2017 13:34</p>
+                    <div class="text"><p>Работаю на известного банкира (первая 100 форбс) уже 16 лет. Приглашаю девушек
+                            составить компанию ему и его друзьям (обычно 3-5 человек) по вечерам пятница-суббота.
+                            <br><br>
+                            Обычно в Калина-баре в Лотто-Плазе (Арбат) в одном из ВИПов.<br><br>
+                            Условия: 500 евро - с 21:00 до 0:00 должна быть за столом или на диванчиках в ВИПе.
+                            Общаемся, улыбаемся. Всякие продолжения только по вашей договоренности с гостями и хозяином,
+                            меня уже не касается. Рассчитываюсь на входе.<br><br>
+                            Присылаем в вотсап (929) 691 80 51 актуальное фото. Если не отвечаю, значит не
+                            подходите.<br></p></div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <div class="avatar"><img src="/images/default-user-avatar-big.jpg" alt=""></div>
+                <div class="name_td"><a href="/profile/he/126230" class="name">
+                        Vladimir
+                    </a>, 32 Москва, Россия <p class="now_online">Он-лайн</p></div>
+                <div class="descr"><p class="date">30.03.2017 12:49</p>
+                    <div class="text"><p>Приглашаю в отель, сделать мне массаж и познакомиться. При взаимной симпатии
+                            поддержка от 200 в месяц.Первая встреча за хороший подарок.</p></div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <div class="avatar"><img
+                            src="https://img1.zolushka-project.ru/crop/200_200/b474e63a1c5afb91786c0413315cf33b3f7f9fd2.jpg"
+                            alt=""></div>
+                <div class="name_td"><a href="/profile/he/100020" class="name">
+                        Alex
+                    </a>, 41 Москва, Россия <p class="last_was">
+                        был 3 часа назад</p></div>
+                <div class="descr"><p class="date">30.03.2017 09:16</p>
+                    <div class="text"><p>Встречусь сегодня вечером с незакомплексованной девушкой 20-25лет )))<br>
+                            Только Москва!!</p></div>
+                </div>
+            </li>
+            <li class="clearfix">
+                <div class="avatar"><img
+                            src="https://img1.zolushka-project.ru/crop/200_200/fa7a64b894dddeb01e51f462e9801bfedfdc3816.jpeg"
+                            alt=""></div>
+                <div class="name_td"><a href="/profile/he/144727" class="name">
+                        Андрей
+                    </a>, 38 Москва, Россия <p class="last_was">
+                        был 5 часов назад</p></div>
+                <div class="descr"><p class="date">30.03.2017 06:43</p>
+                    <div class="text"><p>ДЕВУШКУ СТРОЙНУЮ ДЛЯ ПОСТОЯННЫХ ОТНОШЕНИЙ, ХОЧЕТСЯ СЕРЬЕЗНОСТИ! НЕ ХОЧУ
+                            ПОКУПАТЬ ОТНОШЕНИЯ, Я ХОЧУ ЗАБОТИТСЯ О ТОЙ КОТОРАЯ РЯДОМ. Я за открытость во всем. Списались
+                            можно в вотсапе, созвонились, встретились, долгие переписки не веду, я за реал. Девушки
+                            прикладывайте свои реальные фото. Если хочешь тепла, романтики, доброты, душевности, любви,
+                            заботы, внимания, тогда пиши не раздумывая. Девушки из других городов расматриваются при
+                            условии что вы бываете в Москве. Да и рост мне ваш не важен</p></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="http://zolushka-project.ru/css/archive.css">
+    <link rel="stylesheet" href="css/mailing.css">
+{% endblock %}
+
+{% block scriptsBlock %}
+    <script src="js/app.js"></script>
+{% endblock %}

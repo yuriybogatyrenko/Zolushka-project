@@ -110,9 +110,15 @@ footer {
   border: 1px solid #e7e7e7;
   padding: 30px;
 }
+.mailing__scope.blocked {
+  border-color: #ff666f;
+}
 
 .mailing__time-left {
   color: #838383;
+}
+.mailing__time-left.blocked {
+  color: #ff0000;
 }
 
 .mailing__message {
@@ -138,6 +144,9 @@ footer {
 }
 .mailing__blacklisted-photos:not(.mb0) {
   margin-bottom: 40px;
+}
+.mailing__blacklisted-photos.mb20 {
+  margin-bottom: 20px;
 }
 
 .mailing__blacklisted-item {
@@ -225,15 +234,6 @@ footer {
   line-height: 30px;
 }
 
-.mailing__right-edit a {
-  text-decoration: none;
-  color: #8e94be;
-}
-.mailing__right-edit a:hover {
-  text-decoration: none;
-  color: #636885;
-}
-
 .light-purple-link {
   text-decoration: none;
   color: #8e94be;
@@ -243,7 +243,7 @@ footer {
   color: #636885;
 }
 
-.mailing__form.mailing__form {
+.mailing__form.w540 {
   width: 540px;
   margin-left: auto;
   margin-right: auto;
@@ -253,6 +253,25 @@ footer {
 }
 .mailing__form .form-line:not(:last-child) {
   margin-bottom: 20px;
+}
+.mailing__form.no-premium {
+  position: relative;
+}
+.mailing__form.no-premium:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  display: block;
+  z-index: 3;
+}
+
+.main-main__no-premium {
+  margin-top: 20px;
+  text-align: center;
 }
 
 .mailing__form-field {
@@ -314,4 +333,144 @@ footer {
 
 .fz18 {
   font-size: 18px;
+}
+
+.mailing__feedback-avatar {
+  margin-right: 20px;
+  -webkit-flex-basis: 55px;
+  -ms-flex-preferred-size: 55px;
+  flex-basis: 55px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -moz-box-flex: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+}
+.mailing__feedback-avatar img {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.mailing__feedback-info {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -moz-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+}
+
+.mailing__feedback-comment {
+  color: #5e5d91;
+}
+
+.mailing-main-wrapper {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dadada;
+}
+
+.mailing-carousel {
+  width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mailing-carousel .owl-next, .mailing-carousel .owl-prev {
+  display: block;
+  border-top: 2px solid #d8d8d8;
+  border-right: 2px solid #d8d8d8;
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  line-height: 0;
+  margin-top: -22px;
+  -webkit-transform: translateY(-50%) rotate(-135deg);
+  -moz-transform: translateY(-50%) rotate(-135deg);
+  -ms-transform: translateY(-50%) rotate(-135deg);
+  -o-transform: translateY(-50%) rotate(-135deg);
+  transform: translateY(-50%) rotate(-135deg);
+  position: absolute;
+  top: 50%;
+  left: -70px;
+}
+.mailing-carousel .owl-next {
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  -moz-transform: translateY(-50%) rotate(45deg);
+  -ms-transform: translateY(-50%) rotate(45deg);
+  -o-transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
+  left: auto;
+  right: -70px;
+}
+.mailing-carousel .owl-dots {
+  margin-top: 30px;
+  text-align: center;
+}
+.mailing-carousel .owl-dot {
+  width: 6px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+  height: 6px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  background: #d8d8d8;
+}
+.mailing-carousel .owl-dot.active {
+  background: #8e94be;
+}
+
+.mailing__no-answers {
+  padding: 30px 0;
+}
+
+.mailing__blocked {
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.no-answers__icon {
+  margin-bottom: 35px;
+}
+
+.no-answers__content {
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #838383;
+  line-height: 1.57;
+  font-family: TruthCYR;
+}
+
+.delivery-archive__listing {
+  margin-bottom: 20px;
+}
+
+.mailing__right-edit .violet_btn {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: TruthCYR-R;
+}
+
+.cancel-mailing-popup .title_pop {
+  font-size: 20px;
+  font-family: TruthCYR-r;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.main_popup.cancel-mailing-popup {
+  padding: 40px 20px;
 }

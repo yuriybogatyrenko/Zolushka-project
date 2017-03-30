@@ -4,5 +4,6 @@
   "description": "Gulp first application",
   "author": "Yuriy Bogatyrenko",
   "dependencies": {
+    "owl.carousel": "2"
   }
 }

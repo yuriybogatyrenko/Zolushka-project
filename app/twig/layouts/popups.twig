@@ -1,0 +1,104 @@
+<div class="overlay" style="display: block;">
+    <div class="table_wrap">
+        <div class="td_wrap">
+            {% block popups %}
+                <div class="main_popup cancel-mailing-popup" data-popup-block="cancel-mailing">
+                    <div class="close_popup" data-popup-close="cancel-mailing"></div>
+                    <p class="title_pop">Внимание, Вы хотите остановить рассылку.</p>
+                    <div class="descr_txt ffr mb30 lhn">Для возобновление рассылки, <br>Вам необходимо будет оплатить её
+                        полную стоимость.
+                    </div>
+                    <div class="dib vam">
+                        <a href="#" class="violet_btn dib vam light insufficient-funds-button fz14">Отмена</a>
+                    </div>
+                    <p><a class="light-purple-link" href="#" data-popup-close="insufficient_funds">Остановить</a></p>
+                </div>
+
+
+                <div class="main_popup mailing-blacklist" data-popup-block="mailing-blacklist">
+                    <div class="close_popup" data-popup-close="mailing-blacklist"></div>
+                    <p class="ffr fz18 mb20 lhn">Выберите пользователей из вашего контактного листа, которые не будут видеть рассылку</p>
+                    <div class="mailing-blacklist__input-wrapper mb20">
+                        <input type="text" class="mailing-blacklist__input" placeholder="Поиск">
+                    </div>
+                    <div class="mailing-blacklist__chose-all mb10">
+                        <a href="#" class="green-round-button w100">Выбрать всех</a>
+                    </div>
+                    <div class="nano-custom nano has-scrollbar">
+                        <div class="nano-content" ng-transclude="" tabindex="0">
+
+                            <!-- ngIf: advMessageListCtrl.blacklist.items.length && advMessageListCtrl.isLoadingWidget && !advMessageListCtrl.contacts.isLoading && !advMessageListCtrl.contacts.items.length -->
+                            <!-- ngIf: !advMessageListCtrl.blacklist.items.length && !advMessageListCtrl.contacts.items.length -->
+
+                            <!-- ngIf: !advMessageListCtrl.contacts.isLoading -->
+                            <ul class="items round-6 ng-scope ng-isolate-scope"
+                                ng-if="!advMessageListCtrl.contacts.isLoading" ng-sortable="sortableConfig">
+                                <!-- ngRepeat: item in contacts.filteredItems -->
+                                {% for i in 1..20 %}
+                                <li class="item pointer ng-scope {% if i == 1 %}active{% endif %}" ng-repeat="item in contacts.filteredItems"
+                                    ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                    <div class="avatar-34 round-6 pull-left">
+                                        <img ng-src="https://img1.zolushka-project.ru/img/50_50/c09fc2e01c49ff1d104ed81b0cb152a1cf2d8ca2.jpeg"
+                                             alt=""
+                                             src="https://img1.zolushka-project.ru/img/50_50/c09fc2e01c49ff1d104ed81b0cb152a1cf2d8ca2.jpeg">
+                                    </div>
+
+                                    <div class="text-34 pull-left ng-binding ffr">
+                                        Top-Model🔝, 23
+                                    </div>
+                                </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                {% endfor %}
+                            </ul><!-- end ngIf: !advMessageListCtrl.contacts.isLoading -->
+
+                            <!-- ngIf: advMessageListCtrl.contacts.isLoading -->
+
+                        </div>
+                    </div>
+                    <div class="bottom-button">
+                        <a href="#" class="violet_btn dib vam light insufficient-funds-button fz14">Сохранить</a>
+                    </div>
+                </div>
+                <div class="main_popup mailing-blacklist" data-popup-block="mailing-blacklisted" style="display: block;">
+                    <div class="close_popup" data-popup-close="mailing-blacklisted"></div>
+                    <p class="ffr fz18 mb5 lhn">Исключенные пользователи.</p>
+                    <p class="ffr mb20 lhn">Вы не можете менять список исключенных пользователей из публикуемой рассылки. </p>
+                    <div class="mailing-blacklist__input-wrapper mb20">
+                        <input type="text" class="mailing-blacklist__input" placeholder="Поиск">
+                    </div>
+                    <div class="nano-custom nano has-scrollbar">
+                        <div class="nano-content" ng-transclude="" tabindex="0">
+
+                            <!-- ngIf: advMessageListCtrl.blacklist.items.length && advMessageListCtrl.isLoadingWidget && !advMessageListCtrl.contacts.isLoading && !advMessageListCtrl.contacts.items.length -->
+                            <!-- ngIf: !advMessageListCtrl.blacklist.items.length && !advMessageListCtrl.contacts.items.length -->
+
+                            <!-- ngIf: !advMessageListCtrl.contacts.isLoading -->
+                            <ul class="items round-6 ng-scope ng-isolate-scope"
+                                ng-if="!advMessageListCtrl.contacts.isLoading" ng-sortable="sortableConfig">
+                                <!-- ngRepeat: item in contacts.filteredItems -->
+                                {% for i in 1..20 %}
+                                <li class="item pointer ng-scope {% if i == 1 %}active{% endif %}" ng-repeat="item in contacts.filteredItems"
+                                    ng-click="advMessageListCtrl.addBlacklist(item)">
+
+                                    <div class="avatar-34 round-6 pull-left">
+                                        <img ng-src="https://img1.zolushka-project.ru/img/50_50/c09fc2e01c49ff1d104ed81b0cb152a1cf2d8ca2.jpeg"
+                                             alt=""
+                                             src="https://img1.zolushka-project.ru/img/50_50/c09fc2e01c49ff1d104ed81b0cb152a1cf2d8ca2.jpeg">
+                                    </div>
+
+                                    <div class="text-34 pull-left ng-binding ffr">
+                                        Top-Model🔝, 23
+                                    </div>
+                                </li><!-- end ngRepeat: item in contacts.filteredItems -->
+                                {% endfor %}
+                            </ul><!-- end ngIf: !advMessageListCtrl.contacts.isLoading -->
+
+                            <!-- ngIf: advMessageListCtrl.contacts.isLoading -->
+
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+</div>

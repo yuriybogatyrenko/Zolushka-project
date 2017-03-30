@@ -129,9 +129,9 @@
 
 .frame-icon-comment {
   background: url(../frame-images/frame-icon-comment.svg);
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  -webkit-background-size: cover;
   background-size: cover;
   -webkit-transform: scale(2);
   -moz-transform: scale(2);

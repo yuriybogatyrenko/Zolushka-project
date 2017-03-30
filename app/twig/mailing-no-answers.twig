@@ -9,11 +9,15 @@
 		<div class="mailing display-flex space-between">
 			<div class="mailing__left">
 				<div class="mailing__left-title fz18 ffr mb20">Проявили интерес</div>
-				<ul class="mailing__listing view_profile_table">
-					{% for i in 1..2 %}
-						{% include 'widgets/mailing-item.twig' %}
-					{% endfor %}
-				</ul>
+				<div class="mailing__no-answers no-answers tac">
+					<div class="no-answers__icon">
+						<i class="icon-mailing-clock"></i>
+					</div>
+					<div class="no-answers__content">
+						Увы, пока ни одной девушки не откликнулось. <br>
+						По пробуйте сделать текст Вашего объявления более привлекательным, заполните подробнее вашу анкету, добавьте фотографию в профиль или подождите еще не много.
+					</div>
+				</div>
 			</div>
 			<div class="mailing__right">
 				<div class="mailing__scope" data-block="mailing-scope">
