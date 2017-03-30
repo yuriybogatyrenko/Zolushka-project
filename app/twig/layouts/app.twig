@@ -10,7 +10,7 @@
 	{% block stylesheet %}{% endblock %}
 </head>
 <body>
-<div class="main-wrapper">
+<div class="main-wrapper" id="wrapper">
 	{% if page == 'true' %}
 		<!-- Header block -->
 		{% include "header.twig" %}
@@ -27,11 +27,13 @@
 		<!-- Footer block end -->
 	{% endif %}
 
+
+
+	{% include 'popups.twig' %}
+
 </div>
 <!-- Scripts -->
 {% include "scripts.twig" %}
-
-{% include 'popups.twig' %}
 
 {% block scriptsBlock %}{% endblock %}
 </body>

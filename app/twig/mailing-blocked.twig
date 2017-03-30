@@ -27,7 +27,7 @@
 						темпераментом. Жду ответа и надеюсь на продолжение общения. Юлиан
 					</div>
 					<div class="mailing__blacklisted ffr mb10">Исключенные пользователи:</div>
-					<div class="mailing__blacklisted-photos	 fz0">
+					<div class="mailing__blacklisted-photos	fz0" data-popup-open="mailing-blacklisted">
 						<div class="mailing__blacklisted-item more-photos ffr">
 							<a class="new-purple-link" href="#">и еще 23</a>
 						</div>
@@ -39,13 +39,13 @@
 						{% endfor %}
 					</div>
 					<div class="mailing__right-edit">
-						<a href="#" class="new-purple-link ffr">
+						<a href="#" class="new-purple-link ffr" data-switch-mailing>
 							<i class="in_bl pen_icon"></i>
 							<span class="in_bl">Редактировать</span>
 						</a>
 					</div>
 				</div>
-				<div class="mailing__form" data-block="mailing-form">
+				<div class="mailing__form hidden" data-block="mailing-form">
 					<form action="#">
 						<div class="form-line display-flex space-between">
 							<div class="mailing__form-caption">Возраст</div>
@@ -123,7 +123,7 @@
 						</div>
 
 						<div class="display-flex space-between flex-middle">
-							<a href="#" class="new-purple-link ffr">Остановить рассылку</a>
+							<a href="#" class="new-purple-link ffr" data-popup-open="cancel-mailing">Остановить рассылку</a>
 							<button type="submit" class="violet_btn">Сохранить</button>
 						</div>
 					</form>
@@ -140,4 +140,5 @@
 
 {% block scriptsBlock %}
 	<script src="js/app.js"></script>
+	<script src="js/mailing.js"></script>
 {% endblock %}

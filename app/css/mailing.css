@@ -474,3 +474,77 @@ footer {
 .main_popup.cancel-mailing-popup {
   padding: 40px 20px;
 }
+
+.mailing-blacklist {
+  max-width: 500px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+.mailing-blacklist .insufficient-funds-button {
+  margin-bottom: 0;
+}
+.mailing-blacklist .bottom-button {
+  border-top: 1px solid #d8d8d8;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+.mailing-blacklist .nano-custom {
+  height: 380px;
+}
+.mailing-blacklist .item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.mailing-blacklist .item.active {
+  background: #fbfbfb;
+}
+.mailing-blacklist .item.active:after {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 15px;
+  border-right: 2px solid #3fd0a5;
+  border-bottom: 2px solid #3fd0a5;
+  width: 8px;
+  height: 12px;
+  content: "";
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.mailing-blacklist .item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.mailing-blacklist .item .avatar-34 {
+  -webkit-flex-basis: 34px;
+  -ms-flex-preferred-size: 34px;
+  flex-basis: 34px;
+  margin-right: 10px;
+}
+
+.mailing-blacklist__input {
+  display: block;
+  width: 100%;
+  background-color: #fbfbfb;
+  border: solid 1px #b3b3b3;
+  height: 40px;
+  padding: 0 15px;
+  text-align: left;
+}
+
+.mailing__right-edit .new-purple-link:hover {
+  text-decoration: none;
+  color: #714974;
+}
