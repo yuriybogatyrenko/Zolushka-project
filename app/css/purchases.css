@@ -1,0 +1,69 @@
+.wallet-purchases__item {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: rgba(189, 189, 189, 0.1);
+  border: solid 1px rgba(140, 140, 140, 0.1);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.wallet-purchases__item > * {
+  padding: 20px;
+}
+.wallet-purchases__item:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.wallet-purchases__item-title {
+  width: 200px;
+}
+
+.wallet-purchases__item-period {
+  width: 200px;
+}
+
+.wallet-purchases__table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.wallet-purchases__table .tbl_header td {
+  border-bottom: 1px solid #979797;
+}
+.wallet-purchases__table td {
+  border-bottom: 1px solid #e3e3e3;
+  padding: 13px;
+}
+.wallet-purchases__table td:first-child {
+  padding-left: 0;
+}
+.wallet-purchases__table td:last-child {
+  padding-right: 0;
+}
+
+.wallet-switcher-link {
+  color: #bcbcbc;
+  border-bottom: 1px dotted #bcbcbc;
+}
+.wallet-switcher-link.active {
+  color: #000;
+  border-bottom: 1px dotted #000;
+}

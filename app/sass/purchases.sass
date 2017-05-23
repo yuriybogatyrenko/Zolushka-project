@@ -1,0 +1,48 @@
+.wallet-purchases__item
+    border-radius: 3px
+    background-color: rgba(#bdbdbd, 0.1)
+    border: solid 1px rgba(#8c8c8c, 0.1)
+    display: flex
+    align-items: center
+    flex-basis: 0
+    flex-shrink: 0
+    justify-content: space-between
+
+    & > *
+        padding: 20px
+
+    &:not(:last-child)
+        margin-bottom: 12px
+
+.wallet-purchases__item-title
+    width: 200px
+
+.wallet-purchases__item-period
+    width: 200px
+
+.wallet-purchases__table
+    table
+        width: 100%
+        border-collapse: collapse
+
+    .tbl_header
+        td
+            border-bottom: 1px solid #979797
+
+    td
+        border-bottom: 1px solid #e3e3e3
+        padding: 13px
+
+        &:first-child
+            padding-left: 0
+
+        &:last-child
+            padding-right: 0
+            
+.wallet-switcher-link
+    color: #bcbcbc
+    border-bottom: 1px dotted #bcbcbc
+
+    &.active
+        color: #000
+        border-bottom: 1px dotted #000
