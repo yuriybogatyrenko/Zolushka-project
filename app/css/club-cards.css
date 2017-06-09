@@ -101,6 +101,7 @@
 .cards-lifetime__item .violet_btn {
   padding: 0;
   line-height: 38px;
+  display: block;
 }
 .cards-lifetime__item .violet_btn.semi-disabled {
   background: #fff;
