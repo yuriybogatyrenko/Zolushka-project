@@ -10,19 +10,22 @@
     <link rel="stylesheet" href="css/frame-css.css">
 </head>
 <body>
+<div class="frame-ovh">
     <div class="frame-wrapper">
         <div class="frame-logo">
-            <a href="#" class="frame-logo__img">
-                <img src="frame-images/logo.svg" alt="">
-            </a>
-            <a href="#" class="frame-logo__text">
-                Получить доступ к <br>премиум девушкам &rsaquo;
-            </a>
+            <div class="dib">
+                <a href="#" class="frame-logo__img">
+                    <img src="frame-images/logo.svg" alt="">
+                </a>
+                <a href="#" class="frame-logo__text">
+                    Получить доступ к <br>премиум девушкам &rsaquo;
+                </a>
+            </div>
         </div>
         <div class="frame-listing">
             {% for i in 1..8 %}
                 <a href="#" class="frame-listing__item">
-                    <img class="frame-listing__image" alt="" src="http://placehold.it/100x100" />
+                    <img class="frame-listing__image" alt="" src="http://placehold.it/100x100"/>
                     <div class="frame-listing__overlay">
                         <div class="frame-listing__name">Аня 27</div>
                         <div class="frame-listing__comment">
@@ -34,5 +37,6 @@
             {% endfor %}
         </div>
     </div>
+</div>
 </body>
 </html>

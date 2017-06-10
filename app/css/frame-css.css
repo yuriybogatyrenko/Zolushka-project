@@ -1,17 +1,30 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100px;
+  width: 100%;
+}
+
+.frame-ovh {
+  overflow: auto;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  width: auto;
+}
+
 .frame-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 0;
   color: #fff;
+  white-space: nowrap;
 }
 .frame-wrapper a {
   text-decoration: none;
   color: inherit;
-  display: block;
+  vertical-align: middle;
 }
 
 .frame-logo {
@@ -20,39 +33,36 @@
   background: -o-linear-gradient(306deg, #490a60, #862275);
   background: linear-gradient(144deg, #490a60, #862275);
   padding: 0 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-box-orient: vertical;
-  -moz-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
   color: #fff;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+  line-height: 100px;
+}
+
+.dib {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .frame-logo__img {
   margin-bottom: 15px;
+  display: block;
+  font-size: 15px;
 }
 .frame-logo__img img {
   width: 169px;
 }
 
+.frame-logo__text {
+  display: block;
+  font-size: 15px;
+}
+
 .frame-listing {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: inline-block;
+  vertical-align: middle;
   text-align: center;
 }
 
@@ -62,6 +72,7 @@
   line-height: 0;
   overflow: hidden;
   cursor: pointer;
+  display: inline-block;
 }
 .frame-listing__item:hover .frame-listing__overlay {
   opacity: 1;
@@ -149,4 +160,10 @@
 .frame-icon-comment:hover {
   width: 40px;
   height: 40px;
+}
+
+@media screen and (max-width: 468px) {
+  .frame-logo {
+    padding: 0 5px;
+  }
 }
