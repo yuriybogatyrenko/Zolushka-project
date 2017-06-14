@@ -7,20 +7,16 @@ body
     width: 100%
     
 .frame-ovh
-    overflow: auto
-    margin-bottom: -0px
-    margin-right: -0px
-    padding-right: 0px
-    padding-bottom: 0px
-    width: auto
+    overflow: hidden
 
 .frame-wrapper
-    display: inline-block
+    display: block
     font-family: Arial, Helvetica, sans-serif
     font-size: 0
     color: #fff
     white-space: nowrap
     //flex-basis: 100%
+    max-width: 100%
     
     a
         text-decoration: none
@@ -109,7 +105,56 @@ body
     &:hover
         width: 40px
         height: 40px
-        
-@media screen and (max-width: 468px)
-    .frame-logo
-        padding: 0 5px
+
+.visible-mobile
+    display: none
+
+//@media screen and (max-width: 767px)
+.frame-logo
+    display: block
+    line-height: 50px
+
+    & > *
+        display: block
+
+    &:after
+        clear: both
+        content: ''
+        display: block
+
+.frame-logo__img
+    display: inline-block
+    float: left
+    margin-bottom: 0
+    line-height: 23px
+    max-width: 50%
+
+    img
+        vertical-align: middle
+        max-width: 100%
+
+.frame-logo__text
+    float: right
+    display: inline-block
+    line-height: 30px
+
+.visible-mobile
+    display: block
+
+.visible-tab
+    display: none
+
+.frame-listing__item
+    height: 70px
+    width: 70px
+
+    img
+        max-width: 100%
+
+.frame-listing__overlay
+    font-size: 10px
+
+.frame-listing__item
+    &:hover
+        .frame-icon-comment
+            +transform(scale(0.4))
